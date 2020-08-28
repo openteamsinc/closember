@@ -55,7 +55,7 @@ TODO: above is only issues, find PRs.
 
 ## Looserboard PR
 
-TODO: tables with the _least_ amount of open PRs
+TODO: tables with the _least_ amount of open PRs total, not delta.
 
 {% endmarkdown %}
 
@@ -64,7 +64,7 @@ TODO: tables with the _least_ amount of open PRs
 
 ## Looserboard Issues
 
-TODO: tables with the _least_ amount of open Issues
+TODO: tables with the _least_ amount of open Issues, total, not delta.
 
 {% endmarkdown %}
 
@@ -72,7 +72,7 @@ TODO: tables with the _least_ amount of open Issues
 
 ##  Failure board Issues
 
-TODO: tables with the smallest amount of opened issues during Closetember
+TODO: tables with the smallest amount of opened issues during Closetember, open and reclosed still count
 
 {% endmarkdown %}
 
@@ -81,7 +81,8 @@ TODO: tables with the smallest amount of opened issues during Closetember
 
 ## Failure board PRs
 
-TODO: tables with the smallest amount of opened PR during Closetember
+TODO: tables with the smallest amount of opened PR during Closetember, open and reclosed still count
+
 
 
 {% endmarkdown %}
