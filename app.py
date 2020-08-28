@@ -57,7 +57,9 @@ def hello_world():
 
     print(entries)
 
-    return tpl.render(entries=entries)
+    rq = result["data"]["rateLimit"]["remaining"]
+
+    return tpl.render(entries=entries, rq=rq)
 
 
 @app.route('/<path:p>')
@@ -72,3 +74,5 @@ def addp(p):
         return 'no'
 
  
+if __name__ == main():
+    app.run()

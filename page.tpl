@@ -7,3 +7,5 @@ Issues opened before xxx closed during closetember
   {{e}}: {{v}}
 </pre>
 {% endfor %}
+
+Remaining querries {{rq}}

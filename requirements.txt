@@ -1,3 +1,4 @@
 flask
 requests
 jinja2
+gunicorn
