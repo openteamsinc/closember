@@ -53,11 +53,12 @@ def hello_world():
     tpl = env.get_template("page.tpl")
     entries = {}
     for s in slugs:
-        entries[s] = run_query(query(s))['data']['search']['issueCount']
+        res = run_query(query(s))
+        entries[s] = res["data"]["search"]["issueCount"]
 
     print(entries)
 
-    rq = result["data"]["rateLimit"]["remaining"]
+    rq = res["data"]["rateLimit"]["remaining"]
 
     return tpl.render(entries=entries, rq=rq)
 
