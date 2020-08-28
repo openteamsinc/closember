@@ -14,9 +14,11 @@ def run_query(query): # A simple function to use requests.post to make the API c
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
 
         
+from cachetools.func import ttl_cache
 
 # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.       
-slug = 'matplotlib/matplotlib'
+
+@ttl_cache(ttl=30)
 def query(slug):
     return """
 {
@@ -41,7 +43,8 @@ from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoesca
 from flask import Flask
 app = Flask(__name__)
 
-slugs = ['ipython/ipython']
+
+slugs = ["ipython/ipython", "ipython/traitlets", "jupyterhub/jupyterhub", "numpy/numpy"]
 
 @app.route('/')
 def hello_world():
@@ -52,13 +55,13 @@ def hello_world():
     )
     tpl = env.get_template("page.tpl")
     entries = {}
-    for s in slugs:
+    rq = 5000
+    for s in sorted(set(slugs)):
         res = run_query(query(s))
         entries[s] = res["data"]["search"]["issueCount"]
+        rq = min(rq, res["data"]["rateLimit"]["remaining"])
 
     print(entries)
-
-    rq = res["data"]["rateLimit"]["remaining"]
 
     return tpl.render(entries=entries, rq=rq)
 
