@@ -3,3 +3,4 @@ requests
 jinja2
 gunicorn
 cachetools
+jinja_markdown

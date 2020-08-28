@@ -18,7 +18,7 @@ from cachetools.func import ttl_cache
 
 # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.       
 
-@ttl_cache(ttl=30)
+@ttl_cache(ttl=90)
 def query(slug):
     return """
 {
@@ -52,6 +52,7 @@ def hello_world():
     env = Environment(
         loader=FileSystemLoader(os.path.dirname(__file__)),
         autoescape=select_autoescape(["tpl"]),
+        extensions=["jinja_markdown.MarkdownExtension"],
     )
     tpl = env.get_template("page.tpl")
     entries = {}
