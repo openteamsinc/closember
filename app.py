@@ -75,4 +75,12 @@ def addp(p):
 
 
 if __name__ == "__main__":
-    app.run()
+    import os
+
+    port = os.environ.get("PORT", 5000)
+    print("Seen config port ", port)
+    prod = os.environ.get("PROD", None)
+    if prod:
+        app.run(port=port, host="0.0.0.0")
+    else:
+        app.run(port=port)
