@@ -1,6 +1,16 @@
 <html>
 <header>
-<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-dark.css" type="text/css">
+<style>
+.c1 td + td {
+    color: #00af00;
+    text-shadow: 0 0 5px #57e663DD;
+}
+.c2 td + td{
+    color: #d80f0f;
+    text-shadow: 0 0 5px #d80f0fDD;
+}
+</style>
 </header>
 
 
@@ -14,83 +24,82 @@
 ― Antoine de Saint-Exupéry,
 
 
-Life as a open source maintainer is rarely about getting more Pull request of writing more code. It is a bout properly
-caring about your garden, cleaning it and making sure it is pretty for when you, or others are visiting it. 
+#### Closetember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
 
-This means that a project that only have a few opened pull request, well curated issues that are closed when not
-relevant **encourages contribution** and **is good for maintainers mental health**.
+Maintaining Open-Source is rarely about writing more code and getting more Pull-Requests. It is about properly
+caring, knowing how to say "No" and thinking about long term sustainability.
 
-Less stress also leads to **friendlier interactions**.
-
-We thus encourage to contribute to _closetember_, and work with your favorite maintainers to decrese the number of
-opened issues and pull-requests for a _more dynamic_
+Having a well-setup process, not too many tasks running at the same time can be critical for Maintainers mental load,
+and mental health, as well as provide a easier environment for new contributors.
 
 
-{% endmarkdown %}
+This means that when project have less open pull requests, well curated issues that are closed when not
+relevant it is easier to get timely reviews, there is less chances to have duplicate work, less chance of code
+conflicts, and easier time finding potential duplicate bugs.
 
-Issues opened before xxx closed during closetember
+Less task, and less stress also leads to **friendlier interactions**.
 
-<h3>Closerboard</h3>
+We thus encourage to contribute to _closetember_, and work with your favorite maintainers, on your favorite repositories
+to decrease the number of opened issues and pull-requests for a _more dynamic_, better maintained ecosystem, cleaner and
+leaner environment.
 
-{% markdown %}
+We also encourage you to avoid duplicate work by merging similar projects when relevant.
+
+
+## Join us to close issues and PRs
+
+The tables below tracks multiple metrics to help you achieve goals. There are no good, or bad metrics, but it is fun to
+be able to compare.
+
+
+### Closeboard 
 
 This table track the number of issues that have been close in each of project during the month of Closetember. 
 Issues opened during closetember do not count to encourage people to close older issues.
 
 {% endmarkdown %}
 
-
-<table>
-{% for e,v in entries.items() %}
+<table class='c1'>
 <tr>
-  <td>{{e}}</td><td>{{v}}</td>
+<th>Repo</th>
+<th>Closed Issues</th>
+<th>Closed PRs</th>
+</tr>
+{% for e,v in entries|reverse %}
+<tr>
+  <td>{{loop.index}} – {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
 </tr>
 {% endfor %}
 </table>
 
-TODO: above is only issues, find PRs.
-
 
 {% markdown %}
 
-## Looserboard PR
-
-TODO: tables with the _least_ amount of open PRs total, not delta.
+## Total Open
 
 {% endmarkdown %}
 
+<table class='c2'>
+<tr>
+<th>Repo</th>
+<th>Open Issues</th>
+<th>Open PRs</th>
+</tr>
+{% for e,v in tot %}
+<tr>
+  <td>{{loop.index}} - {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
+</tr>
+{% endfor %}
+</table>
 
 {% markdown %}
 
-## Looserboard Issues
+## Zeno Paradox
 
-TODO: tables with the _least_ amount of open Issues, total, not delta.
-
-{% endmarkdown %}
-
-{% markdown %}
-
-##  Failure board Issues
-
-TODO: tables with the smallest amount of opened issues during Closetember, open and reclosed still count
-
-{% endmarkdown %}
-
-
-{% markdown %}
-
-## Failure board PRs
-
-TODO: tables with the smallest amount of opened PR during Closetember, open and reclosed still count
+... you keep closing but they keep opening new ones. Let's track project with the least new PRs or issues.
 
 
 
-{% endmarkdown %}
-
-
-
-
-{% markdown %}
 
 ### What should I do ?
 
