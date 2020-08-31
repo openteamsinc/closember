@@ -17,7 +17,7 @@
 <body>
 
 {% markdown %}
-# Closetember
+# Closember
 
 > Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away
 
@@ -39,7 +39,7 @@ conflicts, and easier time finding potential duplicate bugs.
 
 Less task, and less stress also leads to **friendlier interactions**.
 
-We thus encourage to contribute to _closetember_, and work with your favorite maintainers, on your favorite repositories
+We thus encourage to contribute to _closember, and work with your favorite maintainers, on your favorite repositories
 to decrease the number of opened issues and pull-requests for a _more dynamic_, better maintained ecosystem, cleaner and
 leaner environment.
 
@@ -55,7 +55,7 @@ be able to compare.
 ### Closeboard 
 
 This table track the number of issues that have been close in each of project during the month of Closetember. 
-Issues opened during closetember do not count to encourage people to close older issues.
+Issues opened during closember do not count to encourage people to close older issues.
 
 {% endmarkdown %}
 
@@ -113,7 +113,7 @@ Once you feel great about yourself go help others.
 
 ### How can I help other ?
 
-Great question ! You often do not need to know how to code to contribute to closetember !
+Great question ! You often do not need to know how to code to contribute to closember !
 
  - find your favorite project, look at an old opened issue. Can you reproduce it ? Is it still relevant? If notm leave a
    nice comment, like :
