@@ -51,6 +51,10 @@ We also encourage you to avoid duplicate work by merging similar projects when r
 The tables below tracks multiple metrics to help you achieve goals. There are no good, or bad metrics, but it is fun to
 be able to compare.
 
+> Please be careful about projects guideline and whether an issue should be closed,
+> some project close issues/PR that have not been commented on in a while, some other only close issues when it is
+> resolved and a release has been made. In case of doubt, ask.
+
 
 ### Closeboard 
 
