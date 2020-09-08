@@ -2,6 +2,7 @@ import flask
 from quart_trio import QuartTrio
 import requests
 import os
+import trio
 import asks
 PAT = os.environ['PAT']
 
@@ -59,7 +60,6 @@ query TopicRepo {
 
 
 def query(slug):
-    print("Q", slug)
     return (
         """
 {
@@ -85,7 +85,6 @@ def query(slug):
 
 
 def query_open(slug, type_):
-    print("QO", slug, type_)
     res = (
         """
 {
@@ -137,7 +136,6 @@ from collections import Counter
 async def get_p():
     data = await run_query(PARTICIP)
     data = data["data"]["search"]["edges"]
-    print(data)
     return [n["node"]["owner"]["login"] + "/" + n["node"]["name"] for n in data] + slugs
 
 
@@ -153,27 +151,45 @@ async def hello_world():
     entries = {}
     tot = {}
     rq = 5000
-    for s in sorted(set(await get_p())):
-        print("slug...", s)
-        res = await run_query(query(s))
-        rq = min(rq, res["data"]["rateLimit"]["remaining"])
 
-        search = res["data"]["search"]
+    reses1 = {}
+    reses2 = {}
+    reses3 = {}
+
+    async def loc(storage, key, query):
+        storage[key] = await run_query(query)
+
+    print("Start contacting github...")
+    slgs = sorted(set(await get_p()))
+    async with trio.open_nursery() as n:
+        for s in slgs:
+            n.start_soon(loc, reses1, s, query(s))
+            n.start_soon(loc, reses2, s, query_open(s, "pr"))
+            n.start_soon(loc, reses3, s, query_open(s, "issue"))
+    print("Done")
+
+    for s in slgs:
+        # await loc(reses1, s, query(s))
+        res1 = reses1[s]
+        res2 = reses2[s]
+        res3 = reses3[s]
+
+        rq = min(rq, res1["data"]["rateLimit"]["remaining"])
+
+        search = res1["data"]["search"]
         entries[s] = search["issueCount"]
         c = Counter([s["node"]["__typename"] for s in search["edges"]])
         entries[s] = dict(c)
 
-        res = await run_query(query_open(s, "pr"))
-        rq = min(rq, res["data"]["rateLimit"]["remaining"])
-        prs = res["data"]["search"]["issueCount"]
+        rq = min(rq, res2["data"]["rateLimit"]["remaining"])
+        prs = res2["data"]["search"]["issueCount"]
 
-        res = await run_query(query_open(s, "issue"))
-        rq = min(rq, res["data"]["rateLimit"]["remaining"])
-        issues = res["data"]["search"]["issueCount"]
+        rq = min(rq, res3["data"]["rateLimit"]["remaining"])
+        issues = res3["data"]["search"]["issueCount"]
 
         tot[s] = {"Issue": issues, "PullRequest": prs}
 
-        rq = min(rq, res["data"]["rateLimit"]["remaining"])
+        rq = min(rq, res3["data"]["rateLimit"]["remaining"])
 
     print("rendering...")
     entries = [(k, v) for k, v in entries.items()]
