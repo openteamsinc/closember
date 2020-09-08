@@ -1,24 +1,61 @@
 import flask
+from quart_trio import QuartTrio
 import requests
 import os
+import asks
 PAT = os.environ['PAT']
 
 headers = {"Authorization": f"Bearer {PAT}"}
 
-from cachetools.func import ttl_cache
+from cachetools.func import ttl_cache, TTLCache
+
+RC = TTLCache(1024, ttl=240)
 
 
-@ttl_cache(ttl=180)
-def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
-    request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
-    if request.status_code == 200:
-        return request.json()
+# @ttl_cache( ttl=240)
+async def run_query(
+    query,
+):  # A simple function to use requests.post to make the API call. Note the json= section.
+    RC.expire()
+    res = RC.get(query, None)
+    if res is None:
+
+        request = await asks.post(
+            "https://api.github.com/graphql", json={"query": query}, headers=headers
+        )
+        if request.status_code == 200:
+            res = request.json()
+            RC[query] = res
+            return res
+        else:
+            raise Exception(
+                "Query failed to run by returning code of {}. {}".format(
+                    request.status_code, query
+                )
+            )
     else:
-        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
+        return res
 
         
 
 # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
+
+
+PARTICIP = """
+query TopicRepo {
+  search(query: "topic:closember", type: REPOSITORY, first: 100) {
+    edges {
+      
+      node {
+   			... on Repository {
+          name
+          owner{login}
+        }
+      }
+    }
+  }
+}
+"""
 
 
 def query(slug):
@@ -81,7 +118,8 @@ from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoesca
 
 from flask import Flask
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = QuartTrio(__name__)
 
 
 slugs = [
@@ -96,8 +134,15 @@ slugs = [
 from collections import Counter
 
 
+async def get_p():
+    data = await run_query(PARTICIP)
+    data = data["data"]["search"]["edges"]
+    print(data)
+    return [n["node"]["owner"]["login"] + "/" + n["node"]["name"] for n in data] + slugs
+
+
 @app.route("/")
-def hello_world():
+async def hello_world():
 
     env = Environment(
         loader=FileSystemLoader(os.path.dirname(__file__)),
@@ -108,9 +153,9 @@ def hello_world():
     entries = {}
     tot = {}
     rq = 5000
-    for s in sorted(set(slugs)):
+    for s in sorted(set(await get_p())):
         print("slug...", s)
-        res = run_query(query(s))
+        res = await run_query(query(s))
         rq = min(rq, res["data"]["rateLimit"]["remaining"])
 
         search = res["data"]["search"]
@@ -118,11 +163,11 @@ def hello_world():
         c = Counter([s["node"]["__typename"] for s in search["edges"]])
         entries[s] = dict(c)
 
-        res = run_query(query_open(s, "pr"))
+        res = await run_query(query_open(s, "pr"))
         rq = min(rq, res["data"]["rateLimit"]["remaining"])
         prs = res["data"]["search"]["issueCount"]
 
-        res = run_query(query_open(s, "issue"))
+        res = await run_query(query_open(s, "issue"))
         rq = min(rq, res["data"]["rateLimit"]["remaining"])
         issues = res["data"]["search"]["issueCount"]
 
@@ -140,7 +185,9 @@ def hello_world():
     tot = list(
         sorted(tot, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0))
     )
-    return tpl.render(entries=entries, rq=rq, tot=tot)
+    res = tpl.render(entries=entries, rq=rq, tot=tot)
+    print("done")
+    return res
 
 
 @app.route("/<path:p>")
@@ -155,8 +202,7 @@ def addp(p):
         return 'no'
 
 
-if __name__ == "__main__":
-    import os
+def main():
 
     port = os.environ.get("PORT", 5000)
     print("Seen config port ", port)
@@ -165,3 +211,9 @@ if __name__ == "__main__":
         app.run(port=port, host="0.0.0.0")
     else:
         app.run(port=port)
+
+
+if __name__ == "__main__":
+    import os
+
+    main()

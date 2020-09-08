@@ -1,6 +1,14 @@
 <html>
 <header>
-<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-dark.css" type="text/css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
 <style>
 .c1 td + td {
     color: #00af00;
@@ -10,19 +18,79 @@
     color: #d80f0f;
     text-shadow: 0 0 5px #d80f0fDD;
 }
+
+.wrapper > .container {
+   max-width: 80rem;
+}
+
+
+
+.wrapper {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+.wrapper .container {
+    max-width: 80rem
+}
+
+.wrapper>.container {
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem
+}
+
+.header {
+    background-color: #f4f5f6;
+    padding-top: 1rem
+}
+
+@media(min-width: 40rem) {
+    .header {
+        padding-top:5rem
+    }
+}
+
+.header+section {
+    border-top: 0
+}
+
+.header .container {
+    border-top: 0;
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+    position: relative;
+    text-align: center
+}
+
+.header .title {
+    font-family: Gotham Rounded A,Gotham Rounded B,Helvetica Neue,Arial,sans-serif
+}
+
+
+
+.header .button {
+    margin-bottom: 4rem;
+    margin-top: 2rem
+}
+
 </style>
 </header>
 
 
 <body>
-
+ <main class=wrapper>
+ <nav class="navigation"></nav>
+ <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
+   <blockquote>
+<p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
+<footer>― Antoine de Saint-Exupéry,</footer>
+</blockquote>
+   <a class="button" href="#getting-started" title="Getting Started">Start Closing Issues</a>
+   </section></header>
+  <section class='container'>
 {% markdown %}
-# Closember
-
-> Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away
-
-― Antoine de Saint-Exupéry,
-
 
 #### Closetember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
 
@@ -127,8 +195,7 @@ Great question ! You often do not need to know how to code to contribute to clos
 
    It will be less work for the maintainers, and they'll close the issue for you.
 
- - You can find the list of all issues *you have opened* at https://github.com/issues, do the same as above but _you can
-   close your own issues too_.
+ - You can find the list of all issues *you have opened* at https://github.com/issues, do the same as above but _you can close your own issues too_.
 
  - Head to https://github.com/pulls, this is all the pull-requests that you have submitted
    - Are they still relevant ?
@@ -144,9 +211,11 @@ Great question ! You often do not need to know how to code to contribute to clos
 {% endmarkdown %}
 
 
+</section>
 <footer>
 <small>Remaining querries {{rq}}</small>
 </footer>
+</main>
 </body>
 </html>
 
