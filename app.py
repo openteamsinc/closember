@@ -11,6 +11,8 @@ from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
+CUT_DATE = "2020-08-01"
+
 
 # @ttl_cache( ttl=240)
 async def run_query(
@@ -64,7 +66,11 @@ def query(slug):
 {
   search(query: "repo:"""
         + slug
-        + """ is:closed created:<2020-08-01 closed:>2020-08-01", type: ISSUE, last:100) {
+        + """ is:closed created:<"""
+        + CUT_DATE
+        + """ closed:>"""
+        + CUT_DATE
+        + """", type: ISSUE, last:100) {
         issueCount
         edges{
             node{
@@ -148,7 +154,7 @@ async def hello_world():
     )
     tpl = env.get_template("page.tpl")
     entries = {}
-    tot = {}
+    remaining = {}
     rq = 5000
 
     reses1 = {}
@@ -186,21 +192,36 @@ async def hello_world():
         rq = min(rq, res3["data"]["rateLimit"]["remaining"])
         issues = res3["data"]["search"]["issueCount"]
 
-        tot[s] = {"Issue": issues, "PullRequest": prs}
+        remaining[s] = {"Issue": issues, "PullRequest": prs}
 
         rq = min(rq, res3["data"]["rateLimit"]["remaining"])
 
     print("rendering...")
     entries = [(k, v) for k, v in entries.items()]
-    tot = [(k, v) for k, v in tot.items()]
+    remaining = [(k, v) for k, v in remaining.items()]
+
+    total_closed = sum(
+        [v[1].get("Issue", 0) + v[1].get("PullRequest", 0) for v in entries]
+    )
+
+    to_go = sum([v[1].get("Issue", 0) + v[1].get("PullRequest", 0) for v in remaining])
 
     entries = list(
         sorted(entries, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0))
     )
-    tot = list(
-        sorted(tot, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0))
+    remaining = list(
+        sorted(
+            remaining, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0)
+        )
     )
-    res = tpl.render(entries=entries, rq=rq, tot=tot)
+    res = tpl.render(
+        entries=entries,
+        rq=rq,
+        remaining=remaining,
+        total_closed=total_closed,
+        to_go=to_go,
+        CUT_DATE=CUT_DATE,
+    )
     print("done")
     return res
 

@@ -10,13 +10,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 
 <style>
-.c1 td + td {
+.c1 td + td , .green-glow {
     color: #00af00;
     text-shadow: 0 0 5px #57e663DD;
 }
-.c2 td + td{
+.c2 td + td, .red-glow {
     color: #d80f0f;
     text-shadow: 0 0 5px #d80f0fDD;
+}
+
+li > p {
+    display: inline;
 }
 
 .wrapper > .container {
@@ -87,12 +91,23 @@
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
 <footer>― Antoine de Saint-Exupéry,</footer>
 </blockquote>
-   <a class="button" href="#getting-started" title="Getting Started">Start Closing Issues</a>
+   <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed so far ! We need your help for
+   the <span
+   class='red-glow'>{{to_go}} </span> that need to go... </p>
+   <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
    </section></header>
   <section class='container'>
+
+
+{% if CUT_DATE %}
+<p>This is a draft, right now the issue count use {{CUT_DATE}} as a threshold it will be changes to <b>November
+1<sup>st</sup></b>
+closer to release</p>
+{% endif %}
+
 {% markdown %}
 
-#### Closetember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
+#### Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
 
 Maintaining Open-Source is rarely about writing more code and getting more Pull-Requests. It is about properly
 caring, knowing how to say "No" and thinking about long term sustainability.
@@ -126,7 +141,7 @@ be able to compare.
 
 ### Closeboard 
 
-This table track the number of issues that have been close in each of project during the month of Closetember. 
+This table track the number of issues that have been close in each of project during the month of Closember. 
 Issues opened during closember do not count to encourage people to close older issues.
 
 {% endmarkdown %}
@@ -157,7 +172,7 @@ Issues opened during closember do not count to encourage people to close older i
 <th>Open Issues</th>
 <th>Open PRs</th>
 </tr>
-{% for e,v in tot %}
+{% for e,v in remaining %}
 <tr>
   <td>{{loop.index}} - {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
 </tr>
@@ -173,7 +188,14 @@ Issues opened during closember do not count to encourage people to close older i
 
 
 
-### What should I do ?
+{% endmarkdown %}
+
+
+<h3 id='help'>What should I do ?</h3>
+
+
+{% markdown %}
+
 
 This is about you first; you need to be a good mental state in order to help other. Personally I'll walk in circle for
 about 2 hours, clean my desk for it to tidy, remove extra icons for my desktop and also try to decrease my amount of
@@ -203,6 +225,21 @@ Great question ! You often do not need to know how to code to contribute to clos
 
  - Finish someone else Pull-Request: Many drive by contributors start pull-request but do not finish them. Maybe you can
    take over, Once your version of the code is merged suggest for the old pull-request to be closed. 
+
+### how to be listed on this leaderboard ?
+
+Add the "closember" topic to your repositories. Next time the site is updated you'll be listed.
+
+### Why is the score not changing ? 
+
+GitHub requests are cached for a few minutes, maybe 1 maybe 10, maybe 60, depend on my mood, or how much traffic we get. 
+It should update soon. But please relax. It's  not a sprint, it's a marathon.
+
+### show me this website code
+
+https://github.com/carreau/closember – please come close issues.
+
+
 
  
 
