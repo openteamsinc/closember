@@ -180,7 +180,7 @@ text-align: center;
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
 <footer><small>― Antoine de Saint-Exupéry,</small></footer>
 </blockquote>
-   <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed so far ! We need your help for
+   <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed (or merged) so far ! We need your help for
    the <span
    class='red-glow'>{{to_go}} </span> that need to go... </p>
    <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
@@ -223,8 +223,8 @@ closer to release</p>
 
 {% markdown %}
 
-This table track the number of issues that have been close in each of project during the month of Closember. 
-Issues opened during closember do not count to encourage people to close older issues.
+This table track the number of Issues and Pull requests that have been closed(or merged) in each of project during the month of Closember. 
+Issues opened during closember **do not count** to encourage people to close older issues.
 
 ## Total Open
 
@@ -311,7 +311,7 @@ Once you feel great about yourself go help others.
 
 Great question ! You often do not need to know how to code to contribute to closember !
 
- - **find your favorite project**, look at an old opened issue. Can you reproduce it ? Is it still relevant? If notm leave a
+ - **find your favorite project**, look at an old opened issue. Can you reproduce it ? Is it still relevant? If not, leave a
    nice comment, like :
     - "I tried to reproduce this issue, but on the latest released version it does not seem to be a problem anymore".
     - "This has actually been fixed by XXXX"
