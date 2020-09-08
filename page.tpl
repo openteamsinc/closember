@@ -158,6 +158,11 @@ text-align: center;
 }
 
 
+.footer{
+    background-color: #f4f5f6;
+    padding: 3rem;
+}
+
 
 
 </style>
@@ -173,7 +178,7 @@ text-align: center;
    </div>
    <blockquote>
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
-<footer>― Antoine de Saint-Exupéry,</footer>
+<footer><small>― Antoine de Saint-Exupéry,</small></footer>
 </blockquote>
    <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed so far ! We need your help for
    the <span
@@ -210,11 +215,16 @@ closer to release</p>
 </table>
 
 
+<blockquote>
+<p>Remember remember to close PR in in Novemeber.</p>
+<footer><small>― A Maintainer,</small></footer>
+</blockquote>
+
+
 {% markdown %}
 
 This table track the number of issues that have been close in each of project during the month of Closember. 
 Issues opened during closember do not count to encourage people to close older issues.
-
 
 ## Total Open
 
@@ -291,6 +301,11 @@ channels or un-follow people on twitter.
 
 Once you feel great about yourself go help others.
 
+### How to get ready:
+
+ - Tag the repositories you control with `closember` topic
+ - If U.S citizen, remember to vote on Nov 3rd.
+
 
 ### How can I help other ?
 
@@ -336,8 +351,14 @@ https://github.com/carreau/closember – please come close issues.
 
 
 </section>
-<footer>
-<small>Remaining querries {{rq}}</small>
+<footer class='footer'>
+<section class=container>
+{% markdown %}
+Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.readthedocs.org) and
+[Asks](https://asks.readthedocs.io/en/latest/), [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/).
+Theme from [milligram](https://milligram.io/). No JS. <small>Remaining querries {{rq}}</small>.
+{% endmarkdown %}
+</section>
 </footer>
 </main>
 </body>
