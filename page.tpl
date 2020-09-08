@@ -88,20 +88,17 @@ div#closed-sign {
     border-radius: 15px;
     border: 10px solid white;
     color: white;
-    width: 30rem;
-    height: 14rem;
+    height: 11rem;
     display: block;
     padding:3rem;
-    font-size: 45pt;
-    width: 45rem;
+    font-size: 35pt;
+    width: 33rem;
     margin-left: auto;
     margin-right: auto;
     transform: rotate(-10deg);
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-family: 'Nunito', cursive;
-    -webkit-box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
     box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
     transition-delay: 0.2s;
     transition: 0.6s;
@@ -111,7 +108,24 @@ div#closed-sign:hover{
     background-color: #e0665d;
 }
 
+h2 {
 
+text-align: center; 
+
+}
+
+.title {
+   font-size: 8rem;
+}
+
+.header {
+    padding-top: 0rem;
+}
+
+.header .container {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
 
 
 #closed-sign:before, #closed-sign:after {
@@ -190,7 +204,7 @@ closer to release</p>
 </tr>
 {% for e,v in entries|reverse %}
 <tr>
-  <td>{{loop.index}} – {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
+  <td>{{loop.index}} – <a href='https://github.com/{{e}}'>{{e}}<a></td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
 </tr>
 {% endfor %}
 </table>
@@ -282,7 +296,7 @@ Once you feel great about yourself go help others.
 
 Great question ! You often do not need to know how to code to contribute to closember !
 
- - find your favorite project, look at an old opened issue. Can you reproduce it ? Is it still relevant? If notm leave a
+ - **find your favorite project**, look at an old opened issue. Can you reproduce it ? Is it still relevant? If notm leave a
    nice comment, like :
     - "I tried to reproduce this issue, but on the latest released version it does not seem to be a problem anymore".
     - "This has actually been fixed by XXXX"
@@ -301,7 +315,7 @@ Great question ! You often do not need to know how to code to contribute to clos
 
 ### how to be listed on this leaderboard ?
 
-Add the "closember" topic to your repositories. Next time the site is updated you'll be listed.
+**Add the [`closember` topic](https://github.com/topics/closember)** to your repositories. Next time the site is updated you'll be listed.
 
 ### Why is the score not changing ? 
 
