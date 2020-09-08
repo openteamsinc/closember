@@ -1,6 +1,5 @@
 import flask
 from quart_trio import QuartTrio
-import requests
 import os
 import trio
 import asks
