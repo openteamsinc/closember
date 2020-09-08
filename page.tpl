@@ -8,6 +8,8 @@
 
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
 
 <style>
 .c1 td + td , .green-glow {
@@ -79,6 +81,71 @@ li > p {
     margin-top: 2rem
 }
 
+
+
+div#closed-sign {
+   background-color: #53ad4d;
+    border-radius: 15px;
+    border: 10px solid white;
+    color: white;
+    width: 30rem;
+    height: 14rem;
+    display: block;
+    padding:3rem;
+    font-size: 45pt;
+    width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(-10deg);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    font-family: 'Nunito', cursive;
+    -webkit-box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
+    box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
+    transition-delay: 0.2s;
+    transition: 0.6s;
+}
+
+div#closed-sign:hover{
+    background-color: #e0665d;
+}
+
+
+
+
+#closed-sign:before, #closed-sign:after {
+   position: absolute;
+   top: 0.17em;
+   left: 0;
+   width: 100%;
+    transition: 0.6s;
+    transition-delay: 0.2s;
+    box-sizing: border-box;
+}
+    
+#closed-sign:before {
+    opacity: 0;
+    content: "Close";
+}
+
+#closed-sign:after {
+    opacity: 1;
+    content: "Closing soon";
+}
+
+#closed-sign:hover:before {
+   opacity:1;
+}
+
+
+#closed-sign:hover:after {
+    opacity: 0;
+}
+
+
+
+
 </style>
 </header>
 
@@ -87,6 +154,9 @@ li > p {
  <main class=wrapper>
  <nav class="navigation"></nav>
  <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
+   <div id='closed-sign'>
+      
+   </div>
    <blockquote>
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
 <footer>― Antoine de Saint-Exupéry,</footer>
@@ -106,6 +176,51 @@ closer to release</p>
 {% endif %}
 
 {% markdown %}
+
+
+## Closeboard 
+
+{% endmarkdown %}
+
+<table class='c1'>
+<tr>
+<th>Repo</th>
+<th>Closed Issues</th>
+<th>Closed PRs</th>
+</tr>
+{% for e,v in entries|reverse %}
+<tr>
+  <td>{{loop.index}} – {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+{% markdown %}
+
+This table track the number of issues that have been close in each of project during the month of Closember. 
+Issues opened during closember do not count to encourage people to close older issues.
+
+
+## Total Open
+
+{% endmarkdown %}
+
+<table class='c2'>
+<tr>
+<th>Repo</th>
+<th>Open Issues</th>
+<th>Open PRs</th>
+</tr>
+{% for e,v in remaining %}
+<tr>
+  <td>{{loop.index}} - {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% markdown %}
+
 
 #### Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
 
@@ -138,48 +253,6 @@ be able to compare.
 > some project close issues/PR that have not been commented on in a while, some other only close issues when it is
 > resolved and a release has been made. In case of doubt, ask.
 
-
-### Closeboard 
-
-This table track the number of issues that have been close in each of project during the month of Closember. 
-Issues opened during closember do not count to encourage people to close older issues.
-
-{% endmarkdown %}
-
-<table class='c1'>
-<tr>
-<th>Repo</th>
-<th>Closed Issues</th>
-<th>Closed PRs</th>
-</tr>
-{% for e,v in entries|reverse %}
-<tr>
-  <td>{{loop.index}} – {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
-</tr>
-{% endfor %}
-</table>
-
-
-{% markdown %}
-
-## Total Open
-
-{% endmarkdown %}
-
-<table class='c2'>
-<tr>
-<th>Repo</th>
-<th>Open Issues</th>
-<th>Open PRs</th>
-</tr>
-{% for e,v in remaining %}
-<tr>
-  <td>{{loop.index}} - {{e}}</td><td>{{v.get("Issue", 0)}}</td><td>{{v.get("PullRequest", 0)}}</td>
-</tr>
-{% endfor %}
-</table>
-
-{% markdown %}
 
 ## Zeno Paradox
 
