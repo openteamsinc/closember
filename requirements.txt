@@ -1,5 +1,7 @@
 flask
 asks
+quart-trio
+trio
 requests
 jinja2
 gunicorn
