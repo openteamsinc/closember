@@ -1,8 +1,10 @@
-import flask
+import os
+import sys
 from quart_trio import QuartTrio
 import os
 import trio
 import asks
+from pathlib import Path
 PAT = os.environ['PAT']
 
 headers = {"Authorization": f"Bearer {PAT}"}
@@ -120,7 +122,6 @@ def query_open(slug, type_):
 
 from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoescape
 
-from flask import Flask
 
 # app = Flask(__name__)
 app = QuartTrio(__name__)
@@ -146,6 +147,10 @@ async def get_p():
 
 @app.route("/")
 async def hello_world():
+    return render()
+
+
+async def render():
 
     env = Environment(
         loader=FileSystemLoader(os.path.dirname(__file__)),
@@ -250,6 +255,10 @@ def main():
 
 
 if __name__ == "__main__":
-    import os
+    if "static" in sys.argv:
+        p = Path("index.html")
+        p.write_text(trio.run(render))
+        print("written to index.html")
 
-    main()
+    else:
+        main()
