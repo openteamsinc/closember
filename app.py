@@ -148,7 +148,7 @@ async def get_p():
 
 @app.route("/")
 async def hello_world():
-    return render()
+    return await render()
 
 
 async def render():
