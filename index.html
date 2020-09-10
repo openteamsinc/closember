@@ -1,0 +1,378 @@
+<html>
+<header>
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
+
+<style>
+.c1 td + td , .green-glow {
+    color: #00af00;
+    text-shadow: 0 0 5px #57e663DD;
+}
+.c2 td + td, .red-glow {
+    color: #d80f0f;
+    text-shadow: 0 0 5px #d80f0fDD;
+}
+
+li > p {
+    display: inline;
+}
+
+.wrapper > .container {
+   max-width: 80rem;
+}
+
+
+
+.wrapper {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+.wrapper .container {
+    max-width: 80rem
+}
+
+.wrapper>.container {
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem
+}
+
+.header {
+    background-color: #f4f5f6;
+    padding-top: 1rem
+}
+
+@media(min-width: 40rem) {
+    .header {
+        padding-top:5rem
+    }
+}
+
+.header+section {
+    border-top: 0
+}
+
+.header .container {
+    border-top: 0;
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+    position: relative;
+    text-align: center
+}
+
+.header .title {
+    font-family: Gotham Rounded A,Gotham Rounded B,Helvetica Neue,Arial,sans-serif
+}
+
+
+
+.header .button {
+    margin-bottom: 4rem;
+    margin-top: 2rem
+}
+
+
+
+div#closed-sign {
+   background-color: #53ad4d;
+    border-radius: 15px;
+    border: 10px solid white;
+    color: white;
+    height: 11rem;
+    display: block;
+    padding:3rem;
+    font-size: 35pt;
+    width: 33rem;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(-10deg);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Nunito', cursive;
+    box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
+    transition-delay: 0.2s;
+    transition: 0.6s;
+}
+
+div#closed-sign:hover{
+    background-color: #e0665d;
+}
+
+h2 {
+
+text-align: center; 
+
+}
+
+.title {
+   font-size: 8rem;
+}
+
+.header {
+    padding-top: 0rem;
+}
+
+.header .container {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+
+#closed-sign:before, #closed-sign:after {
+   position: absolute;
+   top: 0.17em;
+   left: 0;
+   width: 100%;
+    transition: 0.6s;
+    transition-delay: 0.2s;
+    box-sizing: border-box;
+}
+    
+#closed-sign:before {
+    opacity: 0;
+    content: "Close";
+}
+
+#closed-sign:after {
+    opacity: 1;
+    content: "Closing soon";
+}
+
+#closed-sign:hover:before {
+   opacity:1;
+}
+
+
+#closed-sign:hover:after {
+    opacity: 0;
+}
+
+
+.footer{
+    background-color: #f4f5f6;
+    padding: 3rem;
+}
+
+
+
+</style>
+</header>
+
+
+<body>
+ <main class=wrapper>
+ <nav class="navigation"></nav>
+ <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
+   <div id='closed-sign'>
+      
+   </div>
+   <blockquote>
+<p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away</p>
+<footer><small>― Antoine de Saint-Exupéry,</small></footer>
+</blockquote>
+   <p><span class='green-glow'>217</span> issues and pull-requests closed (or merged) so far ! We need your help for
+   the <span
+   class='red-glow'>9331 </span> that need to go... </p>
+   <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
+   </section></header>
+  <section class='container'>
+
+
+
+<p>This is a draft, right now the issue count use 2020-08-01 as a threshold it will be changes to <b>November
+1<sup>st</sup></b>
+closer to release</p>
+
+
+<h2>Closeboard</h2>
+
+<table class='c1'>
+<tr>
+<th>Repo</th>
+<th>Closed Issues</th>
+<th>Closed PRs</th>
+</tr>
+
+<tr>
+  <td>1 – <a href='https://github.com/matplotlib/matplotlib'>matplotlib/matplotlib<a></td><td>46</td><td>44</td>
+</tr>
+
+<tr>
+  <td>2 – <a href='https://github.com/numpy/numpy'>numpy/numpy<a></td><td>25</td><td>24</td>
+</tr>
+
+<tr>
+  <td>3 – <a href='https://github.com/sympy/sympy'>sympy/sympy<a></td><td>24</td><td>24</td>
+</tr>
+
+<tr>
+  <td>4 – <a href='https://github.com/jupyterhub/jupyterhub'>jupyterhub/jupyterhub<a></td><td>6</td><td>10</td>
+</tr>
+
+<tr>
+  <td>5 – <a href='https://github.com/ipython/traitlets'>ipython/traitlets<a></td><td>5</td><td>2</td>
+</tr>
+
+<tr>
+  <td>6 – <a href='https://github.com/ipython/ipython'>ipython/ipython<a></td><td>7</td><td>0</td>
+</tr>
+
+<tr>
+  <td>7 – <a href='https://github.com/MeeseeksBox/MeeseeksDev'>MeeseeksBox/MeeseeksDev<a></td><td>0</td><td>0</td>
+</tr>
+
+<tr>
+  <td>8 – <a href='https://github.com/Carreau/closember'>Carreau/closember<a></td><td>0</td><td>0</td>
+</tr>
+
+</table>
+
+
+<blockquote>
+<p>Remember remember to close PR in in Novemeber.</p>
+<footer><small>― A Maintainer,</small></footer>
+</blockquote>
+
+
+<p>This table track the number of Issues and Pull requests that have been closed(or merged) in each of project during the month of Closember. 
+Issues opened during closember <strong>do not count</strong> to encourage people to close older issues.</p>
+<h2>Total Open</h2>
+
+<table class='c2'>
+<tr>
+<th>Repo</th>
+<th>Open Issues</th>
+<th>Open PRs</th>
+</tr>
+
+<tr>
+  <td>1 - Carreau/closember</td><td>1</td><td>0</td>
+</tr>
+
+<tr>
+  <td>2 - MeeseeksBox/MeeseeksDev</td><td>24</td><td>2</td>
+</tr>
+
+<tr>
+  <td>3 - ipython/traitlets</td><td>66</td><td>3</td>
+</tr>
+
+<tr>
+  <td>4 - jupyterhub/jupyterhub</td><td>369</td><td>17</td>
+</tr>
+
+<tr>
+  <td>5 - ipython/ipython</td><td>1337</td><td>25</td>
+</tr>
+
+<tr>
+  <td>6 - matplotlib/matplotlib</td><td>1308</td><td>284</td>
+</tr>
+
+<tr>
+  <td>7 - numpy/numpy</td><td>1876</td><td>270</td>
+</tr>
+
+<tr>
+  <td>8 - sympy/sympy</td><td>3340</td><td>409</td>
+</tr>
+
+</table>
+
+<h4>Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.</h4>
+<p>Maintaining Open-Source is rarely about writing more code and getting more Pull-Requests. It is about properly
+caring, knowing how to say &ldquo;No&rdquo; and thinking about long term sustainability.</p>
+<p>Having a well-setup process, not too many tasks running at the same time can be critical for Maintainers mental load,
+and mental health, as well as provide a easier environment for new contributors.</p>
+<p>This means that when project have less open pull requests, well curated issues that are closed when not
+relevant it is easier to get timely reviews, there is less chances to have duplicate work, less chance of code
+conflicts, and easier time finding potential duplicate bugs.</p>
+<p>Less task, and less stress also leads to <strong>friendlier interactions</strong>.</p>
+<p>We thus encourage to contribute to <em>closember, and work with your favorite maintainers, on your favorite repositories
+to decrease the number of opened issues and pull-requests for a _more dynamic</em>, better maintained ecosystem, cleaner and
+leaner environment.</p>
+<p>We also encourage you to avoid duplicate work by merging similar projects when relevant.</p>
+<h2>Join us to close issues and PRs</h2>
+<p>The tables below tracks multiple metrics to help you achieve goals. There are no good, or bad metrics, but it is fun to
+be able to compare.</p>
+<blockquote>
+<p>Please be careful about projects guideline and whether an issue should be closed,
+some project close issues/PR that have not been commented on in a while, some other only close issues when it is
+resolved and a release has been made. In case of doubt, ask.</p>
+</blockquote>
+<h2>Zeno Paradox</h2>
+<p>&hellip; you keep closing but they keep opening new ones. Let&rsquo;s track project with the least new PRs or issues.</p>
+
+
+<h3 id='help'>What should I do ?</h3>
+
+
+<p>This is about you first; you need to be a good mental state in order to help other. Personally I&rsquo;ll walk in circle for
+about 2 hours, clean my desk for it to tidy, remove extra icons for my desktop and also try to decrease my amount of
+unread mail. Like can I get under 1000. Also find a couple of things and click &ldquo;unsubscribe&rdquo;, it can be mails, or slack
+channels or un-follow people on twitter.</p>
+<p>Once you feel great about yourself go help others.</p>
+<h3>How to get ready:</h3>
+<ul>
+<li>Tag the repositories you control with <code>closember</code> topic</li>
+<li>If U.S citizen, remember to vote on Nov 3<sup>rd</sup>.</li>
+</ul>
+<h3>How can I help other ?</h3>
+<p>Great question ! You often do not need to know how to code to contribute to closember !</p>
+<ul>
+<li><strong>find your favorite project</strong>, look at an old opened issue. Can you reproduce it ? Is it still relevant? If not, leave a
+   nice comment, like :<ul>
+<li>&ldquo;I tried to reproduce this issue, but on the latest released version it does not seem to be a problem anymore&rdquo;.</li>
+<li>&ldquo;This has actually been fixed by XXXX&rdquo;</li>
+<li>&ldquo;I think that this was an issues back in 2003, but no one uses ie6 anymore&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<p>It will be less work for the maintainers, and they&rsquo;ll close the issue for you.</p>
+<ul>
+<li>
+<p>You can find the list of all issues <em>you have opened</em> at <a href="https://github.com/issues">https://github.com/issues</a>, do the same as above but <em>you can close your own issues too</em>.</p>
+</li>
+<li>
+<p>Head to <a href="https://github.com/pulls">https://github.com/pulls</a>, this is all the pull-requests that you have submitted</p>
+</li>
+<li>Are they still relevant ?</li>
+<li>
+<p>Close them if not, think about finishing them otherwise. </p>
+</li>
+<li>
+<p>Finish someone else Pull-Request: Many drive by contributors start pull-request but do not finish them. Maybe you can
+   take over, Once your version of the code is merged suggest for the old pull-request to be closed. </p>
+</li>
+</ul>
+<h3>how to be listed on this leaderboard ?</h3>
+<p><strong>Add the <a href="https://github.com/topics/closember"><code>closember</code> topic</a></strong> to your repositories. Next time the site is updated you&rsquo;ll be listed.</p>
+<h3>Why is the score not changing ?</h3>
+<p>GitHub requests are cached for a few minutes, maybe 1 maybe 10, maybe 60, depend on my mood, or how much traffic we get. 
+It should update soon. But please relax. It&rsquo;s  not a sprint, it&rsquo;s a marathon.</p>
+<h3>show me this website code</h3>
+<p><a href="https://github.com/carreau/closember">https://github.com/carreau/closember</a> – please come close issues.</p>
+
+
+</section>
+<footer class='footer'>
+<section class=container>
+<p>Powered by <a href="https://pypi.org/project/Quart-Trio/">Quart</a>, <a href="https://trio.readthedocs.org">Trio</a> and
+<a href="https://asks.readthedocs.io/en/latest/">Asks</a>, <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja2</a>.
+Theme from <a href="https://milligram.io/">milligram</a>. No JS. </br><small>Remaining querries 4850 - 10/09/2020 18:23:58.</small>.</p>
+</section>
+</footer>
+</main>
+</body>
+</html>
+
