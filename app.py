@@ -2,6 +2,7 @@ import os
 import sys
 from quart_trio import QuartTrio
 import os
+import datetime
 import trio
 import asks
 from pathlib import Path
@@ -226,6 +227,7 @@ async def render():
         total_closed=total_closed,
         to_go=to_go,
         CUT_DATE=CUT_DATE,
+        NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
     )
     print("done")
     return res
@@ -256,7 +258,8 @@ def main():
 
 if __name__ == "__main__":
     if "static" in sys.argv:
-        p = Path("build").mkdir(exist_ok=True)
+        p = Path("build")
+        p.mkdir(exist_ok=True)
         p = p / "index.html"
         p.write_text(trio.run(render))
         print("written to index.html")
