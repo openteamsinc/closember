@@ -29,6 +29,8 @@ jobs:
       - name: Run a multi-line script
         shell: "bash -l {0}"
         run: |
+          conda create -n 38 python==3.8
+          conda activate 38
           pip install -r requirements.txt
         env:
           PAT: ${{ secrets.PAT }}
