@@ -256,7 +256,8 @@ def main():
 
 if __name__ == "__main__":
     if "static" in sys.argv:
-        p = Path("index.html")
+        p = Path("build").mkdir(exist_ok=True)
+        p = p / "index.html"
         p.write_text(trio.run(render))
         print("written to index.html")
 

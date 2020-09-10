@@ -32,6 +32,14 @@ jobs:
           conda create -n 38 python==3.8
           conda activate 38
           pip install -r requirements.txt
+          python app.py static
         env:
           PAT: ${{ secrets.PAT }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
 
