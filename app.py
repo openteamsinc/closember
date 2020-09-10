@@ -129,12 +129,6 @@ app = QuartTrio(__name__)
 
 
 slugs = [
-    "ipython/ipython",
-    "ipython/traitlets",
-    "jupyterhub/jupyterhub",
-    "numpy/numpy",
-    "sympy/sympy",
-    "matplotlib/matplotlib",
 ]
 
 from collections import Counter
