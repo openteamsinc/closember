@@ -173,6 +173,7 @@ text-align: center;
  <main class=wrapper>
  <nav class="navigation"></nav>
  <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
+ <p>Close/Merge as many issues and PR during the month of November</p>
    <div id='closed-sign'>
       
    </div>
