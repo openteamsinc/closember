@@ -355,8 +355,8 @@ https://github.com/carreau/closember – please come close issues.
 <footer class='footer'>
 <section class=container>
 {% markdown %}
-Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.readthedocs.org) and
-[Asks](https://asks.readthedocs.io/en/latest/), [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/).
+Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.readthedocs.org),
+[Asks](https://asks.readthedocs.io/en/latest/) and [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/).
 Theme from [milligram](https://milligram.io/). No JS. </br><small>Remaining querries {{rq}} - {{NOW}}.</small>.
 {% endmarkdown %}
 </section>
