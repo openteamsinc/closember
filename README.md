@@ -1,6 +1,6 @@
 # closember
 
-See https://carreau.github.io/closember/
+See https://closember.org
 
 ## run locally 
 
