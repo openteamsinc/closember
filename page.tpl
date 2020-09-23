@@ -198,6 +198,13 @@ closer to release</p>
 
 {% markdown %}
 
+## Why Closember ?
+
+----- 
+
+#### Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone. [more...](#more)
+
+
 
 ## Closeboard 
 
@@ -260,11 +267,10 @@ careful about the [Normalization of
 deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance).
 
 
-## Why Closember ?
-
 ----- 
 
-#### Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.
+<span id='more'></span>
+
 
 Maintaining Open-Source is rarely only about writing more code and getting more Pull-Requests. It is about properly
 caring, knowing how to say "No" and thinking about **long term sustainability**.
@@ -384,7 +390,6 @@ find a way for user to claim having helped and maintainers to validate those cla
 
 Closember is currently sponsored by [Quansight](https://www.quansight.com/), [FairOSS](https://faiross.org/) and
 [OpenTeams](https://openteams.com/landing/).
-
 
 
 ## F.A.Q. with creator
