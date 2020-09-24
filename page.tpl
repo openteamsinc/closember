@@ -226,6 +226,7 @@ closer to release</p>
 </tr>
 {% endfor %}
 </table>
+  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 
 <blockquote>
@@ -259,6 +260,7 @@ Issues opened during closember **do not count** to encourage people to close old
 </tr>
 {% endfor %}
 </table>
+  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 {% markdown %}
 
@@ -269,11 +271,12 @@ deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_no
 
 ----- 
 
-<span id='more'></span>
+<h3 id='more'>Maintainers in Open Source</h3>
 
 
-Maintaining Open-Source is rarely only about writing more code and getting more Pull-Requests. It is about properly
-caring, knowing how to say "No" and thinking about **long term sustainability**.
+[The Role of a Maintainer](http://matthewrocklin.com/blog/2019/05/18/maintainer) in  Open-Source is rarely only about
+writing more code and getting more Pull-Requests. It is about properly caring, knowing how to say "No" and thinking
+about **long term sustainability**.
 
 Having a well-setup process, not too many tasks running at the same time can be critical for Maintainers **cognitive
 load**, and **mental health**, as well as provide a **easier environment for new contributors**.
@@ -303,9 +306,9 @@ be able to compare.
 
 ## Zeno Paradox
 
-... you keep closing but they keep opening new ones. Let's track project with the least new PRs or issues.
-
-
+... you keep closing but they new ones keep being opened. This is why issues or pull-requests open during November do not
+count toward the total. This is not meant to disrupt the normal flow of work, but to encourage you to help maintainers
+taking care of older issues and pull-requests.
 
 
 {% endmarkdown %}
@@ -329,7 +332,7 @@ maintainers of your favorites projects, and make those project better for everyo
 
  - Tag the repositories you control with `closember` topic, they will be listed here automatically soon. If you can't,
    don't want to for some reason, we can hardcode your repository in the list (see
-   https://github.com/Carreau/closember/issues/3). 
+   https://github.com/openteamsinc/closember/issues/3). 
  - GitHub have the "Maintainer" role for teams that _should_ allow users to open/close issues without giving push
    rights.
  - If U.S citizen, remember to vote on Nov 3rd.
@@ -361,7 +364,7 @@ projects_.
  - Finish someone else Pull-Request: Many drive by contributors start pull-request but do not finish them. Maybe you can
    take over ? Once your version of the code is merged suggest for the old pull-request to be closed.
 
-### how to be listed on this leaderboard ?
+<h3 id='add-topic'>how to be listed on this leaderboard ?</h3>
 
 **Add the [`closember` topic](https://github.com/topics/closember)** to your repositories. Next time the site is updated you'll be listed.
 
@@ -372,7 +375,24 @@ It should update soon. But please relax. It's not a sprint, it's a marathon.
 
 ### Show me this website code
 
-https://github.com/carreau/closember – please come close issues.
+https://github.com/openteamsinc/closember – please come close issues.
+
+
+### I closed all my issues / I really want to code...
+
+Ok, fine, you want an excuse to write some code. Still you can do things the make maintainer life easier. A couple
+pet peevs of mine.
+
+  - Add Version number to your deprecation warnings, when I see a deprecation message I want to know since which version
+    it is deprecated and what's the replacement without having to go dive in the docs.
+  - Turn your deprecation warnings into error in your test suite, and make sure you are not using (when possible),
+    deprecated functionalities.
+  - Bump your minimal requirements for old libraries when you can. 
+  - Knows more than one small project doing almost the same things ? Try to get maintainers to merge codebases /
+    collaborate.
+  - Cleanup your git stale branches, 
+  - Delete forks of repositories you are not contributing to.
+  - create a systemwide `.gitignore` to not add `*.un~` and `.DS_Store` to every `.gitignore` project you contribute to.
 
 ### I want to lean more about Open-Source
 
