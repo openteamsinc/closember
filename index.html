@@ -245,6 +245,7 @@ closer to release</p>
 </tr>
 
 </table>
+  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 
 <blockquote>
@@ -301,14 +302,17 @@ Issues opened during closember <strong>do not count</strong> to encourage people
 </tr>
 
 </table>
+  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 <p>Those are <em>suggested</em> metrics, they are of course not absolute. Your community should have its own goal, though be
 careful about the <a href="https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance">Normalization of
 deviance</a>.</p>
 <hr />
-<p><span id='more'></span></p>
-<p>Maintaining Open-Source is rarely only about writing more code and getting more Pull-Requests. It is about properly
-caring, knowing how to say &ldquo;No&rdquo; and thinking about <strong>long term sustainability</strong>.</p>
+<h3 id='more'>Maintainers in Open Source</h3>
+
+<p><a href="http://matthewrocklin.com/blog/2019/05/18/maintainer">The Role of a Maintainer</a> in  Open-Source is rarely only about
+writing more code and getting more Pull-Requests. It is about properly caring, knowing how to say &ldquo;No&rdquo; and thinking
+about <strong>long term sustainability</strong>.</p>
 <p>Having a well-setup process, not too many tasks running at the same time can be critical for Maintainers <strong>cognitive
 load</strong>, and <strong>mental health</strong>, as well as provide a <strong>easier environment for new contributors</strong>.</p>
 <p>This means that when project have less open pull requests, well curated issues that are closed when not
@@ -328,7 +332,9 @@ some project close issues/PR that have not been commented on in a while, some ot
 resolved and a release has been made. In case of doubt, ask.</p>
 </blockquote>
 <h2>Zeno Paradox</h2>
-<p>&hellip; you keep closing but they keep opening new ones. Let&rsquo;s track project with the least new PRs or issues.</p>
+<p>&hellip; you keep closing but they new ones keep being opened. This is why issues or pull-requests open during November do not
+count toward the total. This is not meant to disrupt the normal flow of work, but to encourage you to help maintainers
+taking care of older issues and pull-requests.</p>
 
 
 <h3 id='help'>What should I do ?</h3>
@@ -344,7 +350,7 @@ maintainers of your favorites projects, and make those project better for everyo
 <ul>
 <li>Tag the repositories you control with <code>closember</code> topic, they will be listed here automatically soon. If you can&rsquo;t,
    don&rsquo;t want to for some reason, we can hardcode your repository in the list (see
-   <a href="https://github.com/Carreau/closember/issues/3">https://github.com/Carreau/closember/issues/3</a>). </li>
+   <a href="https://github.com/openteamsinc/closember/issues/3">https://github.com/openteamsinc/closember/issues/3</a>). </li>
 <li>GitHub have the &ldquo;Maintainer&rdquo; role for teams that <em>should</em> allow users to open/close issues without giving push
    rights.</li>
 <li>If U.S citizen, remember to vote on Nov 3<sup>rd</sup>.</li>
@@ -383,13 +389,29 @@ projects</em>.</p>
    take over ? Once your version of the code is merged suggest for the old pull-request to be closed.</p>
 </li>
 </ul>
-<h3>how to be listed on this leaderboard ?</h3>
+<h3 id='add-topic'>how to be listed on this leaderboard ?</h3>
+
 <p><strong>Add the <a href="https://github.com/topics/closember"><code>closember</code> topic</a></strong> to your repositories. Next time the site is updated you&rsquo;ll be listed.</p>
 <h3>Why is the score not changing ?</h3>
 <p>GitHub requests are cached for a few minutes, maybe 1 maybe 10, maybe 60, depend on my mood, or how much traffic we get. 
 It should update soon. But please relax. It&rsquo;s not a sprint, it&rsquo;s a marathon.</p>
 <h3>Show me this website code</h3>
-<p><a href="https://github.com/carreau/closember">https://github.com/carreau/closember</a> – please come close issues.</p>
+<p><a href="https://github.com/openteamsinc/closember">https://github.com/openteamsinc/closember</a> – please come close issues.</p>
+<h3>I closed all my issues / I really want to code&hellip;</h3>
+<p>Ok, fine, you want an excuse to write some code. Still you can do things the make maintainer life easier. A couple
+pet peevs of mine.</p>
+<ul>
+<li>Add Version number to your deprecation warnings, when I see a deprecation message I want to know since which version
+    it is deprecated and what&rsquo;s the replacement without having to go dive in the docs.</li>
+<li>Turn your deprecation warnings into error in your test suite, and make sure you are not using (when possible),
+    deprecated functionalities.</li>
+<li>Bump your minimal requirements for old libraries when you can. </li>
+<li>Knows more than one small project doing almost the same things ? Try to get maintainers to merge codebases /
+    collaborate.</li>
+<li>Cleanup your git stale branches, </li>
+<li>Delete forks of repositories you are not contributing to.</li>
+<li>create a systemwide <code>.gitignore</code> to not add <code>*.un~</code> and <code>.DS_Store</code> to every <code>.gitignore</code> project you contribute to.</li>
+</ul>
 <h3>I want to lean more about Open-Source</h3>
 <p>While we haven&rsquo;t read it yet, we recommend <a href="https://press.stripe.com/#working-in-public">Working in Public: The Making and Maintenance of Open Source
 Software</a> by <a href="https://nadiaeghbal.com/">Nadia Eghbal</a></p>
@@ -425,7 +447,7 @@ find a way for user to claim having helped and maintainers to validate those cla
 <section class=container>
 <p>Powered by <a href="https://pypi.org/project/Quart-Trio/">Quart</a>, <a href="https://trio.readthedocs.org">Trio</a>,
 <a href="https://asks.readthedocs.io/en/latest/">Asks</a> and <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja2</a>.
-Theme from <a href="https://milligram.io/">milligram</a>. No JS. </br><small>Remaining querries 4872 - 23/09/2020 23:51:47. Interested in
+Theme from <a href="https://milligram.io/">milligram</a>. No JS. </br><small>Remaining querries 4840 - 24/09/2020 00:07:02. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.</p>
 </section>
 </footer>
