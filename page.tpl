@@ -29,6 +29,8 @@ li > p {
    max-width: 80rem;
 }
 
+.sg > img {max-width: 50px; border-radius: 50px}
+a.sg {display: inline-block;}
 
 
 .wrapper {
@@ -262,12 +264,25 @@ Issues opened during closember **do not count** to encourage people to close old
 </table>
   <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
+
 {% markdown %}
 
 Those are _suggested_ metrics, they are of course not absolute. Your community should have its own goal, though be
 careful about the [Normalization of
 deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance).
 
+{% endmarkdown %}
+
+<h2> Show your support : {{sg_total}} Supporters </h2>
+
+<p>Star <a href='https://github.com/openteaninc/closember'>our repository</a> to show your support even if your own
+organisation or project don't participate</p>
+
+{% for sg in top_sg %}
+<a class='sg' href="{{sg.url}}"><img src={{sg.avatar}}/><div>{{sg.login}}</div></a>
+{% endfor %}
+
+{% markdown %}
 
 ----- 
 

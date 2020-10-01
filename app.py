@@ -43,8 +43,27 @@ async def run_query(
 
         
 
-# The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
+SGS = """
+{
+  repository(name: "closember", owner: "openteamsinc") {
+    stargazers(last: 100) {
+      totalCount
+      edges {
+        node {
+          avatarUrl
+          login
+          url
+          followers {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+"""
 
+# The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
 
 PARTICIP = """
 query TopicRepo {
@@ -164,6 +183,8 @@ async def render():
     async def loc(storage, key, query):
         storage[key] = await run_query(query)
 
+    async def get_sg(sgs):
+        sgs.update(await run_query(SGS))
     print("Start contacting github...")
     slgs = sorted(set(await get_p()))
     async with trio.open_nursery() as n:
@@ -171,7 +192,20 @@ async def render():
             n.start_soon(loc, reses1, s, query(s))
             n.start_soon(loc, reses2, s, query_open(s, "pr"))
             n.start_soon(loc, reses3, s, query_open(s, "issue"))
+        sgs = {}
+        n.start_soon(get_sg, sgs)
     print("Done")
+
+    all_sg = sgs["data"]["repository"]["stargazers"]
+    sg_total = all_sg["totalCount"]
+    top_sg = [
+        {
+            "login": x["node"]["login"],
+            "avatar": x["node"]["avatarUrl"],
+            "url": x["node"]["url"],
+        }
+        for x in all_sg["edges"]
+    ]
 
     for s in slgs:
         # await loc(reses1, s, query(s))
@@ -222,6 +256,8 @@ async def render():
         to_go=to_go,
         CUT_DATE=CUT_DATE,
         NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        sg_total=sg_total,
+        top_sg=top_sg,
     )
     print("done")
     return res
