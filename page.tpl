@@ -275,7 +275,7 @@ deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_no
 
 <h2> Show your support : {{sg_total}} Supporters </h2>
 
-<p>Star <a href='https://github.com/openteaninc/closember'>our repository</a> to show your support even if your own
+<p>Star <a href='https://github.com/openteamsinc/closember'>our repository</a> to show your support even if your own
 organisation or project don't participate</p>
 
 {% for sg in top_sg %}
