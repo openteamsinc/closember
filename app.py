@@ -14,7 +14,7 @@ from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
-CUT_DATE = "2020-08-01"
+CUT_DATE = "2020-11-01"
 
 
 # @ttl_cache( ttl=240)
