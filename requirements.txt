@@ -1,7 +1,6 @@
 flask
 asks
 quart-trio
-quart<0.14
 trio
 jinja2
 gunicorn
