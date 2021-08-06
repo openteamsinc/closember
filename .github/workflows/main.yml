@@ -39,7 +39,7 @@ jobs:
           pip install -r requirements.lock
           python app.py static
         env:
-          PAT: ${{ secrets.PAT }}
+          PAT: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
