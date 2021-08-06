@@ -34,8 +34,8 @@ jobs:
       - name: Run a multi-line script
         shell: "bash -l {0}"
         run: |
-          conda create -n 38 python==3.8
-          conda activate 38
+          conda create -n 39 python==3.9
+          conda activate 39
           pip install -r requirements.txt
           python app.py static
         env:
