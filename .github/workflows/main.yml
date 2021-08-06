@@ -36,7 +36,7 @@ jobs:
         run: |
           conda create -n 39 python==3.9
           conda activate 39
-          pip install -r requirements.txt
+          pip install -r requirements.lock
           python app.py static
         env:
           PAT: ${{ secrets.PAT }}
