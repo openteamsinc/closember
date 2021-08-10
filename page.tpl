@@ -175,8 +175,8 @@ text-align: center;
  <main class=wrapper>
  <nav class="navigation"></nav>
  <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
- <h2>It's over for 2020 !</h2>
- <p>We're getting ready for 2021 and will attempt to count issues closed during the whole year !</p>
+ <h2>Get Ready for 2021 !</h2>
+ <p>We're getting ready for 2021 and will attempt to count issues closed since last November !</p>
  <p>Close/Merge as many issues and PR during the month of November</p>
    <div id='closed-sign'>
       
