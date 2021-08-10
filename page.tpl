@@ -176,7 +176,7 @@ text-align: center;
  <nav class="navigation"></nav>
  <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
  <h2>It's over for 2020 !</h2>
- <p>but we'll be back in 2021 and will attempt to count issues closed during the whole year !</p>
+ <p>We're getting ready for 2021 and will attempt to count issues closed during the whole year !</p>
  <p>Close/Merge as many issues and PR during the month of November</p>
    <div id='closed-sign'>
       
@@ -352,7 +352,6 @@ maintainers of your favorites projects, and make those project better for everyo
    https://github.com/openteamsinc/closember/issues/3). 
  - GitHub have the "Maintainer" role for teams that _should_ allow users to open/close issues without giving push
    rights.
- - If U.S citizen, remember to vote on Nov 3rd.
 
 ### How can I help other ?
 
