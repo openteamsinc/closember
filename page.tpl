@@ -9,6 +9,8 @@
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 <style>
@@ -278,7 +280,9 @@ deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_no
 <h2> Show your support : {{sg_total}} Supporters </h2>
 
 <p>Star <a href='https://github.com/openteamsinc/closember'>our repository</a> to show your support even if your own
-organisation or project don't participate</p>
+organisation or project don't participate <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/opentemsinc/closember" data-icon="octicon-star" aria-label="Star
+opentemsinc/closember on GitHub">Star</a> </p>
 
 {% for sg in top_sg %}
 <a class='sg' href="{{sg.url}}"><img src={{sg.avatar}}/><div>{{sg.login}}</div></a>
