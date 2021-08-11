@@ -1,4 +1,5 @@
 import os
+import humanize
 import sys
 from quart_trio import QuartTrio
 import os
@@ -15,6 +16,46 @@ from cachetools.func import ttl_cache, TTLCache
 RC = TTLCache(1024, ttl=240)
 
 CUT_DATE = "2020-11-01"
+
+
+# in https://docs.github.com/en/graphql/overview/explorer
+# trying to find oldest created issue.
+LONGEST_OPEN_QUERRY = (
+    """
+{
+  search(query: "topic:closember", type: REPOSITORY, last: 100) {
+    issueCount
+    edges {
+      node {
+        ... on Repository {
+          issues(first: 100, orderBy: {field: CREATED_AT, direction: ASC}, states: CLOSED, filterBy: {since:\""""
+    + CUT_DATE
+    + """T00:00:00Z"}) {
+            edges {
+              node {
+                closedAt
+                url
+                createdAt
+                number
+              }
+            }
+          }
+          nameWithOwner
+        }
+      }
+    }
+  }
+  rateLimit {
+    limit
+    cost
+    remaining
+    resetAt
+  }
+}
+"""
+)
+
+print(LONGEST_OPEN_QUERRY)
 
 
 # @ttl_cache( ttl=240)
@@ -43,7 +84,7 @@ async def run_query(
 
         
 
-SGS = """
+STARGAZERS = """
 {
   repository(name: "closember", owner: "openteamsinc") {
     stargazers(last: 100) {
@@ -164,6 +205,39 @@ async def hello_world():
     return await render()
 
 
+async def get_longest_open():
+    res = await run_query(LONGEST_OPEN_QUERRY)
+    from dateutil.parser import isoparse
+    from collections import namedtuple
+
+    LongestClosed = namedtuple(
+        "LongestClosed", "delta,repo,url,open,closed,number".split(",")
+    )
+
+    duration_pairs = []
+    for repo in res["data"]["search"]["edges"]:
+        dpl = []
+        reponame = repo["node"]["nameWithOwner"]
+        for issue in repo["node"]["issues"]["edges"]:
+
+            closed = isoparse(issue["node"]["closedAt"])
+            opened = isoparse(issue["node"]["createdAt"])
+            dpl.append(
+                LongestClosed(
+                    closed - opened,
+                    reponame,
+                    issue["node"]["url"],
+                    opened,
+                    closed,
+                    issue["node"]["number"],
+                )
+            )
+        if dpl:
+            duration_pairs.append(list(sorted(dpl, reverse=True))[0])
+
+    return list(sorted(duration_pairs, reverse=True))
+
+
 async def render():
 
     env = Environment(
@@ -171,6 +245,7 @@ async def render():
         autoescape=select_autoescape(["tpl"]),
         extensions=["jinja_markdown.MarkdownExtension"],
     )
+    env.filters["naturaldelta"] = humanize.naturaldelta
     tpl = env.get_template("page.tpl")
     entries = {}
     remaining = {}
@@ -184,9 +259,11 @@ async def render():
         storage[key] = await run_query(query)
 
     async def get_sg(sgs):
-        sgs.update(await run_query(SGS))
+        sgs.update(await run_query(STARGAZERS))
+
     print("Start contacting github...")
     slgs = sorted(set(await get_p()))
+    other = await get_longest_open()
     async with trio.open_nursery() as n:
         for s in slgs:
             n.start_soon(loc, reses1, s, query(s))
@@ -254,6 +331,7 @@ async def render():
         remaining=remaining,
         total_closed=total_closed,
         to_go=to_go,
+        other=other,
         CUT_DATE=CUT_DATE,
         NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         sg_total=sg_total,

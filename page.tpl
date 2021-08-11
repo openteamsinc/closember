@@ -271,18 +271,56 @@ Issues opened during closember **do not count** to encourage people to close old
 
 {% markdown %}
 
-Those are _suggested_ metrics, they are of course not absolute. Your community should have its own goal, though be
-careful about the [Normalization of
-deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance).
+There is no perfect metric, and we sometime forget that issues get forgotten on the last page of the issue list.
+Here is a leaderboard of who has closed the oldest issue during the month.
+
+## Longest open issue
+
+This find the longest opened issue closed during Closember.
 
 {% endmarkdown %}
+
+<table class='c2'>
+<tr>
+<th>#</th>
+<th>Repo</th>
+<th>Closed After</th>
+<th>Open Issues</th>
+</tr>
+{% for item in other %}
+<tr>
+  <td>{{loop.index}} </td>
+  <td ><a href='https://github.com/{{item.repo}}'>{{item.repo}}<a></td>
+  <td class='green-glow' title='opened on {{item.open}} – closed on {{item.close}} – opened for {{item.delta}} '>{{item.delta|naturaldelta}}</td>
+  <td ><a href='{item.url}'>{{item.repo}}#{{item.number}}</td>
+</tr>
+{% endfor %}
+</table>
+{% markdown %}
+
+------
+
+{% endmarkdown %}
+  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
+
+{% markdown %}
+
+
+
+Those are _suggested_ metrics, they are of course not absolute. Your community should have its own goal, though be
+careful about the [Normalization of
+deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance). You can also
+suggest metrics. You send us a PR or open an issue.
+
+{% endmarkdown %}
+
 
 <h2> Show your support : {{sg_total}} Supporters </h2>
 
 <p>Star <a href='https://github.com/openteamsinc/closember'>our repository</a> to show your support even if your own
 organisation or project don't participate <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/opentemsinc/closember" data-icon="octicon-star" aria-label="Star
-opentemsinc/closember on GitHub">Star</a> </p>
+<a class="github-button" href="https://github.com/openteamsinc/closember" data-icon="octicon-star" aria-label="Star
+opentaemsinc/closember on GitHub">Star</a> </p>
 
 {% for sg in top_sg %}
 <a class='sg' href="{{sg.url}}"><img src={{sg.avatar}}/><div>{{sg.login}}</div></a>
