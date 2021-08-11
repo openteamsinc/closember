@@ -285,7 +285,7 @@ This find the longest opened issue closed during Closember.
 <th>#</th>
 <th>Repo</th>
 <th>Closed After</th>
-<th>Open Issues</th>
+<th>Oldest issue closed</th>
 </tr>
 {% for item in other %}
 <tr>
