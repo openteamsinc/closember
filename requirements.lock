@@ -31,3 +31,4 @@ trio==0.19.0
 Werkzeug==2.0.1
 wsproto==1.0.0
 humanize==3.11.0
+python-dateutil==2.8.1
