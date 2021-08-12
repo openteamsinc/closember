@@ -391,8 +391,9 @@ maintainers of your favorites projects, and make those project better for everyo
  - Tag the repositories you control with `closember` topic, they will be listed here automatically soon. If you can't,
    don't want to for some reason, we can hardcode your repository in the list (see
    https://github.com/openteamsinc/closember/issues/3). 
- - GitHub have the "Maintainer" role for teams that _should_ allow users to open/close issues without giving push
-   rights.
+ - GitHub have the "Triage" role for teams that should allow users to open/close issues without giving push
+   rights. See [this page on GitHub docs that list permissions of each
+   groups](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)
 
 ### How can I help other ?
 
