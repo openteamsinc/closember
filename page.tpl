@@ -499,14 +499,12 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 
 
-# Comments
+## Comments
 
-IN PROGRESS
 
-You can comments on this page using [utterances](https://utteranc.es/) (in progress) or directly on [This GitHub
-Issue](https://github.com/openteamsinc/closember/issues/6)
+<!-- You can comments on this page using [utterances](https://utteranc.es/) (in progress) or directly on -->
 
-IN PROGRESS
+Comments on the [Following GitHub Issue](https://github.com/openteamsinc/closember/issues/6) will appear bellow.
 
 <script src="https://utteranc.es/client.js"
         repo="openteamsinc/closember"
