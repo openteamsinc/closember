@@ -388,16 +388,23 @@ maintainers of your favorites projects, and make those project better for everyo
 
 ### Maintainers: How to get ready:
 
- - Tag the repositories you control with `closember` topic, they will be listed here automatically soon. If you can't,
+ - Speak with your co-maintainers/contributors, and let them know that you consider participating. You can send your
+   community links to this page and requests help. You can organise groups that would be responsible for reviewing old
+   issues and seeing if they are still relevant, and setup guideline on how to proceed during the month of November.
+
+ - Tag the repositories you control with the `closember` topic, they will be listed here automatically soon. If you can't or
    don't want to for some reason, we can hardcode your repository in the list (see
    https://github.com/openteamsinc/closember/issues/3). 
- - GitHub have the "Triage" role for teams that should allow users to open/close issues without giving push
-   rights. See [this page on GitHub docs that list permissions of each
+
+ - You can star our repository to show support as well.
+
+ - You may want to consider using the GitHub "Triage" role, this let you give users the ability to open/close issues
+   without giving push rights. See [this page on GitHub docs that list permissions of each
    groups](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)
 
 ### How can I help other ?
 
-Great question ! You often do not need to know how to code to contribute to Closember ! FOr any project you will
+Great question ! You often do not need to know how to code to contribute to Closember ! For any project you will
 contribute to, make sure to check their guideline, and avoid eager closing of issues/PRs if that's not the desire of the
 maintainers. The following are a guideline, adapt them to fit _your skills_ as well as _skills that can be of used for
 projects_.
@@ -492,7 +499,22 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 
 
- 
+# Comments
+
+IN PROGRESS
+
+You can comments on this page using [utterances](https://utteranc.es/) (in progress) or directly on [This GitHub
+Issue](https://github.com/openteamsinc/closember/issues/6)
+
+IN PROGRESS
+
+<script src="https://utteranc.es/client.js"
+        repo="openteamsinc/closember"
+        issue-number="6"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
 
