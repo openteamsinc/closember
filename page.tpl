@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 <style>
@@ -508,6 +507,7 @@ Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.re
 Theme from [milligram](https://milligram.io/). No JS. </br><small>Remaining querries {{rq}} - {{NOW}}. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
 {% endmarkdown %}
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </section>
 </footer>
 </main>
