@@ -176,7 +176,11 @@ text-align: center;
  <main class=wrapper>
  <nav class="navigation"></nav>
  <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
- <h2>Get Ready for 2021 !</h2>
+ {% if ONGOING %}
+    <h2>Let's Go!</h2>
+ {% else %}
+    <h2>Get Ready for 2021 !</h2>
+ {% endif %}
  <p>We're getting ready for 2021 and will attempt to count issues closed since last November !</p>
  <p>Close/Merge as many issues and PR during the month of November</p>
    <div id='closed-sign'>
@@ -195,7 +199,7 @@ text-align: center;
   <section class='container'>
 
 
-{% if CUT_DATE %}
+{% if not ONGOING %}
 <p>This is a draft, right now the issue count use {{CUT_DATE}} as a threshold it will be changed to <b>November
 1<sup>st</sup></b>
 closer to release</p>

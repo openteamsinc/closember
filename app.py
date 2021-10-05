@@ -15,7 +15,14 @@ from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
-CUT_DATE = "2020-11-01"
+from datetime import datetime
+
+ONGOING = datetime.now() > datetime(2021, 11, 1, 0, 0)
+
+if ONGOING:
+    CUT_DATE = "2021-11-01"
+else:
+    CUT_DATE = "2020-11-01"
 
 
 # in https://docs.github.com/en/graphql/overview/explorer
@@ -333,6 +340,7 @@ async def render():
         to_go=to_go,
         other=other,
         CUT_DATE=CUT_DATE,
+        ONGOING=ONGOING,
         NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         sg_total=sg_total,
         top_sg=top_sg,
