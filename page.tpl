@@ -196,7 +196,7 @@ text-align: center;
 
 
 {% if CUT_DATE %}
-<p>This is a draft, right now the issue count use {{CUT_DATE}} as a threshold it will be changes to <b>November
+<p>This is a draft, right now the issue count use {{CUT_DATE}} as a threshold it will be changed to <b>November
 1<sup>st</sup></b>
 closer to release</p>
 {% endif %}
