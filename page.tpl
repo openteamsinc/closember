@@ -166,6 +166,29 @@ text-align: center;
     padding: 3rem;
 }
 
+.frame {
+    height: 175px;      /* equals max image height */
+    width: 260px;
+    white-space: nowrap;
+    
+    text-align: center; margin: 1em 0;
+    height: auto;
+    margin: 2em auto 2em auto;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+frame.img {
+    vertical-align: middle;
+    max-height: 25px;
+    max-width: 160px;
+}
+
+
 
 
 </style>
@@ -480,6 +503,17 @@ find a way for user to claim having helped and maintainers to validate those cla
 
 Closember is currently sponsored by [Quansight](https://www.quansight.com/), [FairOSS](https://faiross.org/) and
 [OpenTeams](https://openteams.com/landing/).
+
+
+<div class=frame>
+    <a href='https://quansight.org'><img src='assets/quansight.jpg'></a>
+</div>
+<div class=frame>
+    <a href='https://openteams.com/'><img src='assets/openteams.webp'></a>
+</div>
+<div class=frame>
+    <a href='https://faiross.org/'><img src='assets/faiross.png'></a>
+</div>
 
 
 ## F.A.Q. with creator

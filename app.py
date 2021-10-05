@@ -312,6 +312,7 @@ async def render():
         remaining[s] = {"Issue": issues, "PullRequest": prs}
 
         rq = min(rq, res3["data"]["rateLimit"]["remaining"])
+        print("Rate limit:", rq)
 
     print("rendering...")
     entries = [(k, v) for k, v in entries.items()]
@@ -373,11 +374,16 @@ def main():
 
 if __name__ == "__main__":
     if "static" in sys.argv:
-        p = Path("build")
-        p.mkdir(exist_ok=True)
-        p = p / "index.html"
+        build = Path("build")
+        build.mkdir(exist_ok=True)
+        p = build / "index.html"
         p.write_text(trio.run(render))
-        print("written to index.html")
+        print(f"written to {p}")
+
+        assets = Path("assets")
+        (build / "assets").mkdir(exist_ok=True)
+        for img in assets.glob("*"):
+            (build / "assets" / img.name).write_bytes(img.read_bytes())
 
     else:
         main()
