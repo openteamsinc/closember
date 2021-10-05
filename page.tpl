@@ -180,7 +180,8 @@ text-align: center;
     <h2>Let's Go!</h2>
  {% else %}
     <h2>Get Ready for 2021 !</h2>
-    <p>We're getting ready for 2021 and will attempt to count issues closed since last November !</p>
+    <p>We're getting ready for 2021 and will attempt to count issues closed since last November ! Current numbers are
+    arbitrary and will be reseted on Nov 1st.</p>
  {% endif %}
  <p>Close/Merge as many issues and PR during the month of November</p>
    <div id='closed-sign'>
