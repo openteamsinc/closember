@@ -222,7 +222,7 @@ closer to release</p>
 <table class='c1'>
 <tr>
 <th>#</th>
-<th>Repo</th>
+<th>Repository</th>
 <th>Closed Issues</th>
 <th>Closed PRs</th>
 </tr>
@@ -239,7 +239,7 @@ closer to release</p>
 
 
 <blockquote>
-<p>Remember remember to close PR in in Novemeber.</p>
+<p>Remember remember to close PR in in November.</p>
 <footer><small>― A Maintainer,</small></footer>
 </blockquote>
 
@@ -247,7 +247,7 @@ closer to release</p>
 {% markdown %}
 
 This table track the number of Issues and Pull requests that have been closed(or merged) in each of project during the month of Closember. 
-Issues opened during closember **do not count** to encourage people to close older issues.
+Issues opened during Closember **do not count** to encourage people to close older issues.
 
 ## Total Open
 
@@ -256,7 +256,7 @@ Issues opened during closember **do not count** to encourage people to close old
 <table class='c2'>
 <tr>
 <th>#</th>
-<th>Repo</th>
+<th>Repository</th>
 <th>Open Issues</th>
 <th>Open PRs</th>
 </tr>
@@ -275,7 +275,7 @@ Issues opened during closember **do not count** to encourage people to close old
 {% markdown %}
 
 There is no perfect metric, and we sometime forget that issues get forgotten on the last page of the issue list.
-Here is a leaderboard of who has closed the oldest issue during the month.
+Here is a leader board of who has closed the oldest issue during the month.
 
 ## Longest open issue
 
@@ -286,7 +286,7 @@ This find the longest opened issue closed during Closember.
 <table class='c2'>
 <tr>
 <th>#</th>
-<th>Repo</th>
+<th>Repository</th>
 <th>Closed After</th>
 <th>Oldest issue closed</th>
 </tr>
@@ -349,7 +349,7 @@ conflicts, and easier time finding potential duplicate bugs.
 
 Less task, and less stress also leads to **friendlier interactions**.
 
-We thus encourage to contribute to _closember, and work with your favorite maintainers, on your favorite repositories
+We thus encourage to contribute to Closember, and work with your favorite maintainers, on your favorite repositories
 to decrease the number of opened issues and pull-requests for a _more dynamic_, better maintained ecosystem, cleaner and
 leaner environment.
 
@@ -397,7 +397,7 @@ maintainers of your favorites projects, and make those project better for everyo
    issues and seeing if they are still relevant, and setup guideline on how to proceed during the month of November.
 
  - Tag the repositories you control with the `closember` topic, they will be listed here automatically soon. If you can't or
-   don't want to for some reason, we can hardcode your repository in the list (see
+   don't want to for some reason, we can hard-code your repository in the list (see
    https://github.com/openteamsinc/closember/issues/3). 
 
  - You can star our repository to show support as well.
@@ -417,7 +417,7 @@ projects_.
    nice comment, like :
     - "I tried to reproduce this issue, but on the latest released version it does not seem to be a problem anymore".
     - "This has actually been fixed by XXXX"
-    - "I think that this was an issues back in 2003, but no one uses ie6 anymore, I belive this can be closed.".
+    - "I think that this was an issues back in 2003, but no one uses ie6 anymore, I believe this can be closed.".
 
    It will be less work for the maintainers, and they'll close the issue for you.
 
@@ -433,7 +433,7 @@ projects_.
  - Finish someone else Pull-Request: Many drive by contributors start pull-request but do not finish them. Maybe you can
    take over ? Once your version of the code is merged suggest for the old pull-request to be closed.
 
-<h3 id='add-topic'>how to be listed on this leaderboard ?</h3>
+<h3 id='add-topic'>how to be listed on this leader-board ?</h3>
 
 **Add the [`closember` topic](https://github.com/topics/closember)** to your repositories. Next time the site is updated you'll be listed.
 
@@ -450,7 +450,7 @@ https://github.com/openteamsinc/closember – please come close issues.
 ### I closed all my issues / I really want to code...
 
 Ok, fine, you want an excuse to write some code. Still you can do things the make maintainer life easier. A couple
-pet peevs of mine.
+pet peeves of mine.
 
   - Add Version number to your deprecation warnings, when I see a deprecation message I want to know since which version
     it is deprecated and what's the replacement without having to go dive in the docs.
@@ -461,7 +461,7 @@ pet peevs of mine.
     collaborate.
   - Cleanup your git stale branches, 
   - Delete forks of repositories you are not contributing to.
-  - create a systemwide `.gitignore` to not add `*.un~` and `.DS_Store` to every `.gitignore` project you contribute to.
+  - create a system-wide `.gitignore` to not add `*.un~` and `.DS_Store` to every `.gitignore` project you contribute to.
 
 ### I want to lean more about Open-Source
 
@@ -508,7 +508,7 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 <!-- You can comments on this page using [utterances](https://utteranc.es/) (in progress) or directly on -->
 
-Comments on the [Following GitHub Issue](https://github.com/openteamsinc/closember/issues/6) will appear bellow.
+Comments on the [Following GitHub Issue](https://github.com/openteamsinc/closember/issues/6) will appear below.
 
 <script src="https://utteranc.es/client.js"
         repo="openteamsinc/closember"
