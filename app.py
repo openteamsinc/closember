@@ -15,9 +15,8 @@ from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
-from datetime import datetime
 
-ONGOING = datetime.now() > datetime(2021, 11, 1, 0, 0)
+ONGOING = datetime.datetime.now() > datetime.datetime(2021, 11, 1, 0, 0)
 
 if ONGOING:
     CUT_DATE = "2021-11-01"
