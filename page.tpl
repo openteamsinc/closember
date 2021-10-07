@@ -193,8 +193,6 @@ frame.img {
 
 </style>
 </header>
-
-
 <body>
  <main class=wrapper>
  <nav class="navigation"></nav>
@@ -203,10 +201,10 @@ frame.img {
     <h2>Let's Go!</h2>
  {% else %}
     <h2>Get Ready for 2021 !</h2>
-    <p>We're getting ready for 2021 and will attempt to count issues closed since last November ! Current numbers are
-    arbitrary and will be reseted on Nov 1st.</p>
+    <p>We're getting ready for 2021 and will attempt to count issues closed since last November! Current numbers are
+    arbitrary and will be reset on Nov 1st.</p>
  {% endif %}
- <p>Close/Merge as many issues and PR during the month of November</p>
+ <p>Close/Merge as many issues and PR as possible during the month of November</p>
    <div id='closed-sign'>
       
    </div>
@@ -215,7 +213,7 @@ frame.img {
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
 <footer><small>― Antoine de Saint-Exupéry,</small></footer>
 </blockquote>
-   <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed (or merged) so far ! We need your help for
+   <p><span class='green-glow'>{{total_closed}}</span> issues and pull-requests closed (or merged) so far! We need your help with
    the <span
    class='red-glow'>{{to_go}} </span> that need to go... </p>
    <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
@@ -263,15 +261,15 @@ closer to release</p>
 
 
 <blockquote>
-<p>Remember remember to close PR in in November.</p>
+<p>Remember remember to close a PR in November.</p>
 <footer><small>― A Maintainer,</small></footer>
 </blockquote>
 
 
 {% markdown %}
 
-This table track the number of Issues and Pull requests that have been closed(or merged) in each of project during the month of Closember. 
-Issues opened during Closember **do not count** to encourage people to close older issues.
+This table tracks the number of Issues and Pull requests that have been closed(or merged) in each of projects during the month of Closember. 
+Issues opened in Closember **do not count** in an effort to encourage the closing of older issues.
 
 ## Total Open
 
@@ -298,12 +296,12 @@ Issues opened during Closember **do not count** to encourage people to close old
 
 {% markdown %}
 
-There is no perfect metric, and we sometime forget that issues get forgotten on the last page of the issue list.
-Here is a leader board of who has closed the oldest issue during the month.
+There is no perfect metric, and we sometimes forget that issues are forgotten on the last page of the issue list.
+Here is a leader board of who has closed the oldest issues during the month.
 
 ## Longest open issue
 
-This find the longest opened issue closed during Closember.
+This shows the longest opened issue closed during Closember.
 
 {% endmarkdown %}
 
@@ -337,7 +335,7 @@ This find the longest opened issue closed during Closember.
 Those are _suggested_ metrics, they are of course not absolute. Your community should have its own goal, though be
 careful about the [Normalization of
 deviance](https://en.wikibooks.org/wiki/Professionalism/Diane_Vaughan_and_the_normalization_of_deviance). You can also
-suggest metrics. You send us a PR or open an issue.
+suggest metrics, send us a PR, or open an issue.
 
 {% endmarkdown %}
 
@@ -345,7 +343,7 @@ suggest metrics. You send us a PR or open an issue.
 <h2> Show your support : {{sg_total}} Supporters </h2>
 
 <p>Star <a href='https://github.com/openteamsinc/closember'>our repository</a> to show your support even if your own
-organisation or project don't participate <!-- Place this tag where you want the button to render. -->
+organizations or projects don't participate <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/openteamsinc/closember" data-icon="octicon-star" aria-label="Star
 opentaemsinc/closember on GitHub">Star</a> </p>
 
@@ -360,22 +358,22 @@ opentaemsinc/closember on GitHub">Star</a> </p>
 <h3 id='more'>Maintainers in Open Source</h3>
 
 
-[The Role of a Maintainer](http://matthewrocklin.com/blog/2019/05/18/maintainer) in  Open-Source is rarely only about
-writing more code and getting more Pull-Requests. It is about properly caring, knowing how to say "No" and thinking
+[The Role of a Maintainer](http://matthewrocklin.com/blog/2019/05/18/maintainer) in  Open-Source is rarely about simply
+writing more code or getting more Pull-Requests. It is about properly caring, knowing how to say "No" and thinking
 about **long term sustainability**.
 
-Having a well-setup process, not too many tasks running at the same time can be critical for Maintainers **cognitive
-load**, and **mental health**, as well as provide a **easier environment for new contributors**.
+Having a well-setup process, not too many tasks running at the same time, can be critical for Maintainers **cognitive
+load**, and **mental health**, as well as provide an **easier environment for new contributors**.
 
-This means that when project have less open pull requests, well curated issues that are closed when not
-relevant it is easier to get timely reviews, there is less chances to have duplicate work, less chance of code
-conflicts, and easier time finding potential duplicate bugs.
+When projects have fewer open pull requests, and well curated issues that are closed when not
+relevant it is easier to get timely reviews. As a result maintainers more easily avoid duplicate work, have less risk of code
+conflicts, and have an easier time finding potential duplicate bugs.
 
-Less task, and less stress also leads to **friendlier interactions**.
+Fewer tasks, and less stress also lead to **friendlier interactions**.
 
-We thus encourage to contribute to Closember, and work with your favorite maintainers, on your favorite repositories
-to decrease the number of opened issues and pull-requests for a _more dynamic_, better maintained ecosystem, cleaner and
-leaner environment.
+Therefore, we encourage contributions to Closember. Work with your favorite maintainers, on your favorite repositories
+to decrease the number of opened issues and pull-requests for a _more dynamic_, better maintained, cleaner,
+leaner, environment and ecosystem.
 
 We also encourage you to avoid duplicate work by merging similar projects when relevant.
 
@@ -385,40 +383,40 @@ We also encourage you to avoid duplicate work by merging similar projects when r
 The tables below tracks multiple metrics to help you achieve goals. There are no good, or bad metrics, but it is fun to
 be able to compare.
 
-> Please be careful about projects guideline and whether an issue should be closed,
-> some project close issues/PR that have not been commented on in a while, some other only close issues when it is
-> resolved and a release has been made. In case of doubt, ask.
+> Please be careful about project guidelines and whether an issue should be closed,
+> some projects close issues/PR that have not been commented on in a while, some others only close issues when it is
+> resolved and a release has been made. If you are ever in doubt, ask.
 
 
 ## Zeno Paradox
 
-... you keep closing but they new ones keep being opened. This is why issues or pull-requests open during November do not
+... you keep closing them but new ones keep opening. This is why issues or pull-requests opened during November do not
 count toward the total. This is not meant to disrupt the normal flow of work, but to encourage you to help maintainers
-taking care of older issues and pull-requests.
+take care of older issues and pull-requests.
 
 
 {% endmarkdown %}
 
 
-<h3 id='help'>What should I do ?</h3>
+<h3 id='help'>What should I do?</h3>
 
 
 {% markdown %}
 
 
-This is about **you** first; you need to be a good mental state in order to help other. Personally I'll walk in circle for
-about 2 hours, clean my desk for it to tidy, remove extra icons for my desktop and also try to decrease my amount of
-unread mails. Like can I get under 1000 ? Also find a couple of things and click "unsubscribe", it can be mails, or slack
+This is about **you** first; you need to be in a good mental state in order to help others. Personally I'll walk in circles for
+about 2 hours, tidy my desk, remove extra icons for my desktop, and also try to decrease my amount of
+unread emails. Like can I get under 1000? Another trick is to find a couple of things and click "unsubscribe", it can be emails, or slack
 channels or un-follow people on twitter/facebook/instagram.
 
-Once you feel great about yourself go help others. What you just did for yourself here, you can now help doing for the
+Once you feel great about yourself go help others. What you just did for yourself here, you can now do for the
 maintainers of your favorites projects, and make those project better for everyone. 
 
 ### Maintainers: How to get ready:
 
- - Speak with your co-maintainers/contributors, and let them know that you consider participating. You can send your
+ - Speak with your co-maintainers/contributors, and let them know that you are considering participation. You can send your
    community links to this page and requests help. You can organise groups that would be responsible for reviewing old
-   issues and seeing if they are still relevant, and setup guideline on how to proceed during the month of November.
+   issues and seeing if they are still relevant, and setup guidelines on how to proceed during the month of November.
 
  - Tag the repositories you control with the `closember` topic, they will be listed here automatically soon. If you can't or
    don't want to for some reason, we can hard-code your repository in the list (see
@@ -426,15 +424,15 @@ maintainers of your favorites projects, and make those project better for everyo
 
  - You can star our repository to show support as well.
 
- - You may want to consider using the GitHub "Triage" role, this let you give users the ability to open/close issues
+ - You may want to consider using the GitHub "Triage" role, this will let you give users the ability to open/close issues
    without giving push rights. See [this page on GitHub docs that list permissions of each
-   groups](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)
+   group](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)
 
-### How can I help other ?
+### How can I help other?
 
-Great question ! You often do not need to know how to code to contribute to Closember ! For any project you will
-contribute to, make sure to check their guideline, and avoid eager closing of issues/PRs if that's not the desire of the
-maintainers. The following are a guideline, adapt them to fit _your skills_ as well as _skills that can be of used for
+Great question! You often do not need to know how to code to contribute to Closember! For any project you
+contribute to, make sure to check their guidelines, and avoid eager closing of issues/PRs if that's not the desire of the
+maintainers. The following guide is intended to be adapted to _your skills_ and _skills that can be of use for
 projects_.
 
  - **find your favorite project**, look at an old opened issue. Can you reproduce it ? Is it still relevant? If not, leave a
@@ -448,14 +446,14 @@ projects_.
  - You can find the list of all issues *you have opened* at https://github.com/issues, do the same as above but _you can
    close your own issues too_.
 
- - Head to https://github.com/pulls, this is all the pull-requests that you have submitted
+ - Head to https://github.com/pulls, this has all the pull-requests that you have submitted
    - Are they still relevant ?
    - Close them if not, think about finishing them otherwise. 
-   - Maybe at least think about rebasing them and `git push --force-with-lease` to make sure the test pass on the latest
+   - Maybe at least think about rebasing them and `git push --force-with-lease` to make sure the test passes on the latest
      versions.
 
- - Finish someone else Pull-Request: Many drive by contributors start pull-request but do not finish them. Maybe you can
-   take over ? Once your version of the code is merged suggest for the old pull-request to be closed.
+ - Finish the Pull-Request of someone else: Many drive by contributors start pull-request but do not finish them. Maybe you can
+   take over? Once your version of the code is merged suggest that the old pull-request to be closed.
 
 <h3 id='add-topic'>how to be listed on this leader-board ?</h3>
 
@@ -468,7 +466,7 @@ It should update soon. But please relax. It's not a sprint, it's a marathon.
 
 ### Show me this website code
 
-https://github.com/openteamsinc/closember – please come close issues.
+https://github.com/openteamsinc/closember – please come close issues.
 
 
 ### I closed all my issues / I really want to code...
@@ -531,7 +529,7 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
  - I occasionally contribute to repositories I'm not familiar with. Some of those are more than a thousand PRs opened.
    It is hard to be confident that one more PRs, even perfect will be noticed by maintainers, it's also unclear whether
    someone is already doing the work, or if my work will conflict with someone else. I often have to reach
-   personally to other maintainers – when I know them personally – to get noticed. This is definitively something which
+   personally to other maintainers – when I know them personally – to get noticed. This is definitively something which
    can be difficult to new contributor or less privileged people.
 
 
@@ -572,6 +570,8 @@ sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
 </footer>
 </main>
 </body>
+
+
 </html>
 
 
