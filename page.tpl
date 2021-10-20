@@ -9,7 +9,6 @@
 <meta property="twitter:title" content="Closember 2021 by Quansight">
 <meta name="twitter:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone">
 <meta property="twitter:image" content="https://closember.org/assets/Closember_OG.png">
-<meta name="twitter:card" content="https://closember.org/assets/Closember_OG.png">
 
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
