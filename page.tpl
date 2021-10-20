@@ -278,6 +278,11 @@ closer to release</p>
 
 ## Closeboard 
 
+{% if not ONGOING %}
+Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
+{% endif %}
+
+
 {% endmarkdown %}
 
 <table class='c1'>
@@ -312,6 +317,10 @@ Issues opened in Closember **do not count** in an effort to encourage the closin
 
 ## Total Open
 
+{% if not ONGOING %}
+Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
+{% endif %}
+
 {% endmarkdown %}
 
 <table class='c2'>
@@ -341,6 +350,10 @@ Here is a leader board of who has closed the oldest issues during the month.
 ## Longest open issue
 
 This shows the longest opened issue closed during Closember.
+
+{% if not ONGOING %}
+Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
+{% endif %}
 
 {% endmarkdown %}
 
