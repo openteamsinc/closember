@@ -1,5 +1,16 @@
 <html>
-<header>
+<head>
+<meta property="og:title" content="Closember 2021 by Quansight">
+<meta property="Twitter:title" content="Closember 2021 by Quansight">
+
+<meta property="og:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.">
+<meta name="twitter:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone">
+
+<meta property="og:image" content="assets/Closember_OG.png">
+<meta property="twitter:image" content="assets/Closember_OG.png">
+<meta name="twitter:card" content="assets/Closember_OG.png">
+
+<meta property="og:url" content="https://closember.org">
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
@@ -10,7 +21,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
 
 <!-- Place this tag in your head or just before your close body tag. -->
 
@@ -219,7 +230,7 @@ frame.img {
 
 
 </style>
-</header>
+</head>
 <body>
  <main class=wrapper>
  <nav class="navigation"></nav>
