@@ -211,6 +211,12 @@ async def hello_world():
     return await render()
 
 
+@app.route("/hero.svg")
+async def hero():
+    with open("hero.svg") as f:
+        return f.read()
+
+
 async def get_longest_open():
     res = await run_query(LONGEST_OPEN_QUERRY)
     from dateutil.parser import isoparse
@@ -332,6 +338,7 @@ async def render():
             remaining, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0)
         )
     )
+    svg = Path("hero.svg").read_text()
     res = tpl.render(
         entries=entries,
         rq=rq,
@@ -344,6 +351,7 @@ async def render():
         NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         sg_total=sg_total,
         top_sg=top_sg,
+        svg=svg,
     )
     print("done")
     return res

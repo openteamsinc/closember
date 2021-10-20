@@ -9,12 +9,15 @@
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
+
 <!-- Place this tag in your head or just before your close body tag. -->
 
 
 <style>
 .green-glow {
-    color: #00af00;
+    color: #1b721b;
     text-shadow: 0 0 5px #57e663DD;
 }
 .red-glow {
@@ -84,8 +87,28 @@ a.sg {display: inline-block;}
     margin-top: 2rem
 }
 
+.button{
+    background-color: #ee4740;
+    border-color: #ee4740;
+    border-radius: 30px;
+}
+
+a {
+    color: #ee4740;
+}
+
+h3, p, ul, body {
+color: #493222;
+}
 
 
+
+svg {
+width: 100%;  
+margin-top: -150;
+margin-bottom: -100px;
+
+};
 div#closed-sign {
    background-color: #53ad4d;
     border-radius: 15px;
@@ -105,6 +128,7 @@ div#closed-sign {
     box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
     transition-delay: 0.2s;
     transition: 0.6s;
+    display: none;
 }
 
 div#closed-sign:hover{
@@ -114,6 +138,8 @@ div#closed-sign:hover{
 h2 {
 
 text-align: center; 
+font-family: Playball, 'MJ AlGhifari', sans-serif;
+color: #493222;
 
 }
 
@@ -139,6 +165,7 @@ text-align: center;
     transition: 0.6s;
     transition-delay: 0.2s;
     box-sizing: border-box;
+    transition: 0.6s;
 }
     
 #closed-sign:before {
@@ -196,17 +223,20 @@ frame.img {
 <body>
  <main class=wrapper>
  <nav class="navigation"></nav>
- <header class="header" id="home"><section class="container"><h1 class="title">Closember</h1>
+ <header class="header" id="home"><section class="container">
+<!-- <h1 class="title">Closember</h1>-->
  {% if ONGOING %}
-    <h2>Let's Go!</h2>
+    <h2>Let s Go</h2>
  {% else %}
-    <h2>Get Ready for 2021 !</h2>
+    <h2>Get Ready for this season</h2>
+   <div id='hero'>
+   {{svg|safe}}
+   </div>
     <p>We're getting ready for 2021 and will attempt to count issues closed since last November! Current numbers are
     arbitrary and will be reset on Nov 1st.</p>
  {% endif %}
  <p>Close/Merge as many issues and PR as possible during the month of November</p>
-   <div id='closed-sign'>
-      
+   <!--<div id='closed-sign'>-->
    </div>
    <h3><span class='green-glow'>{{total_closed}}</span> / <span class='red-glow'>{{to_go}} </span> </h3>
    <blockquote>
