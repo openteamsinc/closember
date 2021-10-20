@@ -347,7 +347,7 @@ This shows the longest opened issue closed during Closember.
   <td>{{loop.index}} </td>
   <td ><a href='https://github.com/{{item.repo}}'>{{item.repo}}<a></td>
   <td class='green-glow' title='opened on {{item.open}} – closed on {{item.close}} – opened for {{item.delta}} '>{{item.delta|naturaldelta}}</td>
-  <td ><a href='{item.url}'>{{item.repo}}#{{item.number}}</td>
+  <td ><a href='{{item.url}}'>{{item.repo}}#{{item.number}}</td>
 </tr>
 {% endfor %}
 </table>
