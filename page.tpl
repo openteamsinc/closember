@@ -6,9 +6,9 @@
 <meta property="og:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.">
 <meta name="twitter:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone">
 
-<meta property="og:image" content="assets/Closember_OG.png">
-<meta property="twitter:image" content="assets/Closember_OG.png">
-<meta name="twitter:card" content="assets/Closember_OG.png">
+<meta property="og:image" content="https://closember.org/assets/Closember_OG.png">
+<meta property="twitter:image" content="https://closember.org/assets/Closember_OG.png">
+<meta name="twitter:card" content="https://closember.org/assets/Closember_OG.png">
 
 <meta property="og:url" content="https://closember.org">
 <!-- Google Fonts -->
