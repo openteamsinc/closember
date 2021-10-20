@@ -592,7 +592,7 @@ Comments on the [Following GitHub Issue](https://github.com/openteamsinc/closemb
 {% markdown %}
 Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.readthedocs.org),
 [Asks](https://asks.readthedocs.io/en/latest/) and [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/).
-Theme from [milligram](https://milligram.io/). No JS. Hero by <a href='https://twitter.com/irinafumarel'>Irina Fumarel</a>
+Theme from [milligram](https://milligram.io/). No JS. Hero illustration by <a href='https://twitter.com/irinafumarel'>Irina Fumarel</a>
 </br>
 <small>Remaining querries {{rq}} - {{NOW}}. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
