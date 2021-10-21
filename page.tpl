@@ -569,21 +569,21 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 ## F.A.Q. with creator
 
- - Why did you created Closember ?
- - It's something I wanted to do for some time, I regularly participate to
+ - Why did you create Closember ?
+ - It's something I have wanted to do for some time. I regularly participate to
    [hacktoberfest](https://hacktoberfest.digitalocean.com/) both as a user and maintainer. As a maintainer it can be a
-   deluge of PRs that can be tough to deal with. As a use, large number of PRs can be demotivating.
+   deluge of PRs that can be tough to deal with. As a user, large number of PRs can be demotivating.
  - Can you extend on what you mean with dealing will pull-requests ?
  - Yes, even when you receive a well-meaning pull-request for a feature or bug-fix you want, those usually need some
-   polishing to adapt to the code guideline, and get test and documentation added. Many of those contributions are
-   by "drive by" contributors are often unfinished, a bit like someone giving you flour, eggs, sugar and a cake recipe
+   polishing to adapt to the code guidelines, and get tests and documentation added. Many of those contributions
+   by "drive by" contributors are often unfinished, a bit like someone giving you flour, eggs, sugar, and a cake recipe
    for your birthday.
- - Can you expand on the demotivation you face as a user with many PRs ? 
- - I occasionally contribute to repositories I'm not familiar with. Some of those are more than a thousand PRs opened.
-   It is hard to be confident that one more PRs, even perfect will be noticed by maintainers, it's also unclear whether
-   someone is already doing the work, or if my work will conflict with someone else. I often have to reach
-   personally to other maintainers – when I know them personally – to get noticed. This is definitively something which
-   can be difficult to new contributor or less privileged people.
+ - Can you expand on the demotivation you face as a user with many PRs? 
+ - I occasionally contribute to repositories I'm not familiar with. Some of those have more than a thousand PRs opened.
+   It is hard to be confident that one more PR, even perfect, will be noticed by maintainers, it's also unclear whether
+   someone is already doing the work, or if my work will conflict with someone else. I often have to reach out
+   personally to other maintainers – when I know them personally – to get noticed. This is definitely something which
+   can be difficult for a new contributor or less privileged people.
 
 
 
