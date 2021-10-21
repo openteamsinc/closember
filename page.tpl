@@ -344,7 +344,8 @@ Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
 
 {% markdown %}
 
-There is no perfect metric, and we sometimes forget that issues are forgotten on the last page of the issue list.
+There is no perfect metric, and we sometimes f
+et that issues are forgotten on the last page of the issue list.
 Here is a leader board of who has closed the oldest issues during the month.
 
 ## Longest open issue
@@ -556,7 +557,7 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 
 <div class=frame>
-    <a href='https://quansight.org'><img src='assets/quansight.jpg'></a>
+    <a href='https://quansight.com'><img src='assets/quansight.jpg'></a>
 </div>
 <div class=frame>
     <a href='https://openteams.com/'><img src='assets/openteams.webp'></a>
