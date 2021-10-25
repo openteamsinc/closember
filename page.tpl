@@ -567,6 +567,7 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 </div>
 
 
+
 ## F.A.Q. with creator
 
  - Why did you create Closember ?
@@ -584,6 +585,9 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
    someone is already doing the work, or if my work will conflict with someone else. I often have to reach out
    personally to other maintainers – when I know them personally – to get noticed. This is definitely something which
    can be difficult for a new contributor or less privileged people.
+ - Anything else ?
+   Chris [pointed out](https://twitter.com/choldgraf/status/1452701624095232000) that
+   [https://www.volunteeramnestyday.net/](https://www.volunteeramnestyday.net/) was also a good resource to look at.
 
 
 
