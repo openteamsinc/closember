@@ -242,6 +242,9 @@ frame.img {
    </div>
  {% else %}
     <h2>Get Ready for this season</h2>
+   <div id='hero'>
+   {{svg|safe}}
+   </div>
     <p>We're getting ready for 2021! Current numbers are arbitrary and will be reset on Nov 1st.</p>
  {% endif %}
  <p>Close/Merge as many issues and PR as possible during the month of November</p>
