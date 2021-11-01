@@ -19,9 +19,9 @@ RC = TTLCache(1024, ttl=240)
 ONGOING = datetime.datetime.now() > datetime.datetime(2021, 11, 1, 0, 0)
 
 if ONGOING:
-    CUT_DATE = "2021-11-01"
+    CUT_DATE = "2021-11-01T00:00:00Z"
 else:
-    CUT_DATE = "2020-11-01"
+    CUT_DATE = "2020-11-01T00:00:00Z"
 
 
 # in https://docs.github.com/en/graphql/overview/explorer
@@ -36,7 +36,7 @@ LONGEST_OPEN_QUERRY = (
         ... on Repository {
           issues(first: 100, orderBy: {field: CREATED_AT, direction: ASC}, states: CLOSED, filterBy: {since:\""""
     + CUT_DATE
-    + """T00:00:00Z"}) {
+    + """"}) {
             edges {
               node {
                 closedAt
@@ -130,7 +130,7 @@ query TopicRepo {
 
 
 def query(slug):
-    return (
+    res= (
         """
 {
   search(query: "repo:"""
@@ -156,6 +156,8 @@ def query(slug):
 }
 """
     )
+    print(res)
+    return res
 
 
 def query_open(slug, type_):
@@ -180,6 +182,7 @@ def query_open(slug, type_):
 }
 """
     )
+    print(res)
     return res
 
 
