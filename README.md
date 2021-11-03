@@ -6,6 +6,6 @@ See https://closember.org
 
 ```
 $ pip install -r requirements.txt
-$ export PAT="github personal access token"
+$ export PATH="github personal access token"
 $ python -m app.py
 ```
