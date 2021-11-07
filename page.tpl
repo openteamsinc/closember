@@ -280,8 +280,7 @@ closer to release</p>
 ## Did you know ?
 ----- 
 
-#### You can go to https://github.com/issues and https://github.com/pulls to see all the issues/pull-requests **you**
-opened. Are those still relevant ? Maybe close a few if not.
+#### You can go to https://github.com/issues and https://github.com/pulls to see all the issues/pull-requests **you** opened. Are those still relevant ? Maybe close a few if not.
 
 ----- 
 
