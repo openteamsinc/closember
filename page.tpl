@@ -273,11 +273,17 @@ closer to release</p>
 
 ## Why Closember ?
 
------ 
-
 #### Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone. [more...](#more)
 
+----- 
 
+## Did you know ?
+----- 
+
+#### You can go to https://github.com/issues and https://github.com/pulls to see all the issues/pull-requests **you**
+opened. Are those still relevant ? Maybe close a few if not.
+
+----- 
 
 ## Closeboard 
 
