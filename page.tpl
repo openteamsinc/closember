@@ -43,8 +43,37 @@ li > p {
    max-width: 80rem;
 }
 
+.avatar-container{
+    text-align: center;
+}
+
+.sg > img {
+    width: 50px ;
+    border-radius: 50px ;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .sg > img {max-width: 50px; border-radius: 50px}
-a.sg {display: inline-block;}
+a.sg {
+    min-width: 70px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px ;
+    border-radius: 10px ;
+    transition: all 1.5s ease;
+}
+a.sg > img{
+    transition: all 1.5s ease;
+    filter: sepia(40%);
+}
+a.sg:hover > img {
+    filter: sepia(10%);
+}
+a.sg:hover {
+    background: #e676063d;
+}
 
 
 .wrapper {
@@ -410,9 +439,12 @@ organizations or projects don't participate <!-- Place this tag where you want t
 <a class="github-button" href="https://github.com/openteamsinc/closember" data-icon="octicon-star" aria-label="Star
 opentaemsinc/closember on GitHub">Star</a> </p>
 
+
+<div class='avatar-container'>
 {% for sg in top_sg %}
 <a class='sg' href="{{sg.url}}"><img src={{sg.avatar}}/><div>{{sg.login}}</div></a>
 {% endfor %}
+</div>
 
 {% markdown %}
 
