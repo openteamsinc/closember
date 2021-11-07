@@ -18,7 +18,7 @@
 
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
 <link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
 
