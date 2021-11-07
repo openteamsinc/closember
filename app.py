@@ -293,7 +293,7 @@ async def render():
     top_sg = [
         {
             "login": x["node"]["login"],
-            "avatar": x["node"]["avatarUrl"][:-1]+'&s=50',
+            "avatar": x["node"]["avatarUrl"]+'&s=50',
             "url": x["node"]["url"],
         }
         for x in all_sg["edges"]
