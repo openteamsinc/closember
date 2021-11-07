@@ -269,7 +269,7 @@ frame.img {
  <header class="header" id="home"><section class="container">
 <!-- <h1 class="title">Closember</h1>-->
  {% if ONGOING %}
-    <h2>Let s Go</h2>
+    <h2>Let's Go!</h2>
    <div id='hero'>
    {{svg|safe}}
    </div>
