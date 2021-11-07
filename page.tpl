@@ -293,7 +293,7 @@ Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
 <th>#</th>
 <th>Repository</th>
 <th>Closed Issues</th>
-<th>Closed PRs</th>
+<th>Closed/Merged PRs</th>
 </tr>
 {% for e,v in entries|reverse %}
 <tr>
@@ -354,6 +354,8 @@ Here is a leader board of who has closed the oldest issues during the month.
 ## Longest open issue
 
 This shows the longest opened issue closed during Closember.
+
+(Note: there is not longest open PR because of GitHub API. Unless you find a way to do it)
 
 {% if not ONGOING %}
 Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
