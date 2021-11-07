@@ -446,7 +446,7 @@ opentaemsinc/closember on GitHub">Star</a> </p>
 
 <div class='avatar-container'>
 {% for sg in top_sg %}
-<a class='sg' href="{{sg.url}}"><img src="{{sg.avatar}}" /><div>{{sg.login}}</div></a>
+<a class='sg' href="{{sg.url}}"><img width="50px", height='50px' src="{{sg.avatar}}" /><div>{{sg.login}}</div></a>
 {% endfor %}
 </div>
 
