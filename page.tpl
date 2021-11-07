@@ -513,7 +513,7 @@ projects_.
  - Finish the Pull-Request of someone else: Many drive by contributors start pull-request but do not finish them. Maybe you can
    take over? Once your version of the code is merged suggest that the old pull-request to be closed.
 
-<h3 id='add-topic'>how to be listed on this leader-board ?</h3>
+<h3 id='add-topic'>How to be listed on this leader-board ?</h3>
 
 **Add the [`closember` topic](https://github.com/topics/closember)** to your repositories. Next time the site is updated you'll be listed.
 
