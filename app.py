@@ -7,7 +7,8 @@ import datetime
 import trio
 import asks
 from pathlib import Path
-PAT = os.environ['PAT']
+
+PAT = os.environ["PAT"]
 
 headers = {"Authorization": f"Bearer {PAT}"}
 
@@ -64,24 +65,24 @@ LONGEST_OPEN_QUERRY = (
 print(LONGEST_OPEN_QUERRY)
 
 
-async def _rec(query, slug, cursor): 
-    print('recurse')
+async def _rec(query, slug, cursor):
+    print("recurse")
     q = query(slug, cursor)
     request = await asks.post(
         "https://api.github.com/graphql", json={"query": q}, headers=headers
     )
     res = request.json()
-    pinfo = res.get('data',{}).get('search', {}).get('pageInfo', {})
-    if pinfo.get('hasNextPage', {}):
-        endCursor = pinfo['endCursor']
-        return res['data']['search']['edges'] + await _rec(query, slug, endCursor)
+    pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
+    if pinfo.get("hasNextPage", {}):
+        endCursor = pinfo["endCursor"]
+        return res["data"]["search"]["edges"] + await _rec(query, slug, endCursor)
     else:
-        return res['data']['search']['edges']
+        return res["data"]["search"]["edges"]
+
 
 # @ttl_cache( ttl=240)
 async def run_query(
-    query,
-    slug
+    query, slug
 ):  # A simple function to use requests.post to make the API call. Note the json= section.
     RC.expire()
     q = query(slug)
@@ -93,11 +94,12 @@ async def run_query(
         )
         if request.status_code == 200:
             res = request.json()
-            pinfo = res.get('data',{}).get('search', {}).get('pageInfo',{})
-            if pinfo.get('hasNextPage'):
-                endCursor = pinfo['endCursor']
-                res['data']['search']['edges'].extend(await _rec(query, slug, endCursor))
-
+            pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
+            if pinfo.get("hasNextPage"):
+                endCursor = pinfo["endCursor"]
+                res["data"]["search"]["edges"].extend(
+                    await _rec(query, slug, endCursor)
+                )
 
             RC[q] = res
             return res
@@ -110,7 +112,6 @@ async def run_query(
     else:
         return res
 
-        
 
 STARGAZERS = """
 {
@@ -151,10 +152,10 @@ query TopicRepo {
 """
 
 
-def query(slug, after='null'):
-    if after is not 'null' and not after.startswith('"'):
-        after = '"'+after+'"'
-    res= (
+def query(slug, after="null"):
+    if after is not "null" and not after.startswith('"'):
+        after = '"' + after + '"'
+    res = (
         """
 {
   search(query: "repo:"""
@@ -163,7 +164,9 @@ def query(slug, after='null'):
         + CUT_DATE
         + """ closed:>"""
         + CUT_DATE
-        + """", type: ISSUE, last:100, after:"""+after+""") {
+        + """", type: ISSUE, last:100, after:"""
+        + after
+        + """) {
         issueCount
         edges{
             node{
@@ -223,14 +226,13 @@ from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoesca
 app = QuartTrio(__name__)
 
 
-slugs = [
-]
+slugs = []
 
 from collections import Counter
 
 
 async def get_p():
-    data = await run_query(lambda s:PARTICIP, '')
+    data = await run_query(lambda s: PARTICIP, "")
     data = data["data"]["search"]["edges"]
     return [n["node"]["owner"]["login"] + "/" + n["node"]["name"] for n in data] + slugs
 
@@ -247,7 +249,7 @@ async def hero():
 
 
 async def get_longest_open():
-    res = await run_query(lambda s:LONGEST_OPEN_QUERRY, '')
+    res = await run_query(lambda s: LONGEST_OPEN_QUERRY, "")
     from dateutil.parser import isoparse
     from collections import namedtuple
 
@@ -298,10 +300,10 @@ async def render():
 
     async def loc(storage, key, query):
         assert not isinstance(query, str)
-        storage[key] = await run_query(query,key)
+        storage[key] = await run_query(query, key)
 
     async def get_sg(sgs):
-        sgs.update(await run_query(lambda s:STARGAZERS, ''))
+        sgs.update(await run_query(lambda s: STARGAZERS, ""))
 
     print("Start contacting github...")
     slgs = sorted(set(await get_p()))
@@ -309,8 +311,8 @@ async def render():
     async with trio.open_nursery() as n:
         for s in slgs:
             n.start_soon(loc, reses1, s, query)
-            n.start_soon(loc, reses2, s, lambda s:query_open(s, "pr"))
-            n.start_soon(loc, reses3, s, lambda s:query_open(s, "issue"))
+            n.start_soon(loc, reses2, s, lambda s: query_open(s, "pr"))
+            n.start_soon(loc, reses3, s, lambda s: query_open(s, "issue"))
         sgs = {}
         n.start_soon(get_sg, sgs)
     print("Done")
@@ -320,7 +322,7 @@ async def render():
     top_sg = [
         {
             "login": x["node"]["login"],
-            "avatar": x["node"]["avatarUrl"]+'&s=50',
+            "avatar": x["node"]["avatarUrl"] + "&s=50",
             "url": x["node"]["url"],
         }
         for x in all_sg["edges"]
@@ -391,12 +393,12 @@ async def render():
 def addp(p):
     global slugs
     try:
-        org,name = p.split('/')
+        org, name = p.split("/")
         if org.isalnum() and name.isalnum():
             slugs.append(p)
-        return 'ok'
+        return "ok"
     except Exception:
-        return 'no'
+        return "no"
 
 
 def main():
