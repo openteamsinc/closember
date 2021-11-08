@@ -64,25 +64,47 @@ LONGEST_OPEN_QUERRY = (
 print(LONGEST_OPEN_QUERRY)
 
 
+async def _rec(query, slug, cursor): 
+    print('recurse')
+    q = query(slug, cursor)
+    request = await asks.post(
+        "https://api.github.com/graphql", json={"query": q}, headers=headers
+    )
+    res = request.json()
+    pinfo = res.get('data',{}).get('search', {}).get('pageInfo', {})
+    if pinfo.get('hasNextPage', {}):
+        endCursor = pinfo['endCursor']
+        return res['data']['search']['edges'] + await _rec(query, slug, endCursor)
+    else:
+        return res['data']['search']['edges']
+
 # @ttl_cache( ttl=240)
 async def run_query(
     query,
+    slug
 ):  # A simple function to use requests.post to make the API call. Note the json= section.
     RC.expire()
-    res = RC.get(query, None)
+    q = query(slug)
+    res = RC.get(q, None)
     if res is None:
 
         request = await asks.post(
-            "https://api.github.com/graphql", json={"query": query}, headers=headers
+            "https://api.github.com/graphql", json={"query": q}, headers=headers
         )
         if request.status_code == 200:
             res = request.json()
-            RC[query] = res
+            pinfo = res.get('data',{}).get('search', {}).get('pageInfo',{})
+            if pinfo.get('hasNextPage'):
+                endCursor = pinfo['endCursor']
+                res['data']['search']['edges'].extend(await _rec(query, slug, endCursor))
+
+
+            RC[q] = res
             return res
         else:
             raise Exception(
                 "Query failed to run by returning code of {}. {}".format(
-                    request.status_code, query
+                    request.status_code, q
                 )
             )
     else:
@@ -129,7 +151,9 @@ query TopicRepo {
 """
 
 
-def query(slug):
+def query(slug, after='null'):
+    if after is not 'null' and not after.startswith('"'):
+        after = '"'+after+'"'
     res= (
         """
 {
@@ -139,13 +163,17 @@ def query(slug):
         + CUT_DATE
         + """ closed:>"""
         + CUT_DATE
-        + """", type: ISSUE, last:100) {
+        + """", type: ISSUE, last:100, after:"""+after+""") {
         issueCount
         edges{
             node{
                 __typename
             }
         }
+        pageInfo {
+        	endCursor
+        	hasNextPage
+      	}
   }
   rateLimit {
     limit
@@ -156,7 +184,6 @@ def query(slug):
 }
 """
     )
-    print(res)
     return res
 
 
@@ -182,7 +209,6 @@ def query_open(slug, type_):
 }
 """
     )
-    print(res)
     return res
 
 
@@ -204,7 +230,7 @@ from collections import Counter
 
 
 async def get_p():
-    data = await run_query(PARTICIP)
+    data = await run_query(lambda s:PARTICIP, '')
     data = data["data"]["search"]["edges"]
     return [n["node"]["owner"]["login"] + "/" + n["node"]["name"] for n in data] + slugs
 
@@ -221,7 +247,7 @@ async def hero():
 
 
 async def get_longest_open():
-    res = await run_query(LONGEST_OPEN_QUERRY)
+    res = await run_query(lambda s:LONGEST_OPEN_QUERRY, '')
     from dateutil.parser import isoparse
     from collections import namedtuple
 
@@ -271,19 +297,20 @@ async def render():
     reses3 = {}
 
     async def loc(storage, key, query):
-        storage[key] = await run_query(query)
+        assert not isinstance(query, str)
+        storage[key] = await run_query(query,key)
 
     async def get_sg(sgs):
-        sgs.update(await run_query(STARGAZERS))
+        sgs.update(await run_query(lambda s:STARGAZERS, ''))
 
     print("Start contacting github...")
     slgs = sorted(set(await get_p()))
     other = await get_longest_open()
     async with trio.open_nursery() as n:
         for s in slgs:
-            n.start_soon(loc, reses1, s, query(s))
-            n.start_soon(loc, reses2, s, query_open(s, "pr"))
-            n.start_soon(loc, reses3, s, query_open(s, "issue"))
+            n.start_soon(loc, reses1, s, query)
+            n.start_soon(loc, reses2, s, lambda s:query_open(s, "pr"))
+            n.start_soon(loc, reses3, s, lambda s:query_open(s, "issue"))
         sgs = {}
         n.start_soon(get_sg, sgs)
     print("Done")
@@ -374,7 +401,7 @@ def addp(p):
 
 def main():
 
-    port = os.environ.get("PORT", 5000)
+    port = os.environ.get("PORT", 5001)
     print("Seen config port ", port)
     prod = os.environ.get("PROD", None)
     if prod:
