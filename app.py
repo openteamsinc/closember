@@ -10,19 +10,23 @@ from pathlib import Path
 
 PAT = os.environ["PAT"]
 
-headers = {"Authorization": f"Bearer {PAT}"}
+# headers = {"Authorization": f"Bearer {PAT}"}
 
 from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
 
-ONGOING = datetime.datetime.now() > datetime.datetime(2021, 11, 1, 0, 0)
+ONGOING = (
+    datetime.datetime(2021, 11, 1, 0, 0)
+    < datetime.datetime.now()
+    < datetime.datetime(2021, 12, 1, 0, 0)
+)
 
 if ONGOING:
-    CUT_DATE = "2021-11-01T00:00:00Z"
+    CUT_DATE = "2022-11-01T00:00:00Z"
 else:
-    CUT_DATE = "2020-11-01T00:00:00Z"
+    CUT_DATE = "2021-11-01T00:00:00Z"
 
 
 # in https://docs.github.com/en/graphql/overview/explorer
@@ -64,13 +68,53 @@ LONGEST_OPEN_QUERRY = (
 
 print(LONGEST_OPEN_QUERRY)
 
+from pathlib import Path
+import json
+
+CACHE = Path("cache.json")
+
+
+class FakeRequest:
+
+    status_code = 200
+
+    def __init__(self, data):
+
+        self.data = data
+
+    def json(self):
+        return self.data
+
+
+GCACHE = {}
+
+
+async def asks_post(url, *, querry, pat):
+    global GCACHE
+    if CACHE.exists() and not GCACHE:
+        GCACHE = json.loads(CACHE.read_text())
+    key = json.dumps([url, querry], indent=2)
+    res = GCACHE.get(key, None)
+    if res is not None:
+        print("Using Cached request")
+        return FakeRequest(res)
+    else:
+        print("Real Querry", url, querry)
+        res = await asks.post(
+            "https://api.github.com/graphql",
+            json={"query": querry},
+            headers={"Authorization": f"Bearer {pat}"},
+        )
+        GCACHE[key] = res.json()
+    CACHE.write_text(json.dumps(GCACHE))
+    assert res is not None
+    return res
+
 
 async def _rec(query, slug, cursor):
     print("recurse")
     q = query(slug, cursor)
-    request = await asks.post(
-        "https://api.github.com/graphql", json={"query": q}, headers=headers
-    )
+    request = await asks_post("https://api.github.com/graphql", querry=q, pat=PAT)
     res = request.json()
     pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
     if pinfo.get("hasNextPage", {}):
@@ -80,7 +124,6 @@ async def _rec(query, slug, cursor):
         return res["data"]["search"]["edges"]
 
 
-# @ttl_cache( ttl=240)
 async def run_query(
     query, slug
 ):  # A simple function to use requests.post to make the API call. Note the json= section.
@@ -89,9 +132,7 @@ async def run_query(
     res = RC.get(q, None)
     if res is None:
 
-        request = await asks.post(
-            "https://api.github.com/graphql", json={"query": q}, headers=headers
-        )
+        request = await asks_post("https://api.github.com/graphql", querry=q, pat=PAT)
         if request.status_code == 200:
             res = request.json()
             pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
@@ -167,10 +208,17 @@ def query(slug, after="null"):
         + """", type: ISSUE, last:100, after:"""
         + after
         + """) {
-        issueCount
         edges{
             node{
                 __typename
+                ... on Issue {
+                  id
+                  closedAt
+                }
+                ... on PullRequest {
+                  id
+                  closedAt
+                }
             }
         }
         pageInfo {
@@ -248,9 +296,11 @@ async def hero():
         return f.read()
 
 
+from dateutil.parser import isoparse
+
+
 async def get_longest_open():
     res = await run_query(lambda s: LONGEST_OPEN_QUERRY, "")
-    from dateutil.parser import isoparse
     from collections import namedtuple
 
     LongestClosed = namedtuple(
@@ -265,16 +315,17 @@ async def get_longest_open():
 
             closed = isoparse(issue["node"]["closedAt"])
             opened = isoparse(issue["node"]["createdAt"])
-            dpl.append(
-                LongestClosed(
-                    closed - opened,
-                    reponame,
-                    issue["node"]["url"],
-                    opened,
-                    closed,
-                    issue["node"]["number"],
+            if closed < isoparse("2021-12-01T00:00:00Z"):
+                dpl.append(
+                    LongestClosed(
+                        closed - opened,
+                        reponame,
+                        issue["node"]["url"],
+                        opened,
+                        closed,
+                        issue["node"]["number"],
+                    )
                 )
-            )
         if dpl:
             duration_pairs.append(list(sorted(dpl, reverse=True))[0])
 
@@ -295,8 +346,8 @@ async def render():
     rq = 5000
 
     reses1 = {}
-    reses2 = {}
-    reses3 = {}
+    res_total_open_prs = {}
+    res_total_open_issues = {}
 
     async def loc(storage, key, query):
         assert not isinstance(query, str)
@@ -311,8 +362,10 @@ async def render():
     async with trio.open_nursery() as n:
         for s in slgs:
             n.start_soon(loc, reses1, s, query)
-            n.start_soon(loc, reses2, s, lambda s: query_open(s, "pr"))
-            n.start_soon(loc, reses3, s, lambda s: query_open(s, "issue"))
+            n.start_soon(loc, res_total_open_prs, s, lambda s: query_open(s, "pr"))
+            n.start_soon(
+                loc, res_total_open_issues, s, lambda s: query_open(s, "issue")
+            )
         sgs = {}
         n.start_soon(get_sg, sgs)
     print("Done")
@@ -331,13 +384,19 @@ async def render():
     for s in slgs:
         # await loc(reses1, s, query(s))
         res1 = reses1[s]
-        res2 = reses2[s]
-        res3 = reses3[s]
+        res2 = res_total_open_prs[s]
+        res3 = res_total_open_issues[s]
 
         rq = min(rq, res1["data"]["rateLimit"]["remaining"])
 
         search = res1["data"]["search"]
-        entries[s] = search["issueCount"]
+        entries[s] = sum(
+            [
+                isoparse(x["node"]["closedAt"]) < isoparse("2021-12-01T00:00:00Z")
+                for x in res1["data"]["search"]["edges"]
+            ]
+        )
+
         c = Counter([s["node"]["__typename"] for s in search["edges"]])
         entries[s] = dict(c)
 

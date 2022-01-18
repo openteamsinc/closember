@@ -21,6 +21,9 @@
 <!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
 <link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 
@@ -79,6 +82,11 @@ a.sg:hover {
     background: #e676063d;
 }
 
+.vega-embed > details {
+
+display: none;
+
+}
 
 .wrapper {
     display: block;
@@ -274,11 +282,13 @@ frame.img {
    {{svg|safe}}
    </div>
  {% else %}
-    <h2>Get Ready for this season</h2>
+    <h2>It's a wrap for 2021, Prepare for 2022</h2>
    <div id='hero'>
    {{svg|safe}}
    </div>
-    <p>We're getting ready for 2021! Current numbers are arbitrary and will be reset on Nov 1st.</p>
+    <p>And we are all done for 2021 ! Thanks to all the participants, we are already working on preparing 2022, your
+    help is welcomed ! Please come contribute to the <a
+    href="https://github.com/openteamsinc/closember/issues">closember repo</a> </p>
  {% endif %}
  <p>Close/Merge as many issues and PR as possible during the month of November</p>
    <!--<div id='closed-sign'>-->
@@ -297,9 +307,8 @@ frame.img {
 
 
 {% if not ONGOING %}
-<p>This is a draft, right now the issue count use {{CUT_DATE}} as a threshold it will be changed to <b>November
-1<sup>st</sup></b>
-closer to release</p>
+<p>Metric collections have stopped since Dec 1st, you can still tag your repo with the closember tag to see how well you
+did, and get ready for next year.</p>
 {% endif %}
 
 {% markdown %}
@@ -670,6 +679,46 @@ Theme from [milligram](https://milligram.io/). No JS. Hero illustration by <a hr
 <small>Remaining querries {{rq}} - {{NOW}}. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
 {% endmarkdown %}
+    <div id="vis"></div>
+    <div id="vis2"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description": "Stock prices of 5 Tech Companies over Time.",
+        "title": "ISSUES",
+        "data": {
+                "values": [
+                    {"a": "2021-01", "b": 21, "status":"open"},
+                    {"a": "2021-02", "b": 22, "status":"open"},
+                    {"a": "2021-03", "b": 23, "status":"open"},
+                    {"a": "2021-04", "b": 23, "status":"open"},
+                    {"a": "2021-01", "b": 25, "status":"close"},
+                    {"a": "2021-02", "b": 18, "status":"close"},
+                    {"a": "2021-03", "b": 16, "status":"close"},
+                    {"a": "2021-04", "b": 37, "status":"close"}
+                ]
+                },
+        "mark": {
+            "type": "line",
+            "point": {
+            "filled": false,
+            "fill": "white"
+            }
+        },
+        "encoding": {
+            "x": {"timeUnit": "month", "field": "a"},
+            "y": {"field": "b", "type": "quantitative"},
+            "color": {"field": "status", "type": "nominal"}
+        }
+        };
+
+
+      //vegaEmbed('#vis', yourVlSpec);
+      var s2 = {...yourVlSpec}
+      s2['title'] = 'Pull Requests'
+      //vegaEmbed('#vis2', s2);
+    </script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </section>
 </footer>
