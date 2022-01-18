@@ -380,7 +380,7 @@ async def render():
         }
         for x in all_sg["edges"]
     ]
-
+    monthly_counter_per_slug = {}
     for s in slgs:
         # await loc(reses1, s, query(s))
         res1 = reses1[s]
@@ -396,6 +396,23 @@ async def render():
                 for x in res1["data"]["search"]["edges"]
             ]
         )
+
+        # we we compute the number os issues closed/open each month.
+        monthly_counter = {x: {"Issue": 0, "PullRequest": 0} for x in range(1, 13)}
+        for month, type_ in [
+            (isoparse(x["node"]["closedAt"]).month, x["node"]["__typename"])
+            for x in res1["data"]["search"]["edges"]
+        ]:
+            monthly_counter[month][type_] += 1
+
+        monthly_counter_per_slug[s] = [
+            {
+                "date": f"2021-{m:02d}",
+                "Issues": monthly_counter[m]["Issue"],
+                "PR": monthly_counter[m]["PullRequest"],
+            }
+            for m in range(1, 13)
+        ]
 
         c = Counter([s["node"]["__typename"] for s in search["edges"]])
         entries[s] = dict(c)
@@ -443,6 +460,7 @@ async def render():
         sg_total=sg_total,
         top_sg=top_sg,
         svg=svg,
+        monthly_counter_per_slug=monthly_counter_per_slug,
     )
     print("done")
     return res

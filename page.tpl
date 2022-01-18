@@ -683,20 +683,21 @@ sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
     <div id="vis2"></div>
 
     <script type="text/javascript">
+        var xx = {{monthly_counter_per_slug|safe}};
       var yourVlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "description": "Stock prices of 5 Tech Companies over Time.",
         "title": "ISSUES",
         "data": {
                 "values": [
-                    {"a": "2021-01", "b": 21, "status":"open"},
-                    {"a": "2021-02", "b": 22, "status":"open"},
-                    {"a": "2021-03", "b": 23, "status":"open"},
-                    {"a": "2021-04", "b": 23, "status":"open"},
-                    {"a": "2021-01", "b": 25, "status":"close"},
-                    {"a": "2021-02", "b": 18, "status":"close"},
-                    {"a": "2021-03", "b": 16, "status":"close"},
-                    {"a": "2021-04", "b": 37, "status":"close"}
+        //            {"date": "2021-01", "Issue": 21, "status":"open"},
+        //            {"date": "2021-02", "Issue": 22, "status":"open"},
+        //            {"date": "2021-03", "Issue": 23, "status":"open"},
+        //            {"date": "2021-04", "Issue": 23, "status":"open"},
+        //            {"date": "2021-01", "Issue": 25, "status":"close"},
+        //            {"date": "2021-02", "Issue": 18, "status":"close"},
+        //            {"date": "2021-03", "Issue": 16, "status":"close"},
+        //            {"date": "2021-04", "Issue": 37, "status":"close"}
                 ]
                 },
         "mark": {
@@ -707,17 +708,27 @@ sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
             }
         },
         "encoding": {
-            "x": {"timeUnit": "month", "field": "a"},
-            "y": {"field": "b", "type": "quantitative"},
-            "color": {"field": "status", "type": "nominal"}
+            "x": {"timeUnit": "month", "field": "date"},
+            "y": {"field": "Issues", "type": "quantitative"},
+            //"color": {"field": "status", "type": "nominal"}
         }
         };
 
 
-      //vegaEmbed('#vis', yourVlSpec);
-      var s2 = {...yourVlSpec}
-      s2['title'] = 'Pull Requests'
-      //vegaEmbed('#vis2', s2);
+      var s2 = {...yourVlSpec};
+      s2['title'] = 'Issues';
+      s2['data']['values'] = xx['ipython/ipython']
+      //vegaEmbed('#vis', s2);
+
+      var s3 = {...yourVlSpec};
+      s3['title'] = 'Pull Requests';
+      s3['data']['values'] = xx['ipython/ipython'];
+      s3['encoding']= {
+            "x": {"timeUnit": "month", "field": "date"},
+            "y": {"field": "PR", "type": "quantitative"},
+            //"color": {"field": "status", "type": "nominal"}
+        };
+      //vegaEmbed('#vis2', s3);
     </script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </section>
