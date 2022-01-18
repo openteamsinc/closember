@@ -21,6 +21,9 @@
 <!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
 <link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 
@@ -79,6 +82,11 @@ a.sg:hover {
     background: #e676063d;
 }
 
+.vega-embed > details {
+
+display: none;
+
+}
 
 .wrapper {
     display: block;
@@ -269,7 +277,7 @@ frame.img {
  <header class="header" id="home"><section class="container">
 <!-- <h1 class="title">Closember</h1>-->
  
-    <h2>Let's Go!</h2>
+    <h2>It's a wrap for 2021, Prepare for 2022</h2>
    <div id='hero'>
    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
@@ -1409,23 +1417,29 @@ frame.img {
    xml:space="preserve" /></svg>
 
    </div>
+    <p>And we are all done for 2021 ! Thanks to all the participants, we are already working on preparing 2022, your
+    help is welcomed ! Please come contribute to the <a
+    href="https://github.com/openteamsinc/closember/issues">closember repo</a> </p>
  
  <p>Close/Merge as many issues and PR as possible during the month of November</p>
    <!--<div id='closed-sign'>-->
    </div>
-   <h3><span class='green-glow'>1083</span> / <span class='red-glow'>11495 </span> </h3>
+   <h3><span class='green-glow'>1084</span> / <span class='red-glow'>11496 </span> </h3>
    <blockquote>
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
 <footer><small>― Antoine de Saint-Exupéry,</small></footer>
 </blockquote>
-   <p><span class='green-glow'>1083</span> issues and pull-requests closed (or merged) so far! We need your help with
+   <p><span class='green-glow'>1084</span> issues and pull-requests closed (or merged) so far! We need your help with
    the <span
-   class='red-glow'>11495 </span> that need to go... </p>
+   class='red-glow'>11496 </span> that need to go... </p>
    <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
    </section></header>
   <section class='container'>
 
 
+
+<p>Metric collections have stopped since Dec 1st, you can still tag your repo with the closember tag to see how well you
+did, and get ready for next year.</p>
 
 
 <h2>Why Closember ?</h2>
@@ -1436,6 +1450,7 @@ frame.img {
 <h4>You can go to <a href="https://github.com/issues">https://github.com/issues</a> and <a href="https://github.com/pulls">https://github.com/pulls</a> to see all the issues/pull-requests <strong>you</strong> opened. Are those still relevant ? Maybe close a few if not.</h4>
 <hr />
 <h2>Closeboard</h2>
+<p>Placeholder values : Will be reset to 0 on Nov 1<sup>st</sup> when Closember starts.</p>
 
 <table class='c1'>
 <tr>
@@ -1483,7 +1498,7 @@ frame.img {
 <tr>
   <td>6</td>
   <td ><a href='https://github.com/PyCQA/pylint'>PyCQA/pylint<a></td>
-  <td class='green-glow'>59</td>
+  <td class='green-glow'>60</td>
   <td class='green-glow'>8</td>
 </tr>
 
@@ -1766,6 +1781,7 @@ frame.img {
 <p>This table tracks the number of Issues and Pull requests that have been closed(or merged) in each of projects during the month of Closember. 
 Issues opened in Closember <strong>do not count</strong> in an effort to encourage the closing of older issues.</p>
 <h2>Total Open</h2>
+<p>Placeholder values : Will be reset to 0 on Nov 1<sup>st</sup> when Closember starts.</p>
 
 <table class='c2'>
 <tr>
@@ -1989,7 +2005,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
   <td>31 </td>
   <td ><a href='https://github.com/PyCQA/astroid'>PyCQA/astroid<a></td>
   <td class='red-glow'>150</td>
-  <td class='red-glow'>25</td>
+  <td class='red-glow'>26</td>
 </tr>
 
 <tr>
@@ -2002,7 +2018,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
 <tr>
   <td>33 </td>
   <td ><a href='https://github.com/thanos-io/thanos'>thanos-io/thanos<a></td>
-  <td class='red-glow'>187</td>
+  <td class='red-glow'>186</td>
   <td class='red-glow'>33</td>
 </tr>
 
@@ -2051,8 +2067,8 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
 <tr>
   <td>40 </td>
   <td ><a href='https://github.com/PyCQA/pylint'>PyCQA/pylint<a></td>
-  <td class='red-glow'>726</td>
-  <td class='red-glow'>39</td>
+  <td class='red-glow'>725</td>
+  <td class='red-glow'>40</td>
 </tr>
 
 <tr>
@@ -2072,7 +2088,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
 <tr>
   <td>43 </td>
   <td ><a href='https://github.com/scipy/scipy'>scipy/scipy<a></td>
-  <td class='red-glow'>1488</td>
+  <td class='red-glow'>1489</td>
   <td class='red-glow'>344</td>
 </tr>
 
@@ -2093,6 +2109,7 @@ Here is a leader board of who has closed the oldest issues during the month.</p>
 <h2>Longest open issue</h2>
 <p>This shows the longest opened issue closed during Closember.</p>
 <p>(Note: there is not longest open PR because of GitHub API. Unless you find a way to do it)</p>
+<p>Placeholder values : Will be reset to 0 on Nov 1<sup>st</sup> when Closember starts.</p>
 
 <table class='c2'>
 <tr>
@@ -2112,43 +2129,43 @@ Here is a leader board of who has closed the oldest issues during the month.</p>
 <tr>
   <td>2 </td>
   <td ><a href='https://github.com/scipy/scipy'>scipy/scipy<a></td>
-  <td class='green-glow' title='opened on 2013-04-25 17:36:16+00:00 – closed on  – opened for 3176 days, 19:59:36 '>8 years</td>
-  <td ><a href='https://github.com/scipy/scipy/issues/1953'>scipy/scipy#1953</td>
+  <td class='green-glow' title='opened on 2013-04-25 16:41:05+00:00 – closed on  – opened for 3116 days, 22:39:37 '>8 years</td>
+  <td ><a href='https://github.com/scipy/scipy/issues/629'>scipy/scipy#629</td>
 </tr>
 
 <tr>
   <td>3 </td>
-  <td ><a href='https://github.com/PyCQA/pylint'>PyCQA/pylint<a></td>
-  <td class='green-glow' title='opened on 2013-09-28 18:01:38+00:00 – closed on  – opened for 2997 days, 14:04:20 '>8 years</td>
-  <td ><a href='https://github.com/PyCQA/pylint/issues/85'>PyCQA/pylint#85</td>
-</tr>
-
-<tr>
-  <td>4 </td>
   <td ><a href='https://github.com/astropy/astroquery'>astropy/astroquery<a></td>
   <td class='green-glow' title='opened on 2013-09-20 19:31:14+00:00 – closed on  – opened for 2967 days, 2:07:29 '>8 years</td>
   <td ><a href='https://github.com/astropy/astroquery/issues/222'>astropy/astroquery#222</td>
 </tr>
 
 <tr>
-  <td>5 </td>
+  <td>4 </td>
   <td ><a href='https://github.com/datalad/datalad'>datalad/datalad<a></td>
   <td class='green-glow' title='opened on 2014-07-28 14:50:08+00:00 – closed on  – opened for 2653 days, 15:54:46 '>7 years</td>
   <td ><a href='https://github.com/datalad/datalad/issues/3'>datalad/datalad#3</td>
 </tr>
 
 <tr>
-  <td>6 </td>
+  <td>5 </td>
   <td ><a href='https://github.com/vispy/vispy'>vispy/vispy<a></td>
   <td class='green-glow' title='opened on 2014-08-10 20:07:17+00:00 – closed on  – opened for 2642 days, 5:59:59 '>7 years</td>
   <td ><a href='https://github.com/vispy/vispy/issues/379'>vispy/vispy#379</td>
 </tr>
 
 <tr>
-  <td>7 </td>
+  <td>6 </td>
   <td ><a href='https://github.com/spyder-ide/spyder'>spyder-ide/spyder<a></td>
   <td class='green-glow' title='opened on 2015-02-17 21:14:54+00:00 – closed on  – opened for 2465 days, 0:21:56 '>6 years</td>
   <td ><a href='https://github.com/spyder-ide/spyder/issues/1922'>spyder-ide/spyder#1922</td>
+</tr>
+
+<tr>
+  <td>7 </td>
+  <td ><a href='https://github.com/PyCQA/pylint'>PyCQA/pylint<a></td>
+  <td class='green-glow' title='opened on 2015-03-30 18:49:18+00:00 – closed on  – opened for 2419 days, 2:27:40 '>6 years</td>
+  <td ><a href='https://github.com/PyCQA/pylint/issues/507'>PyCQA/pylint#507</td>
 </tr>
 
 <tr>
@@ -2161,15 +2178,15 @@ Here is a leader board of who has closed the oldest issues during the month.</p>
 <tr>
   <td>9 </td>
   <td ><a href='https://github.com/spyder-ide/qtpy'>spyder-ide/qtpy<a></td>
-  <td class='green-glow' title='opened on 2016-08-16 04:46:44+00:00 – closed on  – opened for 1948 days, 16:50:33 '>5 years</td>
-  <td ><a href='https://github.com/spyder-ide/qtpy/issues/62'>spyder-ide/qtpy#62</td>
+  <td class='green-glow' title='opened on 2016-08-19 07:27:57+00:00 – closed on  – opened for 1909 days, 7:39:54 '>5 years</td>
+  <td ><a href='https://github.com/spyder-ide/qtpy/issues/66'>spyder-ide/qtpy#66</td>
 </tr>
 
 <tr>
   <td>10 </td>
   <td ><a href='https://github.com/jupyter/notebook'>jupyter/notebook<a></td>
-  <td class='green-glow' title='opened on 2016-08-16 15:45:48+00:00 – closed on  – opened for 1942 days, 4:02:54 '>5 years</td>
-  <td ><a href='https://github.com/jupyter/notebook/issues/1684'>jupyter/notebook#1684</td>
+  <td class='green-glow' title='opened on 2016-10-28 07:39:32+00:00 – closed on  – opened for 1719 days, 15:01:06 '>4 years</td>
+  <td ><a href='https://github.com/jupyter/notebook/issues/1857'>jupyter/notebook#1857</td>
 </tr>
 
 <tr>
@@ -2202,156 +2219,114 @@ Here is a leader board of who has closed the oldest issues during the month.</p>
 
 <tr>
   <td>15 </td>
-  <td ><a href='https://github.com/ipython/ipykernel'>ipython/ipykernel<a></td>
-  <td class='green-glow' title='opened on 2019-04-11 12:13:20+00:00 – closed on  – opened for 966 days, 19:30:01 '>2 years</td>
-  <td ><a href='https://github.com/ipython/ipykernel/issues/398'>ipython/ipykernel#398</td>
-</tr>
-
-<tr>
-  <td>16 </td>
   <td ><a href='https://github.com/thanos-io/thanos'>thanos-io/thanos<a></td>
   <td class='green-glow' title='opened on 2019-08-06 13:52:57+00:00 – closed on  – opened for 823 days, 10:57:35 '>2 years</td>
   <td ><a href='https://github.com/thanos-io/thanos/issues/1375'>thanos-io/thanos#1375</td>
 </tr>
 
 <tr>
-  <td>17 </td>
-  <td ><a href='https://github.com/pytroll/pyresample'>pytroll/pyresample<a></td>
-  <td class='green-glow' title='opened on 2019-11-28 14:14:59+00:00 – closed on  – opened for 740 days, 11:43:46 '>2 years</td>
-  <td ><a href='https://github.com/pytroll/pyresample/issues/231'>pytroll/pyresample#231</td>
-</tr>
-
-<tr>
-  <td>18 </td>
-  <td ><a href='https://github.com/PyCQA/astroid'>PyCQA/astroid<a></td>
-  <td class='green-glow' title='opened on 2020-01-28 13:33:44+00:00 – closed on  – opened for 701 days, 1:21:01 '>1 year, 11 months</td>
-  <td ><a href='https://github.com/PyCQA/astroid/issues/748'>PyCQA/astroid#748</td>
-</tr>
-
-<tr>
-  <td>19 </td>
+  <td>16 </td>
   <td ><a href='https://github.com/physiopy/phys2bids'>physiopy/phys2bids<a></td>
   <td class='green-glow' title='opened on 2020-04-14 20:53:42+00:00 – closed on  – opened for 579 days, 18:23:55 '>1 year, 7 months</td>
   <td ><a href='https://github.com/physiopy/phys2bids/issues/211'>physiopy/phys2bids#211</td>
 </tr>
 
 <tr>
-  <td>20 </td>
+  <td>17 </td>
+  <td ><a href='https://github.com/PyCQA/astroid'>PyCQA/astroid<a></td>
+  <td class='green-glow' title='opened on 2020-06-02 01:25:53+00:00 – closed on  – opened for 534 days, 7:13:31 '>1 year, 5 months</td>
+  <td ><a href='https://github.com/PyCQA/astroid/issues/798'>PyCQA/astroid#798</td>
+</tr>
+
+<tr>
+  <td>18 </td>
   <td ><a href='https://github.com/icesat2py/icepyx'>icesat2py/icepyx<a></td>
   <td class='green-glow' title='opened on 2020-07-27 21:44:46+00:00 – closed on  – opened for 484 days, 0:30:07 '>1 year, 3 months</td>
   <td ><a href='https://github.com/icesat2py/icepyx/issues/106'>icesat2py/icepyx#106</td>
 </tr>
 
 <tr>
-  <td>21 </td>
-  <td ><a href='https://github.com/pygfx/pygfx'>pygfx/pygfx<a></td>
-  <td class='green-glow' title='opened on 2020-10-15 09:02:58+00:00 – closed on  – opened for 421 days, 0:22:15 '>1 year, 1 month</td>
-  <td ><a href='https://github.com/pygfx/pygfx/issues/73'>pygfx/pygfx#73</td>
-</tr>
-
-<tr>
-  <td>22 </td>
-  <td ><a href='https://github.com/pygfx/wgpu-py'>pygfx/wgpu-py<a></td>
-  <td class='green-glow' title='opened on 2021-03-31 08:39:40+00:00 – closed on  – opened for 253 days, 6:40:53 '>8 months</td>
-  <td ><a href='https://github.com/pygfx/wgpu-py/issues/142'>pygfx/wgpu-py#142</td>
-</tr>
-
-<tr>
-  <td>23 </td>
+  <td>19 </td>
   <td ><a href='https://github.com/radis/radis'>radis/radis<a></td>
   <td class='green-glow' title='opened on 2021-04-04 22:54:25+00:00 – closed on  – opened for 221 days, 2:26:43 '>7 months</td>
   <td ><a href='https://github.com/radis/radis/issues/222'>radis/radis#222</td>
 </tr>
 
 <tr>
-  <td>24 </td>
-  <td ><a href='https://github.com/pytroll/pyorbital'>pytroll/pyorbital<a></td>
-  <td class='green-glow' title='opened on 2021-04-30 05:57:35+00:00 – closed on  – opened for 217 days, 6:53:33 '>7 months</td>
-  <td ><a href='https://github.com/pytroll/pyorbital/issues/79'>pytroll/pyorbital#79</td>
+  <td>20 </td>
+  <td ><a href='https://github.com/ipython/ipykernel'>ipython/ipykernel<a></td>
+  <td class='green-glow' title='opened on 2021-06-20 09:43:38+00:00 – closed on  – opened for 155 days, 9:30:33 '>5 months</td>
+  <td ><a href='https://github.com/ipython/ipykernel/issues/693'>ipython/ipykernel#693</td>
 </tr>
 
 <tr>
-  <td>25 </td>
-  <td ><a href='https://github.com/FCP-INDI/C-PAC'>FCP-INDI/C-PAC<a></td>
-  <td class='green-glow' title='opened on 2021-07-24 13:54:53+00:00 – closed on  – opened for 131 days, 2:41:45 '>4 months</td>
-  <td ><a href='https://github.com/FCP-INDI/C-PAC/issues/1548'>FCP-INDI/C-PAC#1548</td>
-</tr>
-
-<tr>
-  <td>26 </td>
+  <td>21 </td>
   <td ><a href='https://github.com/pymc-devs/pymc-examples'>pymc-devs/pymc-examples<a></td>
   <td class='green-glow' title='opened on 2021-07-31 11:24:14+00:00 – closed on  – opened for 105 days, 5:34:46 '>3 months</td>
   <td ><a href='https://github.com/pymc-devs/pymc-examples/issues/198'>pymc-devs/pymc-examples#198</td>
 </tr>
 
 <tr>
-  <td>27 </td>
-  <td ><a href='https://github.com/FCP-INDI/C-PAC_GUI'>FCP-INDI/C-PAC_GUI<a></td>
-  <td class='green-glow' title='opened on 2021-09-14 16:37:20+00:00 – closed on  – opened for 84 days, 22:56:42 '>2 months</td>
-  <td ><a href='https://github.com/FCP-INDI/C-PAC_GUI/issues/114'>FCP-INDI/C-PAC_GUI#114</td>
-</tr>
-
-<tr>
-  <td>28 </td>
-  <td ><a href='https://github.com/pytroll/pyspectral'>pytroll/pyspectral<a></td>
-  <td class='green-glow' title='opened on 2021-10-07 20:47:06+00:00 – closed on  – opened for 75 days, 18:59:35 '>2 months</td>
-  <td ><a href='https://github.com/pytroll/pyspectral/issues/132'>pytroll/pyspectral#132</td>
-</tr>
-
-<tr>
-  <td>29 </td>
-  <td ><a href='https://github.com/codezonediitj/pydatastructs'>codezonediitj/pydatastructs<a></td>
-  <td class='green-glow' title='opened on 2021-10-25 11:20:26+00:00 – closed on  – opened for 54 days, 2:38:31 '>a month</td>
-  <td ><a href='https://github.com/codezonediitj/pydatastructs/issues/421'>codezonediitj/pydatastructs#421</td>
-</tr>
-
-<tr>
-  <td>30 </td>
+  <td>22 </td>
   <td ><a href='https://github.com/bacloud22/so-cards'>bacloud22/so-cards<a></td>
   <td class='green-glow' title='opened on 2021-10-03 20:36:21+00:00 – closed on  – opened for 46 days, 17:54:24 '>a month</td>
   <td ><a href='https://github.com/bacloud22/so-cards/issues/6'>bacloud22/so-cards#6</td>
 </tr>
 
 <tr>
-  <td>31 </td>
+  <td>23 </td>
   <td ><a href='https://github.com/spyder-ide/qtawesome'>spyder-ide/qtawesome<a></td>
   <td class='green-glow' title='opened on 2021-10-22 16:17:04+00:00 – closed on  – opened for 32 days, 22:50:26 '>a month</td>
   <td ><a href='https://github.com/spyder-ide/qtawesome/issues/178'>spyder-ide/qtawesome#178</td>
 </tr>
 
 <tr>
-  <td>32 </td>
+  <td>24 </td>
   <td ><a href='https://github.com/openteamsinc/closember'>openteamsinc/closember<a></td>
   <td class='green-glow' title='opened on 2021-10-11 17:30:25+00:00 – closed on  – opened for 24 days, 22:11:17 '>24 days</td>
   <td ><a href='https://github.com/openteamsinc/closember/issues/7'>openteamsinc/closember#7</td>
 </tr>
 
 <tr>
-  <td>33 </td>
+  <td>25 </td>
+  <td ><a href='https://github.com/pygfx/pygfx'>pygfx/pygfx<a></td>
+  <td class='green-glow' title='opened on 2021-10-14 08:43:30+00:00 – closed on  – opened for 21 days, 3:47:36 '>21 days</td>
+  <td ><a href='https://github.com/pygfx/pygfx/issues/176'>pygfx/pygfx#176</td>
+</tr>
+
+<tr>
+  <td>26 </td>
   <td ><a href='https://github.com/rse-asia/OLS-4'>rse-asia/OLS-4<a></td>
   <td class='green-glow' title='opened on 2021-10-30 06:53:44+00:00 – closed on  – opened for 19 days, 4:43:25 '>19 days</td>
   <td ><a href='https://github.com/rse-asia/OLS-4/issues/1'>rse-asia/OLS-4#1</td>
 </tr>
 
 <tr>
-  <td>34 </td>
+  <td>27 </td>
   <td ><a href='https://github.com/jupyter/papyri'>jupyter/papyri<a></td>
   <td class='green-glow' title='opened on 2021-10-15 17:37:14+00:00 – closed on  – opened for 18 days, 1:39:33 '>18 days</td>
   <td ><a href='https://github.com/jupyter/papyri/issues/17'>jupyter/papyri#17</td>
 </tr>
 
 <tr>
-  <td>35 </td>
+  <td>28 </td>
   <td ><a href='https://github.com/P403n1x87/austin-vscode'>P403n1x87/austin-vscode<a></td>
-  <td class='green-glow' title='opened on 2021-11-19 12:39:37+00:00 – closed on  – opened for 15 days, 7:11:34 '>15 days</td>
-  <td ><a href='https://github.com/P403n1x87/austin-vscode/issues/19'>P403n1x87/austin-vscode#19</td>
+  <td class='green-glow' title='opened on 2021-10-20 11:27:39+00:00 – closed on  – opened for 12 days, 7:40:08 '>12 days</td>
+  <td ><a href='https://github.com/P403n1x87/austin-vscode/issues/15'>P403n1x87/austin-vscode#15</td>
 </tr>
 
 <tr>
-  <td>36 </td>
-  <td ><a href='https://github.com/MeeseeksBox/MeeseeksDev'>MeeseeksBox/MeeseeksDev<a></td>
-  <td class='green-glow' title='opened on 2021-11-22 19:14:37+00:00 – closed on  – opened for 10 days, 18:48:18 '>10 days</td>
-  <td ><a href='https://github.com/MeeseeksBox/MeeseeksDev/issues/55'>MeeseeksBox/MeeseeksDev#55</td>
+  <td>29 </td>
+  <td ><a href='https://github.com/pytroll/pyresample'>pytroll/pyresample<a></td>
+  <td class='green-glow' title='opened on 2021-11-05 16:54:59+00:00 – closed on  – opened for 2 days, 20:05:01 '>2 days</td>
+  <td ><a href='https://github.com/pytroll/pyresample/issues/390'>pytroll/pyresample#390</td>
+</tr>
+
+<tr>
+  <td>30 </td>
+  <td ><a href='https://github.com/codezonediitj/pydatastructs'>codezonediitj/pydatastructs<a></td>
+  <td class='green-glow' title='opened on 2021-11-19 14:01:44+00:00 – closed on  – opened for 2 days, 0:42:31 '>2 days</td>
+  <td ><a href='https://github.com/codezonediitj/pydatastructs/issues/433'>codezonediitj/pydatastructs#433</td>
 </tr>
 
 </table>
@@ -2632,8 +2607,48 @@ find a way for user to claim having helped and maintainers to validate those cla
 <a href="https://asks.readthedocs.io/en/latest/">Asks</a> and <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja2</a>.
 Theme from <a href="https://milligram.io/">milligram</a>. No JS. Hero illustration by <a href='https://twitter.com/irinafumarel'>Irina Fumarel</a>
 </br>
-<small>Remaining querries 750 - 18/01/2022 09:23:45. Interested in
+<small>Remaining querries 745 - 18/01/2022 11:01:15. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.</p>
+    <div id="vis"></div>
+    <div id="vis2"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description": "Stock prices of 5 Tech Companies over Time.",
+        "title": "ISSUES",
+        "data": {
+                "values": [
+                    {"a": "2021-01", "b": 21, "status":"open"},
+                    {"a": "2021-02", "b": 22, "status":"open"},
+                    {"a": "2021-03", "b": 23, "status":"open"},
+                    {"a": "2021-04", "b": 23, "status":"open"},
+                    {"a": "2021-01", "b": 25, "status":"close"},
+                    {"a": "2021-02", "b": 18, "status":"close"},
+                    {"a": "2021-03", "b": 16, "status":"close"},
+                    {"a": "2021-04", "b": 37, "status":"close"}
+                ]
+                },
+        "mark": {
+            "type": "line",
+            "point": {
+            "filled": false,
+            "fill": "white"
+            }
+        },
+        "encoding": {
+            "x": {"timeUnit": "month", "field": "a"},
+            "y": {"field": "b", "type": "quantitative"},
+            "color": {"field": "status", "type": "nominal"}
+        }
+        };
+
+
+      //vegaEmbed('#vis', yourVlSpec);
+      var s2 = {...yourVlSpec}
+      s2['title'] = 'Pull Requests'
+      //vegaEmbed('#vis2', s2);
+    </script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </section>
 </footer>
