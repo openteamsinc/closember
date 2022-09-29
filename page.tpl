@@ -528,7 +528,7 @@ maintainers of your favorites projects, and make those project better for everyo
 
  - Tag the repositories you control with the `closember` topic, they will be listed here automatically soon. If you can't or
    don't want to for some reason, we can hard-code your repository in the list (see
-   https://github.com/openteamsinc/closember/issues/3). 
+   https://github.com/openteamsinc/closember/issues/new).
 
  - You can star our repository to show support as well.
 
