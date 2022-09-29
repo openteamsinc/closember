@@ -286,7 +286,7 @@ frame.img {
    <div id='hero'>
    {{svg|safe}}
    </div>
-    <p>And we are all done for 2021 ! Thanks to all the participants, we are already working on preparing 2022, your
+    <p>Closember 2022 is coming up fast! Counters are back to zero and we'll again track who closed the most issues. Your
     help is welcomed ! Please come contribute to the <a
     href="https://github.com/openteamsinc/closember/issues">closember repo</a> </p>
  {% endif %}
