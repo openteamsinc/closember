@@ -282,7 +282,7 @@ frame.img {
    {{svg|safe}}
    </div>
  {% else %}
-    <h2>It's a wrap for 2021, Prepare for 2022</h2>
+    <h2>Getting ready for 2022</h2>
    <div id='hero'>
    {{svg|safe}}
    </div>

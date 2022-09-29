@@ -16,17 +16,18 @@ from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
+YEAR = 2022
 
 ONGOING = (
-    datetime.datetime(2021, 11, 1, 0, 0)
+    datetime.datetime(YEAR, 11, 1, 0, 0)
     < datetime.datetime.now()
-    < datetime.datetime(2021, 12, 1, 0, 0)
+    < datetime.datetime(YEAR, 12, 1, 0, 0)
 )
 
 if ONGOING:
-    CUT_DATE = "2022-11-01T00:00:00Z"
+    CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
 else:
-    CUT_DATE = "2021-11-01T00:00:00Z"
+    CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
 
 
 # in https://docs.github.com/en/graphql/overview/explorer
