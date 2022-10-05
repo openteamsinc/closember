@@ -1,14 +1,22 @@
 <html>
 <head>
+
+<title>Closember 2022 by Quansight</title>
+<meta name="description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.">
+
+<!-- Facebook Meta Tags -->
 <meta property="og:title" content="Closember 2022 by Quansight">
 <meta property="og:image" content="https://closember.org/assets/Closember_OG.png">
 <meta property="og:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.">
 <meta property="og:url" content="https://closember.org">
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Closember 2022 by Quansight">
-<meta name="twitter:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone">
-<meta property="twitter:image" content="https://closember.org/assets/Closember_OG.png">
+<meta name="twitter:card" content="summary_large_image" >
+<meta name="twitter:title" content="Closember 2022 by Quansight">
+<meta property="twitter:domain" content="closember.org">
+<meta property="twitter:url" content="https://closember.org">
+<meta name="twitter:description" content="Closember aims to increase awareness about Open Source maintainer burnout and promote practices to make maintaining open-source less stressful and more enjoyable for everyone.">
+<meta name="twitter:image" content="https://closember.org/assets/Closember_OG.png">
+
 
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
