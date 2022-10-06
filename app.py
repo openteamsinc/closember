@@ -393,7 +393,7 @@ async def render():
         search = res1["data"]["search"]
         entries[s] = sum(
             [
-                isoparse(x["node"]["closedAt"]) < isoparse("2021-12-01T00:00:00Z")
+                isoparse(x["node"]["closedAt"]) < isoparse(f"{YEAR}-12-01T00:00:00Z")
                 for x in res1["data"]["search"]["edges"]
             ]
         )
@@ -408,7 +408,7 @@ async def render():
 
         monthly_counter_per_slug[s] = [
             {
-                "date": f"2021-{m:02d}",
+                "date": f"{YEAR}-{m:02d}",
                 "Issues": monthly_counter[m]["Issue"],
                 "PR": monthly_counter[m]["PullRequest"],
             }

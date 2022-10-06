@@ -296,7 +296,9 @@ frame.img {
    </div>
     <p>Closember 2022 is coming up fast! Counters are back to zero and we'll again track who closed the most issues. Your
     help is welcomed ! Please come contribute to the <a
-    href="https://github.com/openteamsinc/closember/issues">closember repo</a> </p>
+    href="https://github.com/openteamsinc/closember/issues">closember repo</a>. Follow <a
+    href='https://twitter.com/ClosemberDev'>@ClosemberDev</a>, and use the <a
+    href='https://twitter.com/hashtag/closember'>#closember</a> hashtag. </p>
  {% endif %}
  <p>Close/Merge as many issues and PR as possible during the month of November. Maintainers, tag your repositories with
  the <a href="https://github.com/topics/closember"><code>closember</code> topic</a> to participate.</p>
