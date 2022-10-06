@@ -298,7 +298,8 @@ frame.img {
     help is welcomed ! Please come contribute to the <a
     href="https://github.com/openteamsinc/closember/issues">closember repo</a> </p>
  {% endif %}
- <p>Close/Merge as many issues and PR as possible during the month of November</p>
+ <p>Close/Merge as many issues and PR as possible during the month of November. Maintainers, tag your repositories with
+ the `closember` topic to participate.</p>
    <!--<div id='closed-sign'>-->
    </div>
    <h3><span class='green-glow'>{{total_closed}}</span> / <span class='red-glow'>{{to_go}} </span> </h3>
