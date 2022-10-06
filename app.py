@@ -195,7 +195,7 @@ query TopicRepo {
 
 
 def query(slug, after="null"):
-    if after is not "null" and not after.startswith('"'):
+    if after != "null" and not after.startswith('"'):
         after = '"' + after + '"'
     res = (
         """
