@@ -346,23 +346,39 @@ Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
 
 {% endmarkdown %}
 
-<table class='c1'>
-<tr>
-<th>#</th>
-<th>Repository</th>
-<th>Closed Issues</th>
-<th>Closed/Merged PRs</th>
-</tr>
-{% for e,v in entries|reverse %}
-<tr>
-  <td>{{loop.index}}</td>
-  <td ><a href='https://github.com/{{e}}'>{{e}}<a></td>
-  <td class='green-glow'>{{v.get("Issue", 0)}}</td>
-  <td class='green-glow'>{{v.get("PullRequest", 0)}}</td>
-</tr>
-{% endfor %}
-</table>
-  <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
+<style>
+input[type="checkbox"]:not(:checked)~table>tbody>tr:nth-child(n+12) {display:None;}
+input[type="checkbox"]:not(:checked)~table:after {content: '...'; font-size: 40px}
+.twrap {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.twrap p {
+    text-align:center;
+    margin-bottom: 0;
+}
+</style>
+<div class='twrap'>
+    <table class='c1'>
+    <input type="checkbox" class='button'>
+    <p>Show All:</p> 
+    <tr>
+    <th>#</th>
+    <th>Repository</th>
+    <th>Closed Issues</th>
+    <th>Closed/Merged PRs</th>
+    </tr>
+    {% for e,v in entries|reverse %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td ><a href='https://github.com/{{e}}'>{{e}}<a></td>
+      <td class='green-glow'>{{v.get("Issue", 0)}}</td>
+      <td class='green-glow'>{{v.get("PullRequest", 0)}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+<div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 
 <blockquote>
@@ -399,7 +415,7 @@ Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
   <td class='red-glow'>{{v.get("PullRequest", 0)}}</td>
 </tr>
 {% endfor %}
-</table>
+</table><input type="checkbox">
   <div style='text-align:center'><a class='button' href='#add-topic'>Add Your Repositories</a></div>
 
 
@@ -437,6 +453,7 @@ Placeholder values : Will be reset to 0 on Nov 1st when Closember starts.
 </tr>
 {% endfor %}
 </table>
+<input type="checkbox">
 {% markdown %}
 
 ------
