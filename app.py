@@ -1,18 +1,22 @@
-import os
-import humanize
-import sys
-from quart_trio import QuartTrio
-import os
 import datetime
-import trio
-import asks
+import json
+import os
+import sys
+from collections import Counter, namedtuple
 from pathlib import Path
+
+import asks
+import humanize
+import trio
+from cachetools.func import TTLCache
+from dateutil.parser import isoparse
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+from quart_trio import QuartTrio
+
 
 PAT = os.environ["PAT"]
 
 # headers = {"Authorization": f"Bearer {PAT}"}
-
-from cachetools.func import ttl_cache, TTLCache
 
 RC = TTLCache(1024, ttl=240)
 
@@ -68,9 +72,6 @@ LONGEST_OPEN_QUERRY = (
 )
 
 print(LONGEST_OPEN_QUERRY)
-
-from pathlib import Path
-import json
 
 CACHE = Path("cache.json")
 
@@ -268,8 +269,6 @@ def query_open(slug, type_):
 # remaining_rate_limit = result["data"]["rateLimit"]["remaining"] # Drill down the dictionary
 # print("Remaining rate limit - {}".format(remaining_rate_limit))
 
-from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoescape
-
 
 # app = Flask(__name__)
 app = QuartTrio(__name__)
@@ -277,7 +276,7 @@ app = QuartTrio(__name__)
 
 slugs = []
 
-from collections import Counter
+
 
 
 async def get_p():
@@ -297,12 +296,8 @@ async def hero():
         return f.read()
 
 
-from dateutil.parser import isoparse
-
-
 async def get_longest_open():
     res = await run_query(lambda s: LONGEST_OPEN_QUERRY, "")
-    from collections import namedtuple
 
     LongestClosed = namedtuple(
         "LongestClosed", "delta,repo,url,open,closed,number".split(",")
