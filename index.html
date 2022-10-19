@@ -37,145 +37,148 @@
 
 <!-- Custom page styles -->
 <style>
-body{
+/* Base colours - chosen for accessibilty */
+body {
     padding: 0;
     margin: 0;
+    color: #593324;
 }
+
 .green-glow {
-    color: #1b721b;
-    text-shadow: 0 0 5px #57e663DD;
+    color: #2954a3;
+    text-shadow: 0 0 5px rgba(122, 149, 197, 0.5);
 }
+
 .red-glow {
-    color: #d80f0f;
-    text-shadow: 0 0 5px #d80f0fDD;
+    color: #d90710;
+    text-shadow: 0 0 5px rgba(217, 7, 16, 0.5);
 }
 
 li > p {
     display: inline;
 }
 
-.wrapper > .container {
-   max-width: 80rem;
-}
-
-.avatar-container{
-    text-align: center;
-}
-
-.sg > img {
-    width: 50px ;
-    border-radius: 50px ;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.sg > img {max-width: 50px; border-radius: 50px}
-a.sg {
-    min-width: 70px;
-    display: inline-block;
-    text-align: center;
-    padding: 10px ;
-    border-radius: 10px ;
-    transition: all 1.5s ease;
-}
-a.sg > img{
-    transition: all 1.5s ease;
-    filter: sepia(40%);
-}
-a.sg:hover > img {
-    filter: sepia(10%);
-}
-a.sg:hover {
-    background: #e676063d;
-}
-
-.vega-embed > details {
-
-display: none;
-
-}
-
 .wrapper {
     display: block;
     overflow: hidden;
     position: relative;
-    width: 100%
+    width: 100%;
 }
-
-.wrapper .container {
-    max-width: 80rem
-}
-
-.wrapper>.container {
+.wrapper > .container {
+    max-width: 80rem;
     padding-bottom: 7.5rem;
-    padding-top: 7.5rem
+    padding-top: 7.5rem;
+}
+.wrapper .container {
+    max-width: 80rem;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.sg > img {
+    width: 50px;
+    border-radius: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50px;
+    border-radius: 50px;
+}
+
+a.sg {
+    min-width: 70px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 1.5s ease;
+}
+a.sg > img {
+    transition: all 1.5s ease;
+    filter: sepia(40%);
+}
+a.sg:hover {
+    background: rgba(115, 67, 49, 0.25);
+}
+a.sg:hover > img {
+    filter: sepia(10%);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.vega-embed > details {
+    display: none;
 }
 
 .header {
     background-color: #f4f5f6;
-    padding-top: 1rem
+    padding-top: 1rem;
+    padding-top: 0rem;
 }
-
-@media(min-width: 40rem) {
-    .header {
-        padding-top:5rem
-    }
+.header + section {
+    border-top: 0;
 }
-
-.header+section {
-    border-top: 0
-}
-
 .header .container {
     border-top: 0;
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
     position: relative;
-    text-align: center
+    text-align: center;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
 }
-
 .header .title {
-    font-family: Gotham Rounded A,Gotham Rounded B,Helvetica Neue,Arial,sans-serif
+    font-family: Gotham Rounded A, Gotham Rounded B, Helvetica Neue, Arial, sans-serif;
 }
-
-
-
 .header .button {
     margin-bottom: 4rem;
-    margin-top: 2rem
+    margin-top: 2rem;
 }
 
-.button{
-    background-color: #ee4740;
-    border-color: #ee4740;
+.button {
+    background-color: #d90710;
+    border-color: #d90710;
     border-radius: 30px;
+}
+.button:hover {
+    background-color: #800205;
+    border-color: #800205;
 }
 
 a {
-    color: #ee4740;
+    color: #d90710;
 }
 
-h3, p, ul, body {
-color: #493222;
+h3 {
+    color: #593324;
 }
 
+p {
+    color: #593324;
+}
 
+ul {
+    color: #593324;
+}
 
 svg {
-width: 100%;  
-margin-top: -150;
-margin-bottom: -100px;
+    width: 100%;
+    margin-top: -150;
+    margin-bottom: -100px;
+}
 
-};
 div#closed-sign {
-   background-color: #53ad4d;
+    background-color: #7a95c5;
     border-radius: 15px;
     border: 10px solid white;
     color: white;
     height: 11rem;
     display: block;
-    padding:3rem;
+    padding: 3rem;
     font-size: 35pt;
     width: 33rem;
     margin-left: auto;
@@ -183,81 +186,68 @@ div#closed-sign {
     transform: rotate(-10deg);
     margin-top: 50px;
     margin-bottom: 50px;
-    font-family: 'Nunito', cursive;
-    box-shadow: 5px 9px 17px 3px rgba(0,0,0,0.75);
+    font-family: "Nunito", cursive;
+    box-shadow: 5px 9px 17px 3px rgba(0, 0, 0, 0.75);
     transition-delay: 0.2s;
     transition: 0.6s;
     display: none;
 }
-
-div#closed-sign:hover{
+div#closed-sign:hover {
     background-color: #e0665d;
 }
 
 h2 {
-
-text-align: center; 
-font-family: Playball, 'MJ AlGhifari', sans-serif;
-color: #493222;
-
+    text-align: center;
+    font-family: Playball, "MJ AlGhifari", sans-serif;
+    color: #593324;
 }
 
 .title {
-   font-size: 8rem;
+    font-size: 8rem;
 }
 
-.header {
-    padding-top: 0rem;
-}
-
-.header .container {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-}
-
-
-#closed-sign:before, #closed-sign:after {
-   position: absolute;
-   top: 0.17em;
-   left: 0;
-   width: 100%;
+#closed-sign:before {
+    position: absolute;
+    top: 0.17em;
+    left: 0;
+    width: 100%;
     transition: 0.6s;
     transition-delay: 0.2s;
     box-sizing: border-box;
     transition: 0.6s;
-}
-    
-#closed-sign:before {
     opacity: 0;
     content: "Close";
 }
-
 #closed-sign:after {
+    position: absolute;
+    top: 0.17em;
+    left: 0;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 0.2s;
+    box-sizing: border-box;
+    transition: 0.6s;
     opacity: 1;
     content: "Closing soon";
 }
-
 #closed-sign:hover:before {
-   opacity:1;
+    opacity: 1;
 }
-
-
 #closed-sign:hover:after {
     opacity: 0;
 }
 
-
-.footer{
+.footer {
     background-color: #f4f5f6;
     padding: 3rem;
 }
 
 .frame {
-    height: 175px;      /* equals max image height */
+    height: 175px;
     width: 260px;
     white-space: nowrap;
-    
-    text-align: center; margin: 1em 0;
+    text-align: center;
+    margin: 1em 0;
     height: auto;
     margin: 2em auto 2em auto;
 }
@@ -273,6 +263,14 @@ frame.img {
     max-height: 25px;
     max-width: 160px;
 }
+
+@media (min-width: 40rem) {
+    .header {
+        padding-top: 5rem;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */
 </style>
 
 </head>
@@ -1432,14 +1430,14 @@ frame.img {
  the <a href="https://github.com/topics/closember"><code>closember</code> topic</a> to participate.</p>
    <!--<div id='closed-sign'>-->
    </div>
-   <h3><span class='green-glow'>0</span> / <span class='red-glow'>12578 </span> </h3>
+   <h3><span class='green-glow'>0</span> / <span class='red-glow'>12579 </span> </h3>
    <blockquote>
 <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
 <footer><small>― Antoine de Saint-Exupéry,</small></footer>
 </blockquote>
    <p><span class='green-glow'>0</span> issues and pull-requests closed (or merged) so far! We need your help with
    the <span
-   class='red-glow'>12578 </span> that need to go... </p>
+   class='red-glow'>12579 </span> that need to go... </p>
    <a class="button" href="#help" title="Getting Started">Start Closing Issues</a>
    </section></header>
   <section class='container'>
@@ -1880,7 +1878,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
   <td>5 </td>
   <td ><a href='https://github.com/openteamsinc/closember'>openteamsinc/closember<a></td>
   <td class='red-glow'>9</td>
-  <td class='red-glow'>1</td>
+  <td class='red-glow'>0</td>
 </tr>
 
 <tr>
@@ -2034,7 +2032,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
   <td>27 </td>
   <td ><a href='https://github.com/icesat2py/icepyx'>icesat2py/icepyx<a></td>
   <td class='red-glow'>44</td>
-  <td class='red-glow'>9</td>
+  <td class='red-glow'>10</td>
 </tr>
 
 <tr>
@@ -2174,7 +2172,7 @@ Issues opened in Closember <strong>do not count</strong> in an effort to encoura
   <td>47 </td>
   <td ><a href='https://github.com/PyCQA/pylint'>PyCQA/pylint<a></td>
   <td class='red-glow'>644</td>
-  <td class='red-glow'>51</td>
+  <td class='red-glow'>52</td>
 </tr>
 
 <tr>
@@ -2475,13 +2473,13 @@ find a way for user to claim having helped and maintainers to validate those cla
 <p>Closember is currently sponsored by <a href="https://www.quansight.com/">Quansight</a>, <a href="https://faiross.org/">FairOSS</a> and
 <a href="https://openteams.com/landing/">OpenTeams</a>.</p>
 <div class=frame>
-    <a href='https://quansight.com'><img src='assets/quansight.jpg'></a>
+    <a href='https://quansight.com'><img src='assets/quansight.jpg' alt="Quansight Logo"></a>
 </div>
 <div class=frame>
-    <a href='https://openteams.com/'><img src='assets/openteams.webp'></a>
+    <a href='https://openteams.com/'><img src='assets/openteams.webp' alt="OpenTeams logo"></a>
 </div>
 <div class=frame>
-    <a href='https://faiross.org/'><img src='assets/faiross.png'></a>
+    <a href='https://faiross.org/'><img src='assets/faiross.png' alt="FairOSS logo"></a>
 </div>
 
 <h2>F.A.Q. with creator</h2>
@@ -2525,7 +2523,7 @@ find a way for user to claim having helped and maintainers to validate those cla
 <a href="https://asks.readthedocs.io/en/latest/">Asks</a> and <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja2</a>.
 Theme from <a href="https://milligram.io/">milligram</a>. No JS. Hero illustration by <a href='https://twitter.com/irinafumarel'>Irina Fumarel</a>
 </br>
-<small>Remaining querries 844 - 19/10/2022 19:31:52. Interested in
+<small>Remaining querries 563 - 19/10/2022 20:08:13. Interested in
 sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.</p>
     <div id="vis"></div>
     <div id="vis2"></div>
