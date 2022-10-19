@@ -101,7 +101,7 @@ async def asks_post(url, *, querry, pat):
         print("Using Cached request")
         return FakeRequest(res)
     else:
-        print("Real Querry", url, querry)
+        # print("Real Querry", url, querry)
         res = await asks.post(
             "https://api.github.com/graphql",
             json={"query": querry},
