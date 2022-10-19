@@ -385,13 +385,13 @@ Closember is currently sponsored by [Quansight](https://www.quansight.com/), [Fa
 
 
 <div class=frame>
-    <a href='https://quansight.com'><img src='assets/quansight.jpg'></a>
+    <a href='https://quansight.com'><img src='assets/quansight.jpg' alt="Quansight Logo"></a>
 </div>
 <div class=frame>
-    <a href='https://openteams.com/'><img src='assets/openteams.webp'></a>
+    <a href='https://openteams.com/'><img src='assets/openteams.webp' alt="Open Teams logo"></a>
 </div>
 <div class=frame>
-    <a href='https://faiross.org/'><img src='assets/faiross.png'></a>
+    <a href='https://faiross.org/'><img src='assets/faiross.png' alt="FairOSS logo"></a>
 </div>
 
 
