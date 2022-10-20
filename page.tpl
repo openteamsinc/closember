@@ -62,7 +62,7 @@
     href='https://twitter.com/ClosemberDev'>@ClosemberDev</a>, and use the <a
     href='https://twitter.com/hashtag/closember'>#closember</a> hashtag. </p>
  {% endif %}
- <p>Close/Merge as many issues and PR as possible during the month of November. Maintainers, tag your repositories with
+ <p>Close/Merge as many issues and PR as possible <b>during the month of November</b>. Maintainers, tag your repositories with
  the <a href="https://github.com/topics/closember"><code>closember</code> topic</a> to participate.</p>
    <!--<div id='closed-sign'>-->
    </div>
