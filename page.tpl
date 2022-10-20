@@ -450,7 +450,7 @@ Powered by [Quart](https://pypi.org/project/Quart-Trio/), [Trio](https://trio.re
 Theme from [milligram](https://milligram.io/). No JS. Hero illustration by <a href='https://twitter.com/irinafumarel'>Irina Fumarel</a>
 </br>
 <small>Remaining querries {{rq}} - {{NOW}}. Interested in
-sponsoring ? <a href='mailto:mbussonnier@quansight.com'>email us</a></small>.
+sponsoring ? <a href='mailto:connect@quansight.com'>email us</a></small>.
 {% endmarkdown %}
     <div id="vis"></div>
     <div id="vis2"></div>
