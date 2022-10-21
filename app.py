@@ -311,7 +311,7 @@ async def get_longest_open():
 
             closed = isoparse(issue["node"]["closedAt"])
             opened = isoparse(issue["node"]["createdAt"])
-            if closed < isoparse(f"{YEAR}-01T00:00:00Z"):
+            if closed < isoparse(f"{YEAR}-12-01T00:00:00Z"):
                 dpl.append(
                     LongestClosed(
                         closed - opened,
