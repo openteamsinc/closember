@@ -2,10 +2,12 @@
 
 See https://closember.org
 
-## run locally 
+## build locally 
 
 ```
-$ pip install -r requirements.txt
+$ pip install -r requirements.lock
 $ export PAT="github personal access token"
-$ python -m app.py
+$ python app.py static
 ```
+
+Open the built page at `build/index.html`.
