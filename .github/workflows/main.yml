@@ -40,7 +40,8 @@ jobs:
           PAT: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
-        if: success() && github.ref == 'refs/heads/main'  # Only deploy cronjob from main
+        # Only deploy cronjob from main branch & repo
+        if: success() && github.ref == 'refs/heads/main' && github.repository_owner == 'openteamsinc'
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
