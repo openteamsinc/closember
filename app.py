@@ -149,7 +149,7 @@ async def run_query(
         else:
             raise Exception(
                 "Query failed to run by returning code of {}. {} | {}".format(
-                    request.status_code, q, requests.content
+                    request.status_code, q, request.content
                 )
             )
     else:
