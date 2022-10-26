@@ -14,146 +14,94 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from quart_trio import QuartTrio
 
 
+# ## GLOBALS AND HELPERS
+
+# Github API access token
 PAT = os.environ["PAT"]
 
-# headers = {"Authorization": f"Bearer {PAT}"}
-
+# Request-caching object
 RC = TTLCache(1024, ttl=240)
 
+# Year to consider as current for Closember
 YEAR = 2022
 
-ONGOING = (
+# Path object pointing to JSON cache file
+CACHE_PATH = Path("cache.json")
+
+# Global app cache object
+GCACHE = {}
+
+# Is the current Closember currently ongoing?
+# This flag only becomes true on the *2nd* of November,
+# in order to allow a day of stats to accumulate before
+# considering the event as having started.
+ONGOING: bool = (
     datetime.datetime(YEAR, 11, 1, 0, 0)
     < datetime.datetime.now()
     < datetime.datetime(YEAR, 12, 1, 0, 0)
 )
 
-if ONGOING:
-    CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
-else:
-    CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
-
-
-# in https://docs.github.com/en/graphql/overview/explorer
-# trying to find oldest created issue.
-LONGEST_OPEN_QUERRY = (
-    """
-{
-  search(query: "topic:closember", type: REPOSITORY, last: 100) {
-    issueCount
-    edges {
-      node {
-        ... on Repository {
-          issues(first: 100, orderBy: {field: CREATED_AT, direction: ASC}, states: CLOSED, filterBy: {since:\""""
-    + CUT_DATE
-    + """"}) {
-            edges {
-              node {
-                closedAt
-                url
-                createdAt
-                number
-              }
-            }
-          }
-          nameWithOwner
-        }
-      }
-    }
-  }
-  rateLimit {
-    limit
-    cost
-    remaining
-    resetAt
-  }
-}
-"""
-)
-
-print(LONGEST_OPEN_QUERRY)
-
-CACHE = Path("cache.json")
+# Datetime for use in GraphQL queries to mark start point
+# of the current Closember
+CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
 
 
 class FakeRequest:
-
+    """Stub class mimicking a successful web request for a JSON payload."""
+    
     status_code = 200
 
     def __init__(self, data):
-
         self.data = data
 
     def json(self):
         return self.data
 
 
-GCACHE = {}
+# ## QUERY DEFINITIONS
 
+# Query developed using 
+# https://docs.github.com/en/graphql/overview/explorer,
+# trying to find oldest created issue.
+# 
+LONGEST_OPEN_QUERY = f"""
+{{
+  search(query: "topic:closember", type: REPOSITORY, last: 100) {{
+    issueCount
+    edges {{
+      node {{
+        ... on Repository {{
+          issues(
+              first: 100
+              orderBy: {{field: CREATED_AT, direction: ASC}}
+              states: CLOSED
+              filterBy: {{since: "{CUT_DATE}"}}
+            ) {{
+            edges {{
+              node {{
+                closedAt
+                url
+                createdAt
+                number
+              }}
+            }}
+          }}
+          nameWithOwner
+        }}
+      }}
+    }}
+  }}
+  rateLimit {{
+    limit
+    cost
+    remaining
+    resetAt
+  }}
+}}
+"""
 
-async def asks_post(url, *, querry, pat):
-    global GCACHE
-    if CACHE.exists() and not GCACHE:
-        GCACHE = json.loads(CACHE.read_text())
-    key = json.dumps([url, querry], indent=2)
-    res = GCACHE.get(key, None)
-    if res is not None:
-        print("Using Cached request")
-        return FakeRequest(res)
-    else:
-        # print("Real Querry", url, querry)
-        res = await asks.post(
-            "https://api.github.com/graphql",
-            json={"query": querry},
-            headers={"Authorization": f"Bearer {pat}"},
-        )
-        GCACHE[key] = res.json()
-    CACHE.write_text(json.dumps(GCACHE))
-    assert res is not None
-    return res
-
-
-async def _rec(query, slug, cursor):
-    print("recurse")
-    q = query(slug, cursor)
-    request = await asks_post("https://api.github.com/graphql", querry=q, pat=PAT)
-    res = request.json()
-    pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
-    if pinfo.get("hasNextPage", {}):
-        endCursor = pinfo["endCursor"]
-        return res["data"]["search"]["edges"] + await _rec(query, slug, endCursor)
-    else:
-        return res["data"]["search"]["edges"]
-
-
-async def run_query(
-    query, slug
-):  # A simple function to use requests.post to make the API call. Note the json= section.
-    RC.expire()
-    q = query(slug)
-    res = RC.get(q, None)
-    if res is None:
-
-        request = await asks_post("https://api.github.com/graphql", querry=q, pat=PAT)
-        if request.status_code == 200:
-            res = request.json()
-            pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
-            if pinfo.get("hasNextPage"):
-                endCursor = pinfo["endCursor"]
-                res["data"]["search"]["edges"].extend(
-                    await _rec(query, slug, endCursor)
-                )
-
-            RC[q] = res
-            return res
-        else:
-            raise Exception(
-                "Query failed to run by returning code of {}. {} | {}".format(
-                    request.status_code, q, request.content
-                )
-            )
-    else:
-        return res
+# Matthias, do we need to keep this print()?
+print(LONGEST_OPEN_QUERY)
 
 
 STARGAZERS = """
@@ -265,18 +213,92 @@ def query_open(slug, type_):
     return res
 
 
-# result = run_query(query) # Execute the query
-# remaining_rate_limit = result["data"]["rateLimit"]["remaining"] # Drill down the dictionary
-# print("Remaining rate limit - {}".format(remaining_rate_limit))
+# ## QUERY EXECUTION HELPERS
+
+async def asks_post(url, *, query, pat):
+    """Return the asks Response for a specific URL and query.
+    
+    Responses are globally cached to reduce API usage.
+    
+    `url` is the GraphQL API endpoint.
+    
+    `query` is the GraphQL query.
+    
+    `pat` is the access token for the API. It is injected into the request
+    headers as {"Authorization": f"Bearer {pat}"}.
+    
+    """
+    
+    global GCACHE
+    
+    if CACHE_PATH.exists() and not GCACHE:
+        GCACHE = json.loads(CACHE_PATH.read_text())
+    
+    key = json.dumps([url, query], indent=2)
+    res = GCACHE.get(key, None)
+    
+    if res is not None:
+        print("Using cached request")
+        return FakeRequest(res)
+    else:
+        print("Submitting live query")
+        res = await asks.post(
+            "https://api.github.com/graphql",
+            json={"query": query},
+            headers={"Authorization": f"Bearer {pat}"},
+        )
+        GCACHE[key] = res.json()
+    
+    # Aggressively write cache to disk to minimize API calls on future execution
+    CACHE_PATH.write_text(json.dumps(GCACHE))
+    
+    assert res is not None
+    return res
 
 
-# app = Flask(__name__)
-app = QuartTrio(__name__)
+async def _rec(query, slug, cursor):
+    """Recursively execute a paged query until no more pages are left."""
+    print("recurse")
+    
+    q = query(slug, cursor)
+    request = await asks_post("https://api.github.com/graphql", query=q, pat=PAT)
+    res = request.json()
+    pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
+    if pinfo.get("hasNextPage", {}):
+        endCursor = pinfo["endCursor"]
+        return res["data"]["search"]["edges"] + await _rec(query, slug, endCursor)
+    else:
+        return res["data"]["search"]["edges"]
 
 
-slugs = []
+async def run_query(
+    query, slug
+):  # A simple function to use requests.post to make the API call. Note the json= section.
+    RC.expire()
+    q = query(slug)
+    res = RC.get(q, None)
+    if res is None:
 
+        request = await asks_post("https://api.github.com/graphql", query=q, pat=PAT)
+        if request.status_code == 200:
+            res = request.json()
+            pinfo = res.get("data", {}).get("search", {}).get("pageInfo", {})
+            if pinfo.get("hasNextPage"):
+                endCursor = pinfo["endCursor"]
+                res["data"]["search"]["edges"].extend(
+                    await _rec(query, slug, endCursor)
+                )
 
+            RC[q] = res
+            return res
+        else:
+            raise Exception(
+                "Query failed to run by returning code of {}. {} | {}".format(
+                    request.status_code, q, request.content
+                )
+            )
+    else:
+        return res
 
 
 async def get_p():
@@ -285,19 +307,8 @@ async def get_p():
     return [n["node"]["owner"]["login"] + "/" + n["node"]["name"] for n in data] + slugs
 
 
-@app.route("/")
-async def hello_world():
-    return await render()
-
-
-@app.route("/hero.svg")
-async def hero():
-    with open("hero.svg") as f:
-        return f.read()
-
-
 async def get_longest_open():
-    res = await run_query(lambda s: LONGEST_OPEN_QUERRY, "")
+    res = await run_query(lambda s: LONGEST_OPEN_QUERY, "")
 
     LongestClosed = namedtuple(
         "LongestClosed", "delta,repo,url,open,closed,number".split(",")
@@ -328,15 +339,62 @@ async def get_longest_open():
     return list(sorted(duration_pairs, reverse=True))
 
 
-async def render():
+# result = run_query(query) # Execute the query
+# remaining_rate_limit = result["data"]["rateLimit"]["remaining"] # Drill down the dictionary
+# print("Remaining rate limit - {}".format(remaining_rate_limit))
 
+
+# ## APP DEFINTITION FOR LIVE, LOCAL PAGE SERVING
+
+app = QuartTrio(__name__)
+
+# List of repo slugs added manually via the `addp()` route function
+slugs = []
+
+@app.route("/")
+async def hello_world():
+    """Render the site page."""
+    return await render()
+
+
+@app.route("/hero.svg")
+async def hero():
+    """Render the hero SVG."""
+    with open("hero.svg") as f:
+        return f.read()
+
+
+@app.route("/<path:p>")
+def addp(p):
+    """Add a repo manually to the participants list.
+    
+    Browse to `{site}/org/repo` to add github.com/org/repo
+    to the site calculations.
+    
+    """
+    global slugs
+    try:
+        org, name = p.split("/")
+        if org.isalnum() and name.isalnum():
+            slugs.append(p)
+        return "ok"
+    except Exception:
+        return "no"
+
+
+
+
+async def render():
+    """Render the site page from the Jinja template."""
+    # Configure Jinja
     env = Environment(
         loader=FileSystemLoader(os.path.dirname(__file__)),
         autoescape=select_autoescape(["tpl"]),
         extensions=["jinja_markdown.MarkdownExtension"],
     )
     env.filters["naturaldelta"] = humanize.naturaldelta
-    tpl = env.get_template("page.tpl")
+    
+    # Initial values
     entries = {}
     remaining = {}
     rq = 5000
@@ -344,7 +402,10 @@ async def render():
     reses1 = {}
     res_total_open_prs = {}
     res_total_open_issues = {}
-
+    
+    
+    tpl = env.get_template("page.tpl")
+    
     async def loc(storage, key, query):
         assert not isinstance(query, str)
         storage[key] = await run_query(query, key)
@@ -461,17 +522,6 @@ async def render():
     print("done")
     return res
 
-
-@app.route("/<path:p>")
-def addp(p):
-    global slugs
-    try:
-        org, name = p.split("/")
-        if org.isalnum() and name.isalnum():
-            slugs.append(p)
-        return "ok"
-    except Exception:
-        return "no"
 
 
 def main():
