@@ -9,7 +9,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '*/60 * * * *'  # every 60 minutes
+    - cron: '10 */2 * * *'  # every 2hrs, 10min past the hour
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
