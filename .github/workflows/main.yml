@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Only run on the cron timer for the openteamsinc/closember repo itself
-    if: github.repository == 'openteamsinc/closember' || ! contains(github.event_name, 'cron')
+    if: github.repository == 'openteamsinc/closember' || ! contains(github.event_name, 'schedule')
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
