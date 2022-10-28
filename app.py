@@ -48,7 +48,7 @@ CUT_DATE = f"{YEAR}-11-01T00:00:00Z"
 
 class FakeRequest:
     """Stub class mimicking a successful web request for a JSON payload."""
-    
+
     status_code = 200
 
     def __init__(self, data):
@@ -130,7 +130,6 @@ PARTICIP = """
 query TopicRepo {
   search(query: "topic:closember", type: REPOSITORY, first: 100) {
     edges {
-      
       node {
    			... on Repository {
           name
@@ -206,7 +205,7 @@ def query_open(slug, type_):
     resetAt
   }
 
- 
+
 }
 """
     )
@@ -217,26 +216,26 @@ def query_open(slug, type_):
 
 async def asks_post(url, *, query, pat):
     """Return the asks Response for a specific URL and query.
-    
+
     Responses are globally cached to reduce API usage.
-    
+
     `url` is the GraphQL API endpoint.
-    
+
     `query` is the GraphQL query.
-    
+
     `pat` is the access token for the API. It is injected into the request
     headers as {"Authorization": f"Bearer {pat}"}.
-    
+
     """
-    
+
     global GCACHE
-    
+
     if CACHE_PATH.exists() and not GCACHE:
         GCACHE = json.loads(CACHE_PATH.read_text())
-    
+
     key = json.dumps([url, query], indent=2)
     res = GCACHE.get(key, None)
-    
+
     if res is not None:
         print("Using cached request")
         return FakeRequest(res)
@@ -248,10 +247,10 @@ async def asks_post(url, *, query, pat):
             headers={"Authorization": f"Bearer {pat}"},
         )
         GCACHE[key] = res.json()
-    
+
     # Aggressively write cache to disk to minimize API calls on future execution
     CACHE_PATH.write_text(json.dumps(GCACHE))
-    
+
     assert res is not None
     return res
 
@@ -259,7 +258,7 @@ async def asks_post(url, *, query, pat):
 async def _rec(query, slug, cursor):
     """Recursively execute a paged query until no more pages are left."""
     print("recurse")
-    
+
     q = query(slug, cursor)
     request = await asks_post("https://api.github.com/graphql", query=q, pat=PAT)
     res = request.json()
@@ -367,10 +366,10 @@ async def hero():
 @app.route("/<path:p>")
 def addp(p):
     """Add a repo manually to the participants list.
-    
+
     Browse to `{site}/org/repo` to add github.com/org/repo
     to the site calculations.
-    
+
     """
     global slugs
     try:
@@ -382,7 +381,7 @@ def addp(p):
         return "no"
 
 
-
+# ## PAGE RENDERING
 
 async def render():
     """Render the site page from the Jinja template."""
@@ -393,7 +392,7 @@ async def render():
         extensions=["jinja_markdown.MarkdownExtension"],
     )
     env.filters["naturaldelta"] = humanize.naturaldelta
-    
+
     # Initial values
     entries = {}
     remaining = {}
@@ -402,10 +401,10 @@ async def render():
     reses1 = {}
     res_total_open_prs = {}
     res_total_open_issues = {}
-    
-    
+
+
     tpl = env.get_template("page.tpl")
-    
+
     async def loc(storage, key, query):
         assert not isinstance(query, str)
         storage[key] = await run_query(query, key)
@@ -523,6 +522,7 @@ async def render():
     return res
 
 
+# ## EXECUTION CONTROL
 
 def main():
 
