@@ -150,7 +150,7 @@
     <h2 id="closeboards">Closeboards</h2>
 
     <p>
-      As we’ve described above, Closember is mainly about the health of open source maintainers and projects. So, while we’ve defined some Closember success metrics for ourselves, these metrics aren’t the be-all and end-all. Each open source community and project can have its own goals and metrics, which fit its size, philosophy, etc.—part of the fun and purpose of Closember is the discussion around what it means for a community to be ‘healthy.’ (For example, you have to be aware of the possibility for ‘<a href="https://en.wikipedia.org/wiki/Normalization_of_deviance" target="_blank">normalization of deviance</a>’, where even though a practice is accepted, it’s still unhealthy.)
+      As we’ve described above, Closember is mainly about the health of open source maintainers and projects. So, while we’ve defined some Closember success metrics for ourselves, these metrics aren’t the be-all and end-all. Each open source community and project can have its own goals and metrics, which fit its size, philosophy, etc.—part of the fun and purpose of Closember is the discussion around what it means for a community to be ‘healthy.’ For example, you have to be aware of the possibility for ‘<a href="https://en.wikipedia.org/wiki/Normalization_of_deviance" target="_blank">normalization of deviance</a>’, where even though a practice is accepted, it’s still unhealthy.
     </p>
     <p>
       The metrics we’re calculating here are focused on closing old issues and PRs, since that’s something that’s pretty easy to quantify. Again, there are no objectively good or bad metrics—these are just the ones we’ve chosen to present. Our metrics are calculated for each participating repository, and are:
@@ -226,6 +226,10 @@
 
     <p style="font-size: smaller;">
       Note: Data for the oldest closed PR isn't reported here because it doesn't appear to be available in the GitHub API. If you figure out a way to get at this data, please <a href="https://github.com/openteamsinc/closember/issues/new">let us know</a>!
+
+      {% if other|length < 1 %}
+        (Also, this table is currently empty because there's no data yet!)
+      {% endif %}
     </p>
 
     <table class='c2'>
@@ -235,14 +239,23 @@
         <th>Closed After</th>
         <th>Oldest issue closed</th>
       </tr>
-      {% for item in other %}
+      {% if other|length < 1 %}
         <tr>
-          <td>{{loop.index}} </td>
-          <td><a href='https://github.com/{{item.repo}}'>{{item.repo}}<a></td>
-          <td class='green-glow' title='opened on {{item.open}} – closed on {{item.close}} – opened for {{item.delta}} '>{{item.delta|naturaldelta}}</td>
-          <td><a href='{{item.url}}'>{{item.repo}}#{{item.number}}</td>
+          <td>&ndash;</td>
+          <td>&ndash;</td>
+          <td>&ndash;</td>
+          <td>&ndash;</td>
         </tr>
-      {% endfor %}
+      {% else %}
+        {% for item in other %}
+          <tr>
+            <td>{{loop.index}} </td>
+            <td><a href='https://github.com/{{item.repo}}'>{{item.repo}}<a></td>
+            <td class='green-glow' title='opened on {{item.open}} – closed on {{item.close}} – opened for {{item.delta}} '>{{item.delta|naturaldelta}}</td>
+            <td><a href='{{item.url}}'>{{item.repo}}#{{item.number}}</td>
+          </tr>
+        {% endfor %}
+      {% endif %}
       </table>
 
 

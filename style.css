@@ -154,6 +154,7 @@ h2 {
 
 h3 {
     color: #593324;
+    padding: 0 1.5em;
 }
 
 p {
@@ -183,6 +184,11 @@ code {
     font-size: 100%;
     margin: 0 0.15em;
     padding: 0;
+}
+
+table {
+    margin-bottom: 4em;
+    padding: 0 2em;
 }
 
 /* svg {
