@@ -22,6 +22,9 @@ PAT = os.environ["PAT"]
 # Request-caching object
 RC = TTLCache(1024, ttl=240)
 
+# trio capacity limiter
+LIMITER = trio.CapacityLimiter(40)
+
 # Year to consider as current for Closember
 YEAR = 2022
 
@@ -240,12 +243,16 @@ async def asks_post(url, *, query, pat):
         print("Using cached request")
         return FakeRequest(res)
     else:
-        print("Submitting live query")
-        res = await asks.post(
-            "https://api.github.com/graphql",
-            json={"query": query},
-            headers={"Authorization": f"Bearer {pat}"},
-        )
+        async with LIMITER:
+            print("Submitting live query")
+            res = await asks.post(
+                "https://api.github.com/graphql",
+                json={"query": query},
+                headers={
+                    "Authorization": f"Bearer {pat}",
+                    "User-Agent": "Closember"
+                    },
+            )
         GCACHE[key] = res.json()
 
     # Aggressively write cache to disk to minimize API calls on future execution
