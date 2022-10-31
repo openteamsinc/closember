@@ -522,7 +522,7 @@ async def render():
             remaining, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0)
         )
     )
-    svg = Path("assets", "hero.svg").read_text()
+    svg = Path("assets", "hero-with_text.svg").read_text()
     faiross_b64 = b64_image(Path("assets", "faiross.png"))
     quansight_b64 = b64_image(Path("assets", "quansight.jpg"))
     openteams_b64 = b64_image(Path("assets", "openteams.webp"))
