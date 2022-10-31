@@ -252,6 +252,29 @@ div#closed-sign:hover {
     background-color: #e0665d;
 }
 
+/* These next two incantations make the utteranc.es content render
+    with a non-zero height.
+
+    From: https://stackoverflow.com/a/23866014/4376000
+*/
+
+div.utterances {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+iframe.utterances-frame {
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+}
+
 .title {
     font-size: 8rem;
 }
@@ -289,7 +312,8 @@ div#closed-sign:hover {
 
 .footer {
     background-color: #f4f5f6;
-    padding: 3rem;
+    padding: 3rem 3rem 0.1rem 3rem;
+    font-size: 0.65em;
 }
 
 .frame {

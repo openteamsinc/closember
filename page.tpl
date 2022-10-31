@@ -137,7 +137,7 @@
       Well, first of all, keep in mind that the most fundamental point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
     </p>
     <p>
-      If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want: triaging, infrastructure, automation, project restructuring/refactoring…. There are lots of possibilities! Take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help.
+      If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want:  triaging, infrastructure, refactoring, copy/design, translation, accessibility.... There are lots of possibilities! Take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help.
     </p>
     <p>
       Then, edit your README to let Closember visitors know what sort of help you’re looking for, tag your repo with <code>closember</code>, and engage with the community as they come by! You could even take some extra time and triage/close a few issues or PRs yourself, if the mood strikes.
@@ -284,10 +284,35 @@
       <a href='https://faiross.org/'><img src='assets/faiross.png' alt="FairOSS logo" width="247" height="150"></a>
     </div>
 
+    <p>&nbsp;</p>
+
+
+    <h2 id="discussion">Discussion</h2>
+
+    <p>
+      As noted above, you can participate in the Closember discussion on Twitter by following <a href="https://twitter.com/ClosemberDev" target="_blank">@ClosemberDev</a> and using the <a href="https://twitter.com/hashtag/closember" target="_blank">#closember hashtag</a>. You can also engage in the thread below by commenting on <a href="https://github.com/openteamsinc/closember/issues/6" target="_blank">this GitHub issue</a>.
+    </p>
+
+    {% markdown %}
+      <script src="https://utteranc.es/client.js"
+          repo="openteamsinc/closember"
+          issue-number="6"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+      </script>
+    {% endmarkdown %}
+
+
 
     <footer class="footer"><section class="container">
 
-    <div style="text-align: center;"><strong>Footer</strong></div>
+    <p>
+      Powered by <a href="https://pypi.org/project/Quart-Trio/" target="_blank">Quart</a>, <a href="https://trio.readthedocs.org/" target="_blank">Trio</a>, <a href="https://asks.readthedocs.io/en/latest/" target="_blank">Asks</a> and <a href="https://jinja.palletsprojects.com/en/3.1.x/" target="_blank">Jinja2</a>. Theme from <a href="https://milligram.io/" target="_blank">milligram</a>. No JS except for the <a href="https://utteranc.es/" target="_blank">utteranc.es</a> comment thread. Hero illustration by <a href="https://twitter.com/irinafumarel" target="_blank">Irina Fumarel</a>. Website text and images licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except for sponsor/partner logos for which all rights are reserved.
+    </p>
+    <p>
+      Page last built on: {{ NOW }} &mdash; Remaining query quota: {{ rq }}
+    </p>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     </section></footer>
