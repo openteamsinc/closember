@@ -1,3 +1,4 @@
+import base64
 import datetime
 import json
 import os
@@ -390,6 +391,18 @@ def addp(p):
 
 # ## PAGE RENDERING
 
+def b64_image(img_path):
+    """Convert an image from disk to a base64 rep for direct HTML embed.
+    
+    From https://stackoverflow.com/a/69233163/4376000
+    
+    """
+    with open(img_path, 'rb') as f:
+        data = f.read()
+    
+    return base64.b64encode(data).decode("ascii")
+
+
 async def render():
     """Render the site page from the Jinja template."""
     # Configure Jinja
@@ -510,6 +523,10 @@ async def render():
         )
     )
     svg = Path("hero.svg").read_text()
+    faiross_b64 = b64_image(Path("assets", "faiross.png"))
+    quansight_b64 = b64_image(Path("assets", "quansight.jpg"))
+    openteams_b64 = b64_image(Path("assets", "openteams.webp"))
+    gh_watch_b64 = b64_image(Path("assets", "watch_repo.png"))
     res = tpl.render(
         entries=entries,
         rq=rq,
@@ -524,6 +541,10 @@ async def render():
         top_sg=top_sg,
         svg=svg,
         monthly_counter_per_slug=monthly_counter_per_slug,
+        faiross_b64=faiross_b64,
+        quansight_b64=quansight_b64,
+        openteams_b64=openteams_b64,
+        gh_watch_b64=gh_watch_b64,
     )
     print("done")
     return res

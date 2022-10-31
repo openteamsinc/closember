@@ -121,7 +121,7 @@
     </p>
 
     <div style="text-align: center;">
-      <img src="assets/watch_repo.png" width="70%"><br /><br />
+      <img src="data:image/png;base64,{{ gh_watch_b64 }}" width="70%"><br /><br />
     </div>
 
     <div class="back-to-top">
@@ -277,11 +277,11 @@
     </p>
 
     <div class="sponsor-table">
-      <a href='https://quansight.com'><img src='assets/quansight.jpg' alt="Quansight Logo" width="200" height="200"></a>
+      <a href='https://quansight.com'><img src="data:image/jpeg;base64,{{ quansight_b64 }}" alt="Quansight Logo" width="200" height="200"></a>
 
-      <a href='https://openteams.com/'><img src='assets/openteams.webp' alt="OpenTeams logo" width="307" height="175"></a>
+      <a href='https://openteams.com/'><img src="data:image/webp;base64,{{ openteams_b64 }}" alt="OpenTeams logo" width="307" height="175"></a>
 
-      <a href='https://faiross.org/'><img src='assets/faiross.png' alt="FairOSS logo" width="247" height="150"></a>
+      <a href='https://faiross.org/'><img src="data:image/png;base64,{{ faiross_b64 }}" alt="FairOSS logo" width="247" height="150"></a>
     </div>
 
     <p>&nbsp;</p>
