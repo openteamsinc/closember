@@ -1,8 +1,33 @@
 /* Base colours - chosen for accessibilty */
 body {
-    padding: 0;
-    margin: 0;
+    margin: 0px auto;
+    padding: 10px 14px;
+    max-width: 1100px;
     color: #593324;
+    font-size: 15pt;
+}
+
+@media (max-width: 979px) {
+    body
+    {
+        margin: 0px 20px;
+    }
+}
+
+nav {
+    margin: 1em 0em;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+div.nav {
+    margin: 0 1.5em;
+    padding: 0 0 0.4em 0;
+    border-bottom: 1.5px dotted #593324;
+}
+
+span.nav-divide {
+    padding: 0 0.4em;
 }
 
 .green-glow {
@@ -13,6 +38,15 @@ body {
 .red-glow {
     color: #d90710;
     text-shadow: 0 0 5px rgba(217, 7, 16, 0.5);
+}
+
+.gray-glow {
+    color: #444;
+    text-shadow: 0 0 5px rgba(20, 20, 20, 0.5);
+}
+
+span.invisible {
+    color: #ffffff00;
 }
 
 li > p {
@@ -55,6 +89,7 @@ a.sg {
     padding: 10px;
     border-radius: 10px;
     transition: all 1.5s ease;
+    font-size: smaller;
 }
 a.sg > img {
     transition: all 1.5s ease;
@@ -76,7 +111,7 @@ a:hover {
 }
 
 .header {
-    background-color: #f4f5f6;
+    /* background-color: #f4f5f6;  /* No gray background */
     padding-top: 1rem;
     padding-top: 0rem;
 }
@@ -85,14 +120,15 @@ a:hover {
 }
 .header .container {
     border-top: 0;
-    padding-bottom: 7.5rem;
-    padding-top: 7.5rem;
+    /* padding-bottom: 7.5rem;
+    padding-top: 7.5rem; */
     position: relative;
     text-align: center;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    /* padding-top: 3.5rem;
+    padding-bottom: 3.5rem; */
 }
 .header .title {
+    /* font-family: Aktiv Grotesk, Helvetica Neue, Arial, sans-serif; */
     font-family: Gotham Rounded A, Gotham Rounded B, Helvetica Neue, Arial, sans-serif;
 }
 .header .button {
@@ -114,22 +150,90 @@ a {
     color: #d90710;
 }
 
+
+h2 {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif; /*, "MJ AlGhifari", sans-serif;*/
+    color: #593324;
+    font-size: 250%;
+}
+
 h3 {
     color: #593324;
+    padding: 0 1.5em;
+}
+
+h3.subhead {
+    margin: 2em 0;
 }
 
 p {
     color: #593324;
+    text-align: left;
+    padding: 0 2em;
 }
 
 ul {
     color: #593324;
 }
 
-svg {
+ol {
+    padding: 0 4em;
+}
+
+blockquote {
+    margin: 1em 20em 2em 2.5em;
+    padding: 1em 2em 1em 2em;
+    text-align: left;
+    background-color: #fff5f1;
+    border-left: 2px solid #593324;
+}
+
+code {
+    background-color: #fff0;
+    font-size: 100%;
+    margin: 0 0.15em;
+    padding: 0;
+}
+
+table {
+    margin-bottom: 4em;
+    padding: 0 2em;
+}
+
+/* svg {
     width: 100%;
     margin-top: -150;
     margin-bottom: -100px;
+} */
+
+div.hero {
+    /* transform: scale(0.5); */
+    scale: 1.1;
+    margin: 4em 0 5em 0;
+    /* text-align: left;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column; */
+}
+
+div.back-to-top {
+    font-size: smaller;
+    font-style: italic;
+    text-align: right;
+    margin-right: 5em;
+    margin-bottom: 3em;
+}
+
+div.sponsor-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+div.sponsor-table img {
+    margin: 0 1.5em;
 }
 
 div#closed-sign {
@@ -157,10 +261,27 @@ div#closed-sign:hover {
     background-color: #e0665d;
 }
 
-h2 {
-    text-align: center;
-    font-family: Playball, "MJ AlGhifari", sans-serif;
-    color: #593324;
+/* These next two incantations make the utteranc.es content render
+    with a non-zero height.
+
+    From: https://stackoverflow.com/a/23866014/4376000
+*/
+
+div.utterances {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+iframe.utterances-frame {
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
 }
 
 .title {
@@ -199,8 +320,10 @@ h2 {
 }
 
 .footer {
-    background-color: #f4f5f6;
-    padding: 3rem;
+    /* background-color: #f4f5f6;  /* No gray background */
+    padding: 3rem 3rem 0.1rem 3rem;
+    font-size: 0.65em;
+    border-top: 1.5px dotted #593324;
 }
 
 .frame {
@@ -225,10 +348,10 @@ frame.img {
     max-width: 160px;
 }
 
-@media (min-width: 40rem) {
+/* @media (min-width: 40rem) {
     .header {
         padding-top: 5rem;
     }
-}
+} */
 
 /*# sourceMappingURL=style.css.map */

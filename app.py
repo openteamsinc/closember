@@ -1,3 +1,4 @@
+import base64
 import datetime
 import json
 import os
@@ -21,6 +22,9 @@ PAT = os.environ["PAT"]
 
 # Request-caching object
 RC = TTLCache(1024, ttl=240)
+
+# trio capacity limiter
+LIMITER = trio.CapacityLimiter(40)
 
 # Year to consider as current for Closember
 YEAR = 2022
@@ -240,12 +244,16 @@ async def asks_post(url, *, query, pat):
         print("Using cached request")
         return FakeRequest(res)
     else:
-        print("Submitting live query")
-        res = await asks.post(
-            "https://api.github.com/graphql",
-            json={"query": query},
-            headers={"Authorization": f"Bearer {pat}"},
-        )
+        async with LIMITER:
+            print("Submitting live query")
+            res = await asks.post(
+                "https://api.github.com/graphql",
+                json={"query": query},
+                headers={
+                    "Authorization": f"Bearer {pat}",
+                    "User-Agent": "Closember"
+                    },
+            )
         GCACHE[key] = res.json()
 
     # Aggressively write cache to disk to minimize API calls on future execution
@@ -383,6 +391,18 @@ def addp(p):
 
 # ## PAGE RENDERING
 
+def b64_image(img_path):
+    """Convert an image from disk to a base64 rep for direct HTML embed.
+    
+    From https://stackoverflow.com/a/69233163/4376000
+    
+    """
+    with open(img_path, 'rb') as f:
+        data = f.read()
+    
+    return base64.b64encode(data).decode("ascii")
+
+
 async def render():
     """Render the site page from the Jinja template."""
     # Configure Jinja
@@ -502,7 +522,12 @@ async def render():
             remaining, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0)
         )
     )
-    svg = Path("hero.svg").read_text()
+    svg = Path("assets", "hero-with_text.svg").read_text()
+    faiross_b64 = b64_image(Path("assets", "faiross.png"))
+    quansight_b64 = b64_image(Path("assets", "quansight.jpg"))
+    openteams_b64 = b64_image(Path("assets", "openteams.webp"))
+    gh_watch_b64 = b64_image(Path("assets", "watch_repo.png"))
+    favicon_b64 = b64_image(Path("assets", "closember-favicon-runner.jpg"))
     res = tpl.render(
         entries=entries,
         rq=rq,
@@ -512,11 +537,16 @@ async def render():
         other=other,
         CUT_DATE=CUT_DATE,
         ONGOING=ONGOING,
-        NOW=datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        NOW=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         sg_total=sg_total,
         top_sg=top_sg,
         svg=svg,
         monthly_counter_per_slug=monthly_counter_per_slug,
+        faiross_b64=faiross_b64,
+        quansight_b64=quansight_b64,
+        openteams_b64=openteams_b64,
+        gh_watch_b64=gh_watch_b64,
+        favicon_b64=favicon_b64,
     )
     print("done")
     return res
