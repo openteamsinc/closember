@@ -19,6 +19,10 @@
 <meta name="twitter:image" content="https://closember.org/assets/Closember_OG.png">
 
 
+<!-- FAVICON -->
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,{{ favicon_b64 }}">
+
+
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Roboto"&family=Inter>
 

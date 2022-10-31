@@ -522,11 +522,12 @@ async def render():
             remaining, key=lambda x: x[1].get("Issue", 0) + x[1].get("PullRequest", 0)
         )
     )
-    svg = Path("hero.svg").read_text()
+    svg = Path("assets", "hero.svg").read_text()
     faiross_b64 = b64_image(Path("assets", "faiross.png"))
     quansight_b64 = b64_image(Path("assets", "quansight.jpg"))
     openteams_b64 = b64_image(Path("assets", "openteams.webp"))
     gh_watch_b64 = b64_image(Path("assets", "watch_repo.png"))
+    favicon_b64 = b64_image(Path("assets", "closember-favicon-runner.jpg"))
     res = tpl.render(
         entries=entries,
         rq=rq,
@@ -545,6 +546,7 @@ async def render():
         quansight_b64=quansight_b64,
         openteams_b64=openteams_b64,
         gh_watch_b64=gh_watch_b64,
+        favicon_b64=favicon_b64,
     )
     print("done")
     return res
