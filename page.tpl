@@ -75,22 +75,24 @@
 
     <header class="header" id="home"><section class="container">
       <div class="hero" id="hero">  {{svg|safe}}  </div>
-      <h2>Closember 2022 Is Live</h2>
-
-      <h3 class="subhead"><em>
-        Let's support open source maintainers by helping them close issues and pull requests throughout November
-      </em></h3>
-
-      <p style="text-align: center;">
-        Closember is a month-long initiative for maintainers, contributors, and open source enthusiasts run by <a href="https://quansight.com" target="_blank">Quansight</a>,
-        <a href="https://openteams.com" target="_blank">OpenTeams</a>, and
-        <a href="https://faiross.org" target="_blank">FairOSS</a>.
-        The goal of Closember is to encourage better and healthier open source community practices while raising awareness about maintainer burnout.
-      </p>
-
-      <p>&nbsp;</p>
-
     </section></header>
+
+
+    <h2>Closember 2022 Is Live</h2>
+
+    <h3 class="subhead">
+      Let's support open source maintainers by helping them close issues and pull requests throughout November.
+    </h3>
+
+    <p>
+      Closember is a month-long initiative for maintainers, contributors, and open source enthusiasts run by <a href="https://quansight.com" target="_blank">Quansight</a>,
+      <a href="https://openteams.com" target="_blank">OpenTeams</a>, and
+      <a href="https://faiross.org" target="_blank">FairOSS</a>.
+      The goal of Closember is to encourage better and healthier open source community practices while raising awareness about maintainer burnout.
+    </p>
+
+    <p>&nbsp;</p>
+
 
     <h2 id="why-closember">Why Closember?</h2>
 

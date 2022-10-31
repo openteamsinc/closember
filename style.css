@@ -164,7 +164,7 @@ h3 {
 }
 
 h3.subhead {
-    margin: 1.5em 0;
+    margin: 2em 0;
 }
 
 p {
@@ -323,6 +323,7 @@ iframe.utterances-frame {
     /* background-color: #f4f5f6;  /* No gray background */
     padding: 3rem 3rem 0.1rem 3rem;
     font-size: 0.65em;
+    border-top: 1.5px dotted #593324;
 }
 
 .frame {
