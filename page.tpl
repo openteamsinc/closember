@@ -105,7 +105,7 @@
       <a href="https://github.com/signup" target="_blank">signing up for a free account</a>. While there are other collaborative <a href="https://git-scm.com/" target="_blank">git</a>-based development services out there—<a href="https://gitlab.com" target="_blank">GitLab</a> and <a href="https://bitbucket.org/" target="_blank">Atlassian Bitbucket</a> are two of the most popular—Closember is centered on GitHub.
     </p>
     <p>
-      If you’ve opened issues or PRs on projects in the past, you can start by taking a look at your own GitHub <a href="https://github.com/issues" target="_blank">issues</a> and <a href="https://github.com/pulls" target="_blank">PRs</a> to see if any of them are outdated or have already been fixed. After that, start browsing projects! Take a look at your favorite projects and see if they’ve been tagged with <code>closember</code>, or browse the <a href="https://github.com/topics/closember" target="_blank">list of <code>closember</code> projects</a>.
+      If you’ve opened issues or PRs on projects in the past, you can start by taking a look at <a href="https://github.com/issues" target="_blank">your own GitHub issues</a> and <a href="https://github.com/pulls" target="_blank">your own PRs</a> to see if any of them are outdated or have already been fixed. After that, start browsing projects! Take a look at your favorite projects and see if they’ve been tagged with <code>closember</code>, or browse the <a href="https://github.com/topics/closember" target="_blank">list of <code>closember</code> projects</a>.
     </p>
     <p>
       Once you’ve picked a project, engage! Check out the project’s repository to see if they’ve posted instructions for the help they’re looking for during Closember—if they have, follow them.
