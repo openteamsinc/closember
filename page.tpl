@@ -134,7 +134,7 @@
       All right, maintainers—so you have a project that could use some maintainability help, and you’d like to get in on the Closember action. What should you do to get ready?
     </p>
     <p>
-      Well, first of all, keep in mind that the most basic point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
+      Well, first of all, keep in mind that the most fundamental point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
     </p>
     <p>
       If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want: triaging, infrastructure, automation, project restructuring/refactoring…. There are lots of possibilities! Take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help.
@@ -153,7 +153,7 @@
       As we’ve described above, Closember is mainly about the health of open source maintainers and projects. So, while we’ve defined some Closember success metrics for ourselves, these metrics aren’t the be-all and end-all. Each open source community and project can have its own goals and metrics, which fit its size, philosophy, etc.—part of the fun and purpose of Closember is the discussion around what it means for a community to be ‘healthy.’ For example, you have to be aware of the possibility for ‘<a href="https://en.wikipedia.org/wiki/Normalization_of_deviance" target="_blank">normalization of deviance</a>’, where even though a practice is accepted, it’s still unhealthy.
     </p>
     <p>
-      The metrics we’re calculating here are focused on closing old issues and PRs, since that’s something that’s pretty easy to quantify. Again, there are no objectively good or bad metrics—these are just the ones we’ve chosen to present. Our metrics are calculated for each participating repository, and are:
+      The metrics we’re calculating here are focused on closing old issues and PRs, since that’s something that’s pretty easy to quantify. Again, there are no objectively good or bad metrics—these are merely the ones we’ve chosen to present. Our metrics are calculated for each participating repository, and are:
     </p>
     <ol>
       <li>Total issues closed during Closember, which were opened before Closember</li>
@@ -256,10 +256,33 @@
           </tr>
         {% endfor %}
       {% endif %}
-      </table>
+    </table>
 
+    <h2 id="show-your-support">Show Your Support</h2>
 
+    <p>
+      In addition to engaging with your favorite open source projects, support Closember by starring our <a href="https://github.com/openteamsinc/closember" target="_blank">repo</a>! Right now we have {{ sg_total }} Github stargazers:
+    </p>
 
+    <div class='avatar-container'>
+      {% for sg in top_sg %}
+        <a class='sg' href="{{sg.url}}"><img width="50px", height='50px' src="{{sg.avatar}}" /><div>{{sg.login}}</div></a>
+      {% endfor %}
+    </div>
+
+    <p>&nbsp;</p>
+
+    <p>
+      If you're interested in partnering with us in support of Closember, please <a href="mailto:connect@quansight.com">email us.</a> Closember is currently sponsored by <a href="https://quansight.com" target="_blank">Quansight</a>, <a href="https://openteams.com" target="_blank">OpenTeams</a>, and <a href="https://faiross.org" target="_blank">FairOSS</a>.
+    </p>
+
+    <div class="sponsor-table">
+      <a href='https://quansight.com'><img src='assets/quansight.jpg' alt="Quansight Logo" width="200" height="200"></a>
+
+      <a href='https://openteams.com/'><img src='assets/openteams.webp' alt="OpenTeams logo" width="307" height="175"></a>
+
+      <a href='https://faiross.org/'><img src='assets/faiross.png' alt="FairOSS logo" width="247" height="150"></a>
+    </div>
 
 
     <footer class="footer"><section class="container">
