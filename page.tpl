@@ -10,6 +10,7 @@
 <meta property="og:description" content="Closember aims to increase awareness about open source maintainer burnout and promote practices to make maintaining open source less stressful and more enjoyable for everyone.">
 <meta property="og:url" content="https://closember.org">
 
+<!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" >
 <meta name="twitter:title" content="Closember 2022 by Quansight">
 <meta property="twitter:domain" content="closember.org">
@@ -19,19 +20,32 @@
 
 
 <!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Roboto"&family=Inter>
+
+
+<!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"-->
+
+
 
 <!-- CSS Reset -->
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">-->
 
+
+
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
-<!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
-<link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet">
+
+
+<!-- CDNFonts Fonts -->
 <link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+
+
+<!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
+<!--link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet"-->
+
+<!--script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script-->
+<!--script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script-->
+<!--script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script-->
 
 <!-- Place this tag in your head or just before your close body tag. -->
 
@@ -49,9 +63,9 @@
       <div class="nav">
         <a href="#why-closember">Why&nbsp;Closember?</a>
         <span class="nav-divide">||</span>
-        <a href="#how-to-participate">How&nbsp;to&nbsp;Participate</a>
-        <span class="nav-divide">||</span>
         <a href="#for-maintainers">For&nbsp;Maintainers</a>
+        <span class="nav-divide">||</span>
+        <a href="#how-to-participate">How&nbsp;to&nbsp;Participate</a>
         <span class="nav-divide">||</span>
         <a href="#closeboards">Closeboards</a>
         <span class="nav-divide">||</span>
@@ -61,11 +75,10 @@
 
     <header class="header" id="home"><section class="container">
       <div class="hero" id="hero">  {{svg|safe}}  </div>
-      <h2>Closember 2022 Is Here</h2>
+      <h2>Closember 2022 Is Live</h2>
 
-      <h3><em>
-        Hacktoberfest has officially ended—let’s start closing some issues
-        while supporting open source maintainers
+      <h3 class="subhead"><em>
+        Let's support open source maintainers by helping them close issues and pull requests throughout November
       </em></h3>
 
       <p style="text-align: center;">
@@ -82,39 +95,57 @@
     <h2 id="why-closember">Why Closember?</h2>
 
     <p>
-      Closember was created as a companion to Hacktoberfest, an annual event that encourages contributions to open source projects, especially by newer contributors.
+      An ongoing source of stress for maintainers of many open source projects is the steady stream of issues and PRs flowing into their bug tracker feeds. It’s a double-edged sword: community participation is a key element of a healthy project, but if the rate of incoming tickets becomes too great, a backlog starts to build up. An issue/PR backlog is both stressful for the maintainers, and can decrease the morale of potential contributors... “Will my PR even be noticed amid all these others?” This problem is worse if many of those issues don’t provide enough details on the problem or requested feature, or if those PRs need a lot of work before they can be merged.
     </p>
     <p>
-      A big motivation for Closember was in response to the unexpected consequences downstream of early Hacktoberfests, where mostly well-meaning, but inexperienced contributors overloaded projects with low-quality GitHub pull requests (PRs) in order to get swag and rewards. The result was massive amounts of extra work for project maintainers to clean up in the aftermath.
-    </p>
-    <p>
-      Closember emphasizes that participating in open source is a two-way street between maintainers and contributors. Maintaining projects requires significant time and effort, and that work needs to be noticed, valued, and validated. However, best practices for project maintenance and maintainer self-care aren’t always obvious. Closember raises awareness of this in order to support the community as a whole.
+      Closember emphasizes that participating in open source is a two-way street between maintainers and contributors. Maintaining projects requires significant time and effort, and that work needs to be noticed, valued, and validated. As well, <em>contributing</em> to a project carries a number of responsibilities, in order to make it as easy as possible for a project to receive that contribution. However, best practices for project maintenance, maintainer self-care, and project contributions aren’t always obvious. Closember raises awareness of this in order to support the community as a whole.
     </p>
 
     <div class="back-to-top">
       <a href="#nav">(back to top)</a>
     </div>
 
-    <h2 id="how-to-participate">How to Participate</h2>
+
+   <h2 id="for-maintainers">For Maintainers: How to Get Ready</h2>
+
+    <p>
+      All right, maintainers—so you have a project that could use some maintainability help, and you’d like to get in on the Closember action. What should you do to get ready?
+    </p>
+    <p>
+      Well, first of all, keep in mind that the most fundamental point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. One thing that we often find helpful is to declutter our physical and digital environment: tidying our desks a bit, decluttering our computers’ desktops, unsubscribing from some email lists ... that sort of thing.
+    </p>
+    <p>
+      Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
+    </p>
+    <p>
+      If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want. If you only want assistance with closing some issues and PRs, then tag your repo with <code>closember</code> and you’re all set.
+    </p>
+    <p>
+      However, there are other ways that you might want to invite help: triaging, infrastructure, refactoring, technical writing, design, translation, accessibility.... There are lots of possibilities! If you're feeling up to it, take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help. Then, edit your README or create a Closember issue to let visitors know what sort of help you’re looking for, tag your repo with <code>closember</code>, and engage with the community as they come by! You could even take some extra time and triage/close a few issues or PRs yourself, if the mood strikes.
+    </p>
+
+    <div class="back-to-top">
+      <a href="#nav">(back to top)</a>
+    </div>
+
+
+    <h2 id="how-to-participate">For the Community: How to Participate</h2>
 
     <p>
       Get ready to choose your own Closember adventure—there’s no one way to participate.
     </p>
     <p>
       If you’ve never used GitHub before, your first step is going to be
-      <a href="https://github.com/signup" target="_blank">signing up for a free account</a>. While there are other collaborative <a href="https://git-scm.com/" target="_blank">git</a>-based development services out there—<a href="https://gitlab.com" target="_blank">GitLab</a> and <a href="https://bitbucket.org/" target="_blank">Atlassian Bitbucket</a> are two of the most popular—Closember is centered on GitHub.
+      <a href="https://github.com/signup" target="_blank">signing up for a free account</a>. While there are other collaborative <a href="https://git-scm.com/" target="_blank">git</a>-based development services out there&mdash;<a href="https://gitlab.com" target="_blank">GitLab</a> and <a href="https://bitbucket.org/" target="_blank">Atlassian Bitbucket</a> are two of the most popular&mdash;Closember is centered on GitHub.
     </p>
     <p>
       If you’ve opened issues or PRs on projects in the past, you can start by taking a look at <a href="https://github.com/issues" target="_blank">your own GitHub issues</a> and <a href="https://github.com/pulls" target="_blank">your own PRs</a> to see if any of them are outdated or have already been fixed. After that, start browsing projects! Take a look at your favorite projects and see if they’ve been tagged with <code>closember</code>, or browse the <a href="https://github.com/topics/closember" target="_blank">list of <code>closember</code> projects</a>.
     </p>
     <p>
-      Once you’ve picked a project, engage! Check out the project’s repository to see if they’ve posted instructions for the help they’re looking for during Closember—if they have, follow them.
+      Once you’ve picked a project, engage! Check out the project's repository to see if they’ve posted instructions for the help they're looking for during Closember&mdash;if they have, follow those instructions.
     </p>
     <p>
-      If not, then browse their issues and PRs to see if any are stale or need action from their creator, and comment on them to start the conversation again. Sometimes, discussion will happen and move the issue/PR forward. Other times, no one will respond, and then you can recommend to the project maintainers that it can be closed.
-    </p>
-    <p>
-      If you’re familiar with contribution workflows, continuous integration, bots, or other tools to improve project maintainability, create an issue and ask the project maintainers if they’d be interested in this sort of contribution.
+      If not, then browse their issues and PRs to see if any are stale or need action from the original poster. If they're stale, comment on them explaining why they seem stale and can be closed. (For example, "This issue relates to Python 3.5, which is no longer supported. So, it can probably be closed.") If they need action from the original poster, comment on them to restart the conversation with that original poster. Sometimes, discussion will happen and move the issue/PR forward. Other times, no one will respond, and then you can recommend to the project maintainers that they be closed.
     </p>
     <p>
       To stay in the loop throughout Closember, follow <a href="https://twitter.com/ClosemberDev" target="_blank">@ClosemberDev</a> & use the <a href="https://twitter.com/hashtag/closember" target="_blank">#Closember</a> hashtag on Twitter, and watch the <a href="https://github.com/openteamsinc/closember/issues" target="_blank">Closember repo</a> on GitHub:
@@ -128,24 +159,6 @@
       <a href="#nav">(back to top)</a>
     </div>
 
-    <h2 id="for-maintainers">For Maintainers: How to Get Ready</h2>
-
-    <p>
-      All right, maintainers—so you have a project that could use some maintainability help, and you’d like to get in on the Closember action. What should you do to get ready?
-    </p>
-    <p>
-      Well, first of all, keep in mind that the most fundamental point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
-    </p>
-    <p>
-      If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want:  triaging, infrastructure, refactoring, copy/design, translation, accessibility.... There are lots of possibilities! Take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help.
-    </p>
-    <p>
-      Then, edit your README to let Closember visitors know what sort of help you’re looking for, tag your repo with <code>closember</code>, and engage with the community as they come by! You could even take some extra time and triage/close a few issues or PRs yourself, if the mood strikes.
-    </p>
-
-    <div class="back-to-top">
-      <a href="#nav">(back to top)</a>
-    </div>
 
     <h2 id="closeboards">Closeboards</h2>
 
@@ -258,6 +271,11 @@
       {% endif %}
     </table>
 
+    <div class="back-to-top">
+      <a href="#nav">(back to top)</a>
+    </div>
+
+
     <h2 id="show-your-support">Show Your Support</h2>
 
     <p>
@@ -286,6 +304,10 @@
 
     <p>&nbsp;</p>
 
+    <div class="back-to-top">
+      <a href="#nav">(back to top)</a>
+    </div>
+
 
     <h2 id="discussion">Discussion</h2>
 
@@ -304,18 +326,25 @@
     {% endmarkdown %}
 
 
+    <div class="back-to-top">
+      <a href="#nav">(back to top)</a>
+    </div>
 
-    <footer class="footer"><section class="container">
+
+
+    <footer class="footer"><!--section class="container"-->
 
     <p>
       Powered by <a href="https://pypi.org/project/Quart-Trio/" target="_blank">Quart</a>, <a href="https://trio.readthedocs.org/" target="_blank">Trio</a>, <a href="https://asks.readthedocs.io/en/latest/" target="_blank">Asks</a> and <a href="https://jinja.palletsprojects.com/en/3.1.x/" target="_blank">Jinja2</a>. Theme from <a href="https://milligram.io/" target="_blank">milligram</a>. No JS except for the <a href="https://utteranc.es/" target="_blank">utteranc.es</a> comment thread. Hero illustration by <a href="https://twitter.com/irinafumarel" target="_blank">Irina Fumarel</a>. Website text and images licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except for sponsor/partner logos for which all rights are reserved.
     </p>
     <p>
-      Page last built on: {{ NOW }} &mdash; Remaining query quota: {{ rq }}
+      Page last built on: {{ NOW }}
+      
+      <span class="invisible"> &mdash; Remaining query quota: {{ rq }}</span>
     </p>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    </section></footer>
+    <!--/section--></footer>
 
 
   </main>
