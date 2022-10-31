@@ -51,7 +51,9 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
         # Only build the gh-pages deploy content if it's a `main` push
-        if: github.ref_name == 'main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_gh_pages)
+        # OR, if manual triggerer chooses. Using 'inputs' context here because
+        # the boolean type of the build_gh_pages flag is retained.
+        if: github.ref_name == 'main' || (github.event_name == 'workflow_dispatch' && inputs.build_gh_pages)
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
