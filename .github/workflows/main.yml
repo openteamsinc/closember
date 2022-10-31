@@ -6,6 +6,12 @@ name: CI
 # events but only for the main branch
 on:
   workflow_dispatch:
+    inputs:
+      build_gh_pages:
+        description: "Build site to gh-pages branch?"
+        required: true
+        type: boolean
+        default: false
   push:
     branches: [ main ]
   schedule:
@@ -45,7 +51,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
         # Only build the gh-pages deploy content if it's a `main` push
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_gh_pages)
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
