@@ -537,7 +537,7 @@ async def render():
         other=other,
         CUT_DATE=CUT_DATE,
         ONGOING=ONGOING,
-        NOW=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        NOW=datetime.datetime.utcnow().strftime("%d %b %Y %H:%M:%S UTC"),
         sg_total=sg_total,
         top_sg=top_sg,
         svg=svg,
