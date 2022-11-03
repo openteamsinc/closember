@@ -43,6 +43,7 @@
 <!-- CDNFonts Fonts -->
 <link href="https://fonts.cdnfonts.com/css/mj-alghifari" rel="stylesheet">
 
+<script defer data-domain="closember.org" src="https://plausible.io/js/script.js"></script>
 
 <!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">-->
 <!--link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet"-->
