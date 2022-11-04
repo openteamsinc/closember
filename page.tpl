@@ -342,7 +342,10 @@
     <footer class="footer"><!--section class="container"-->
 
     <p>
-      Powered by <a href="https://pypi.org/project/Quart-Trio/" target="_blank">Quart</a>, <a href="https://trio.readthedocs.org/" target="_blank">Trio</a>, <a href="https://asks.readthedocs.io/en/latest/" target="_blank">Asks</a> and <a href="https://jinja.palletsprojects.com/en/3.1.x/" target="_blank">Jinja2</a>. Theme from <a href="https://milligram.io/" target="_blank">milligram</a>. No JS except for the <a href="https://utteranc.es/" target="_blank">utteranc.es</a> comment thread. Hero illustration by <a href="https://twitter.com/irinafumarel" target="_blank">Irina Fumarel</a>. Website text and images licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except for sponsor/partner logos for which all rights are reserved.
+      Powered by <a href="https://pypi.org/project/Quart-Trio/" target="_blank">Quart</a>, <a href="https://trio.readthedocs.org/" target="_blank">Trio</a>, <a href="https://asks.readthedocs.io/en/latest/" target="_blank">Asks</a> and <a href="https://jinja.palletsprojects.com/en/3.1.x/" target="_blank">Jinja2</a>. Theme from <a href="https://milligram.io/" target="_blank">milligram</a>. No JS except for the <a href="https://utteranc.es/" target="_blank">utteranc.es</a> comment thread. 
+    <p>
+    Hero illustration by <a href="https://twitter.com/irinafumarel" target="_blank">Irina Fumarel</a> licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC 4.0 license</a>. Website content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0 license</a>, except for sponsor/partner logos for which all rights are reserved.
+    The website code is licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3 Clause license. </a>
     </p>
     <p>
       Page last built on: {{ NOW }}
