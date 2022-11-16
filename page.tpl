@@ -195,7 +195,7 @@
     <h3 id="closed-issues-prs">Closed Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the most pre-Closember issues & PRs that have been closed during Closember.
+      Top 100 participating repos with the most pre-Closember issues & PRs that have been closed during Closember.
     </p>
 
     <table class='c1'>
@@ -218,7 +218,7 @@
     <h3 id="open-issues-prs">Open Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the least remaining pre-Closember issues & PRs still open.
+      Top 100 participating repos with the least remaining pre-Closember issues & PRs still open.
     </p>
 
     <table class='c2'>
