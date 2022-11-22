@@ -308,7 +308,7 @@
     <h3 id="closed-issues-prs">Closed Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the most pre-Closember issues & PRs that
+      Top 100 participating repos with the most pre-Closember issues & PRs that
       
       {% if ONGOING %}
         have been
@@ -339,7 +339,7 @@
     <h3 id="open-issues-prs">Open Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the least remaining pre-Closember issues & PRs
+      Top 100 participating repos with the least remaining pre-Closember issues & PRs
       
       {% if ONGOING %}
         still open.
