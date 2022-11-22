@@ -82,12 +82,21 @@
       <div class="hero" id="hero">  {{svg|safe}}  </div>
     </section></header>
 
+    {% if ONGOING %}
+      <h2>Closember 2022 Is Live</h2>
+    {% else %}
+      <h2>Closember 2022 Is Over</h2>
+    {% endif %}
 
-    <h2>Closember 2022 Is Live</h2>
-
-    <h3 class="subhead">
-      Let's support open source maintainers by helping them close issues and pull requests throughout November.
-    </h3>
+    {% if ONGOING %}
+      <h3 class="subhead">
+        Let's support open source maintainers by helping them close issues and pull requests throughout November.
+      </h3>
+    {% else %}
+      <h3 class="subhead">
+        Thanks to everyone who helped support open source maintainers by closing issues and pull requests throughout November.
+      </h3>
+    {% endif %}
 
     <p>
       Closember is a month-long initiative for maintainers, contributors, and open source enthusiasts run by <a href="https://quansight.com" target="_blank">Quansight</a>,
@@ -116,7 +125,15 @@
    <h2 id="for-maintainers">For Maintainers: How to Get Ready</h2>
 
     <p>
-      All right, maintainers—so you have a project that could use some maintainability help, and you’d like to get in on the Closember action. What should you do to get ready?
+      All right, maintainers—so you have a project that could use some maintainability help,
+
+      {% if ONGOING %}
+        and you'd like to get in on the Closember action.
+      {% else %}
+        and you'd like to get in on the Closember action next year.
+      {% endif %}
+
+      What should you do to get ready?
     </p>
     <p>
       Well, first of all, keep in mind that the most fundamental point of Closember is maintainer health and well-being. So, take care of yourself first, whatever that means ... diet, exercise, sleep, relaxation ... only you know what you need. One thing that we often find helpful is to declutter our physical and digital environment: tidying our desks a bit, decluttering our computers’ desktops, unsubscribing from some email lists ... that sort of thing.
@@ -125,10 +142,40 @@
       Another thing to consider is that working with Closember contributions <em>will</em> involve extra time and effort on your part. So, even if your project could use some help, the best thing for you <em>might</em> be not to participate!
     </p>
     <p>
-      If you decide to jump in, though, the biggest thing you need to do before tagging your repo with <code>closember</code> is to decide what kind of help you want. If you only want assistance with closing some issues and PRs, then tag your repo with <code>closember</code> and you’re all set.
+      If you decide to jump in, though,
+
+      {% if ONGOING %}
+        the biggest thing you need to do
+      {% else %}
+        the biggest thing you'll need to do
+      {% endif %}
+
+      before tagging your repo with <code>closember</code> is to decide what kind of help you want. If you only want assistance with closing some issues and PRs,
+
+      {% if ONGOING %}
+        then tag your repo with <code>closember</code> and you’re all set.
+      {% else %}
+        then it'll be enough to tag your repo with <code>closember</code> and leave it at that.
+      {% endif %}
     </p>
     <p>
-      However, there are other ways that you might want to invite help: triaging, infrastructure, refactoring, technical writing, design, translation, accessibility.... There are lots of possibilities! If you're feeling up to it, take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help. Then, edit your README or create a Closember issue to let visitors know what sort of help you’re looking for, tag your repo with <code>closember</code>, and engage with the community as they come by! You could even take some extra time and triage/close a few issues or PRs yourself, if the mood strikes.
+      However, there are other ways that you might want to invite help: triaging, infrastructure, refactoring, technical writing, design, translation, accessibility.... There are lots of possibilities! If you're feeling up to it,
+      
+      {% if not ONGOING %}
+        as next year's Closember approaches
+      {% endif %}
+      
+      take stock of your project and identify one or two (or more!) areas where it would most benefit from some maintenance help. Then,
+      
+      {% if not ONGOING %}
+        you'll
+      {% endif %}
+      
+      edit your README or create a Closember issue to let visitors know what sort of help you’re looking for, tag your repo with <code>closember</code>, and engage with the community as they come by!
+      
+      {% if ONGOING %}
+        You could even take some extra time and triage/close a few issues or PRs yourself, if the mood strikes.
+      {% endif %}
     </p>
 
     <div class="back-to-top">
@@ -139,23 +186,61 @@
     <h2 id="how-to-participate">For the Community: How to Participate</h2>
 
     <p>
-      Get ready to choose your own Closember adventure—there’s no one way to participate.
+      {% if ONGOING %}
+        Get ready to choose your own Closember adventure—there’s no one way to participate.
+      {% else %}
+        Closember is something of a choose-your-own-adventure—there’s no one way to participate.
+      {% endif %}
     </p>
     <p>
       If you’ve never used GitHub before, your first step is going to be
       <a href="https://github.com/signup" target="_blank">signing up for a free account</a>. While there are other collaborative <a href="https://git-scm.com/" target="_blank">git</a>-based development services out there&mdash;<a href="https://gitlab.com" target="_blank">GitLab</a> and <a href="https://bitbucket.org/" target="_blank">Atlassian Bitbucket</a> are two of the most popular&mdash;Closember is centered on GitHub.
     </p>
     <p>
-      If you’ve opened issues or PRs on projects in the past, you can start by taking a look at <a href="https://github.com/issues" target="_blank">your own GitHub issues</a> and <a href="https://github.com/pulls" target="_blank">your own PRs</a> to see if any of them are outdated or have already been fixed&mdash;if so, close them! After that, start browsing projects: take a look at your favorite projects and see if they’ve been tagged with <code>closember</code>, or browse the <a href="https://github.com/topics/closember" target="_blank">list of <code>closember</code> projects</a>.
+      If you’ve opened issues or PRs on projects in the past,
+
+      {% if ONGOING %}
+        you can start by taking
+      {% else %}
+        you don't need to wait until next Closember to get started! Take
+      {% endif %}  
+
+      a look at <a href="https://github.com/issues" target="_blank">your own GitHub issues</a> and <a href="https://github.com/pulls" target="_blank">your own PRs</a> to see if any of them are outdated or have already been fixed&mdash;if so, close them!
+      
+      {% if ONGOING %}
+        After that,
+      {% else %}
+        Beyond that, as Closember approaches next year,
+      {% endif %}
+
+      start browsing projects: take a look at your favorite projects and see if they’ve been tagged with <code>closember</code>, or browse the <a href="https://github.com/topics/closember" target="_blank">list of <code>closember</code> projects</a>.
     </p>
     <p>
-      Once you’ve picked a project, engage! Check out the project's repository to see if they’ve posted instructions for the help they're looking for during Closember&mdash;if they have, follow those instructions.
+      {% if ONGOING %}
+        Once you’ve picked a project,
+      {% else %}
+        Once you've picked a project and Closember is underway, you can
+      {% endif %}
+      
+      engage! Check out the project's repository to see if they’ve posted instructions for the help they're looking for during Closember&mdash;if they have, follow those instructions.
     </p>
     <p>
-      If not, then browse their issues and PRs to see if any are stale or need action from the original poster. If they're stale, comment on them explaining why they seem stale and can be closed. (For example, "This issue relates to Python 3.5, which is no longer supported. So, it can probably be closed.") If issues/PRs need action from the original poster, comment on them to restart the conversation with that original poster. Sometimes, discussion will happen and move the issue/PR forward. Other times, no one will respond, and then you can recommend to the project maintainers that they be closed.
+      If not, then
+      
+      {% if not ONGOING %}
+        you can
+      {% endif %}
+      
+      browse their issues and PRs to see if any are stale or need action from the original poster. If they're stale, comment on them explaining why they seem stale and can be closed. (For example, "This issue relates to Python 3.5, which is no longer supported. So, it can probably be closed.") If issues/PRs need action from the original poster, comment on them to restart the conversation with that original poster. Sometimes, discussion will happen and move the issue/PR forward. Other times, no one will respond, and then you can recommend to the project maintainers that they be closed.
     </p>
     <p>
-      To stay in the loop throughout Closember, follow <a href="https://twitter.com/ClosemberDev" target="_blank">@ClosemberDev</a> & use the <a href="https://twitter.com/hashtag/closember" target="_blank">#Closember</a> hashtag on Twitter, and watch the <a href="https://github.com/openteamsinc/closember/issues" target="_blank">Closember repo</a> on GitHub:
+      To stay in the loop
+      
+      {% if ONGOING %}
+        throughout Closember
+      {% endif %}
+      
+      , follow <a href="https://twitter.com/ClosemberDev" target="_blank">@ClosemberDev</a> & use the <a href="https://twitter.com/hashtag/closember" target="_blank">#Closember</a> hashtag on Twitter, and watch the <a href="https://github.com/openteamsinc/closember/issues" target="_blank">Closember repo</a> on GitHub:
     </p>
 
     <div style="text-align: center;">
@@ -173,7 +258,15 @@
       As we’ve described above, Closember is mainly about the health of open source maintainers and projects. So, while we’ve defined some Closember success metrics for ourselves, these metrics aren’t the be-all and end-all. Each open source community and project can have its own goals and metrics, which fit its size, philosophy, etc.—part of the fun and purpose of Closember is the discussion around what it means for a community to be ‘healthy.’ For example, you have to be aware of the possibility for ‘<a href="https://en.wikipedia.org/wiki/Normalization_of_deviance" target="_blank">normalization of deviance</a>’, where even though a practice is accepted, it’s still unhealthy.
     </p>
     <p>
-      The metrics we’re calculating here are focused on closing old issues and PRs, since that’s something that’s pretty easy to quantify. Again, there are no objectively good or bad metrics—these are merely the ones we’ve chosen to present. Our metrics are calculated for each participating repository, and are:
+      The metrics
+      
+      {% if ONGOING %}
+        we’re calculating
+      {% else %}
+        we calculate
+      {% endif %}
+        
+      here are focused on closing old issues and PRs, since that’s something that’s pretty easy to quantify. Again, there are no objectively good or bad metrics—these are merely the ones we’ve chosen to present. Our metrics are calculated for each participating repository, and are:
     </p>
     <ol>
       <li>Total issues closed during Closember, which were opened before Closember</li>
@@ -189,13 +282,41 @@
       To the numbers!
     </p>
     <p>
-      Overall, of the <span class="gray-glow">{{ total_closed + to_go }}</span> issues and PRs open as of the start of Closember, <span class="green-glow">{{total_closed}}</span> have been closed and <span class="red-glow">{{to_go}}</span> are still open.
+      Overall, of the <span class="gray-glow">{{ total_closed + to_go }}</span> issues and PRs open as of the start of Closember
+      
+      {% if not ONGOING %}
+        2022
+      {% endif %}
+      
+      , <span class="green-glow">{{total_closed}}</span>
+      
+      {% if ONGOING %}
+        have been
+      {% else %}
+        were
+      {% endif %}
+      
+      closed and <span class="red-glow">{{to_go}}</span>
+      
+      {% if ONGOING %}
+        are still open.
+      {% else %}
+        were open at the end of the month.
+      {% endif %}
     </p>
 
     <h3 id="closed-issues-prs">Closed Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the most pre-Closember issues & PRs that have been closed during Closember.
+      Participating repos with the most pre-Closember issues & PRs that
+      
+      {% if ONGOING %}
+        have been
+      {% else %}
+        were
+      {% endif %}
+      
+      closed during Closember.
     </p>
 
     <table class='c1'>
@@ -218,7 +339,13 @@
     <h3 id="open-issues-prs">Open Issues/PRs</h3>
 
     <p style="font-style: italic">
-      Participating repos with the least remaining pre-Closember issues & PRs still open.
+      Participating repos with the least remaining pre-Closember issues & PRs
+      
+      {% if ONGOING %}
+        still open.
+      {% else %}
+        still open as of the end of November.
+      {% endif %}
     </p>
 
     <table class='c2'>
