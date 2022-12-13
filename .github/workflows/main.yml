@@ -15,7 +15,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '10 */2 * * *'  # every 2hrs, 10min past the hour
+    - cron: '10 12 * * *'  # Once a day at 12:10 UTC
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
