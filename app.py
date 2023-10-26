@@ -27,7 +27,7 @@ RC = TTLCache(1024, ttl=240)
 LIMITER = trio.CapacityLimiter(40)
 
 # Year to consider as current for Closember
-YEAR = 2022
+YEAR = 2023
 
 # Path object pointing to JSON cache file
 CACHE_PATH = Path("cache.json")
